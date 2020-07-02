@@ -1,0 +1,2 @@
+class Sensitsu < ApplicationRecord
+end
