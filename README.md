@@ -1,24 +1,28 @@
-# README
+# Sento（銭湯）Log
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+・日本におよそ20000ほどある温泉施設の情報を共有し合えるサービス  
+・泉質、特徴、都道府県などを会員が登録でき、発信、評価できるサイト  
+・銭湯、温泉好きが集まって、自分の好きな温泉を共有したり、まだ見ぬ秘湯を探したりできるサイト  
 
-Things you may want to cover:
+### サイトテーマ
+・画像投稿や口コミで温泉好きのの方の情報が得られる  
+・温泉の泉質には「適応症」というのがあり、それぞれの疲れた体を癒せる場所を発見できる  
+・居心地のいい、裸の付き合いができるようなサイト  
 
-* Ruby version
+### テーマを選んだ理由
+・友人と月に2回ほど銭湯や温泉にいく機会があり、その際、入浴したことの無いところや、
+実際に入浴して良かったところによく行くので、温泉を調べたり、評価できるものがあると、決定する指針、または有益な情報を共有できると思い作成しました。
 
-* System dependencies
+### ターゲットユーザ
+・老若男女  
+・温泉好き  
+・リフレッシュされたい方  
 
-* Configuration
+### 主な利用シーン
+・銭湯、温泉を探すとき  
+・銭湯、温泉の有益情報を共有する際  
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 機能一覧  
+<https://docs.google.com/spreadsheets/d/1OGuCo_K67j2KjhKIx9M4pzZEmbRTKsqgRO9rrCenckM/edit#gid=0>  
