@@ -1,0 +1,2 @@
+class OnsenSpot < ApplicationRecord
+end
