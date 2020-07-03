@@ -1,0 +1,9 @@
+<% if admin_signed_in? %>
+    <header class="admin_header">
+      <%= link_to 'SentoLog', admins_top_path %>
+    </header>
+<% elseif user_signed_in? %>
+
+<% else %>
+
+<% end %>
