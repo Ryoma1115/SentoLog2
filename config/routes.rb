@@ -18,7 +18,11 @@ Rails.application.routes.draw do
         resource :favorites, only:[:create, :destroy]
       end
     end
-    resources :users, only: [:show, :edit, :update, :destroy]
+    patch 'users/withdraw' => 'users#withdraw', as: 'users_withdraw'
+    get 'show' => 'users#show'
+    get 'users/edit' => 'users#edit'
+    patch 'update' => 'usesrs#update'
+    get 'quit' => 'users#quit'
     resources :contacts, only: [:new, :create]
     resources :sensitsus, only: [:index, :create, :edit, :update]
   end

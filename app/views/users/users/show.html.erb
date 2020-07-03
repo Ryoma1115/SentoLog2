@@ -1,0 +1,46 @@
+<section class="inner">
+  <% if flash[:notice] %>
+    <p class="text-active"><%= flash[:notice] %></p>
+  <% end %>
+	<h2 class="section-ttl">マイページ</h2>
+	<h3>
+		登録情報
+		<%= link_to "編集する", "", class: "btn btn-success ml2" %>
+		<%= link_to "パスワードを変更する", "", class: "btn btn-success ml2" %>
+	</h3>
+	<table class="user_info mb3">
+		<thead>
+			<th></th>
+			<th></th>
+			<th></th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>名前</td>
+				<td>(姓) <%=  %></td>
+				<td>(名) <%=  %></td>
+			</tr>
+			<tr>
+				<td>フリガナ</td>
+				<td>(セイ) <%=  %></td>
+				<td>(メイ) <%=  %></td>
+			</tr>
+			<tr>
+				<td>メールアドレス</td>
+				<td colspan="2"><%=  %></td>
+			</tr>
+			<tr>
+				<td>郵便番号</td>
+				<td colspan="2"><%=  %></td>
+			</tr>
+			<tr>
+				<td>住所</td>
+				<td colspan="2"><%=  %></td>
+			</tr>
+			<tr>
+				<td>電話番号</td>
+				<td colspan="2"><%=  %></td>
+			</tr>
+		</tbody>
+	</table>
+</section>
