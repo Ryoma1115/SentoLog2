@@ -18,6 +18,9 @@ Rails.application.routes.draw do
         resource :favorites, only:[:create, :destroy]
       end
     end
+    resources :users, only: [:show, :edit, :update, :destroy]
+    resources :contacts, only: [:new, :create]
+    resources :sensitsus, only: [:index, :create, :edit, :update]
   end
 
   devise_for :admins, controllers: {
