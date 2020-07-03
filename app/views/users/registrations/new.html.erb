@@ -7,20 +7,20 @@
       <div class="row">
         <label class="col-lg-3">名前</label>
         <div class="col-lg-3">
-          <%= f.text_field :last_name,autoforcus: true, autocomplete: "last_name",  placeholder: "(姓)" %>
+          <%= f.text_field :last_name,autoforcus: true, autocomplete: "last_name",  placeholder: "(姓)", :value =>"大阪" %>
         </div>
         <div class="col-lg-3">
-          <%= f.text_field :first_name,autoforcus: true, autocomplete: "first_name",  placeholder: "(名)" %>
+          <%= f.text_field :first_name,autoforcus: true, autocomplete: "first_name",  placeholder: "(名)", :value =>"太郎" %>
         </div>
       </div><br>
 
       <div class="row">
         <label class="col-lg-3">フリガナ</label>
         <div class="col-lg-3">
-          <%= f.text_field :last_name_kana,autoforcus: true, autocomplete: "last_name_kana",  placeholder: "(セイ)" %>
+          <%= f.text_field :last_name_kana,autoforcus: true, autocomplete: "last_name_kana",  placeholder: "(セイ)", :value =>"オオサカ" %>
         </div>
         <div class="col-lg-3">
-          <%= f.text_field :first_name_kana,autoforcus: true, autocomplete: "first_name_kana",  placeholder: "(メイ)" %>
+          <%= f.text_field :first_name_kana,autoforcus: true, autocomplete: "first_name_kana",  placeholder: "(メイ)", :value =>"タロウ" %>
         </div>
       </div><br>
 
@@ -28,7 +28,7 @@
       <div class="row">
         <label class="col-lg-3">メールアドレス</label>
         <div class="col-lg-3">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "\uf0e0", class: 'fa' %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "\uf0e0", class: 'fa', :value =>"test@test" %>
         </div>
       </div><br>
 
@@ -36,7 +36,7 @@
       <div class="row">
         <label class="col-lg-3">郵便番号（ハイフンなし）</label>
         <div class="col-lg-3">
-          <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code",  placeholder: "\uf015", class: 'fa' %>
+          <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code",  placeholder: "\uf015", class: 'fa', :value =>"5730001" %>
         </div>
       </div><br>
 
@@ -44,7 +44,7 @@
       <div class="row">
         <label class="col-lg-3">住所</label>
         <div class="col-lg-6">
-          <%= f.text_field :address, autofocus: true, autocomplete: "address", :size=>"60",  placeholder: "\uf015", class: 'fa' %>
+          <%= f.text_field :address, autofocus: true, autocomplete: "address", :size=>"60",  placeholder: "\uf015", class: 'fa', :value =>"大阪府大阪市北区梅田３丁目１−１" %>
         </div>
       </div><br>
 
@@ -52,7 +52,7 @@
       <div class="row">
         <label class="col-lg-3">電話番号（ハイフンなし）</label>
         <div class="col-lg-3">
-          <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number",  placeholder: "\uf095", class: 'fa' %>
+          <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number",  placeholder: "\uf095", class: 'fa', :value =>"0720000000" %>
         </div>
       </div><br>
 
@@ -63,7 +63,7 @@
           <em>(<%= @minimum_password_length %>文字以上)</em>
         <% end %></label>
         <div class="col-lg-3">
-          <%= f.password_field :password, autocomplete: "encrypted_password",  placeholder: "\uf023", class: 'fa' %>
+          <%= f.password_field :password, autocomplete: "encrypted_password",  placeholder: "\uf023", class: 'fa', :value =>"testtest" %>
         </div>
       </div><br>
 
@@ -71,7 +71,7 @@
       <div class="row">
         <label class="col-lg-3">パスワード（確認用）</label>
         <div class="col-lg-3">
-          <%= f.password_field :password_confirmation, autocomplete: "encrypted_password",  placeholder: "\uf023", class: 'fa' %>
+          <%= f.password_field :password_confirmation, autocomplete: "encrypted_password",  placeholder: "\uf023", class: 'fa', :value =>"testtest" %>
         </div>
       </div><br>
 
