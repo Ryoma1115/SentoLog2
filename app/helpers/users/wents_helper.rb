@@ -1,0 +1,2 @@
+module Users::WentsHelper
+end
