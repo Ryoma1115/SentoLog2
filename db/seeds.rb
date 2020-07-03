@@ -13,5 +13,12 @@ Admin.create!(
 
 User.create!(
     email: 't@t',
-    password: 'testtest'
+    password: 'testtest',
+    last_name: '大阪',
+    first_name: '太郎',
+    last_name_kana: 'オオサカ',
+    first_name_kana: 'タロウ',
+    postal_code: '5300001',
+    address: '大阪府大阪市北区梅田３丁目１−１',
+    phone_number: '11111111111'
 )
