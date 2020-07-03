@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     patch 'users/withdraw' => 'users#withdraw', as: 'users_withdraw'
     get 'show' => 'users#show'
     get 'users/edit' => 'users#edit'
-    patch 'update' => 'usesrs#update'
+    patch 'update' => 'users#update', as: 'update'
     get 'quit' => 'users#quit'
     resources :contacts, only: [:new, :create]
     resources :sensitsus, only: [:index, :create, :edit, :update]
