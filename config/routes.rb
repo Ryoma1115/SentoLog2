@@ -29,7 +29,11 @@ Rails.application.routes.draw do
     registrations: 'admins/registrations'
   }
   
-  
+  namespace :admins do
+    resources :users, only: [:index, :edit, :update, :show]
+    resources :onsen_spots, only: [:show, :index, :new, :create, :edit, :update]
+    resources :sensitsus, only: [:index, :create, :edit, :update]
+  end
 
 
   
