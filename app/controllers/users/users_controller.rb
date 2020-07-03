@@ -27,11 +27,16 @@ class Users::UsersController < ApplicationController
     end
 
     def withdraw
+        @user = current_user
+        @user.update(is_customer_status: false)
+        reset_session
 
+        flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+        redirect_to root_path
     end
 
     private
         def user_params
-            params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :postal_code, :address, :phone_number)
+            params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :postal_code, :address, :phone_number, :is_customer_status)
         end
 end
