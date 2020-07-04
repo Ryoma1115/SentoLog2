@@ -22,3 +22,15 @@ User.create!(
     address: '大阪府大阪市北区梅田３丁目１−１',
     phone_number: '11111111111'
 )
+
+OnsenSpot.create!(
+    name: '源泉かけ流し天然温泉 白馬',
+    introduction: '長野県白馬村のプチホテル。風呂自慢、グルメ自慢の癒しの宿。',
+    postal_code: '1234567',
+    address: '長野県北安曇郡白馬村大字北城１４７１８−２５０',
+    phone_number: '0268888888',
+    business_hour: '15:00 ~ 0:00',
+    fee: '800',
+    parking: '有',
+    image: open("./app/assets/images/naganohakuba.jpg")
+)
