@@ -3,6 +3,10 @@ class Users::OnsenSpotsController < ApplicationController
         @onsen_spots = OnsenSpot.all
     end
 
+    def show
+        @onsen_spot = OnsenSpot.find(params[:id])
+    end
+
     private
         def onsen_spot_params
             params.require(:onsen_spot).permit(

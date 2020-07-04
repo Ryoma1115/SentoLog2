@@ -3,7 +3,7 @@
     <h2>温泉地一覧(全<%= @onsen_spots.count %>件)</h2>
     <% @onsen_spots.each do |onsen_spot| %>
         <div class="col-xs-3">
-        <%= attachment_image_tag(onsen_spot, :image, :fill, 250, 250, fallback: "mypage.jpg", style: "border-radius: 20px;", size: "250x250") %>
+        <%= link_to attachment_image_tag(onsen_spot, :image, :fill, 250, 250, fallback: "mypage.jpg", style: "border-radius: 20px;", size: "250x250"), users_onsen_spot_path(onsen_spot) %>
         </div>
         <div class="col-xs-9">
             <table class="customer_info mb3">
