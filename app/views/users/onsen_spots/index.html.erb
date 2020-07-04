@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <h2>温泉地一覧(全<%= @onsen_spots.count %>件)</h2>
+    <div class="col-xs-12">
+        <% @onsen_spots.each do |o| %>
+
+        <% end %>
+    </div>
+  </div>
+</div>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sampleModal">
+	モーダル・ダイアログ 呼び出し
+</button>
+
+<!-- モーダル・ダイアログ -->
+<div class="modal fade" id="sampleModal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+				<h4 class="modal-title">タイトル</h4>
+			</div>
+			<div class="modal-body">
+				本文
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				<button type="button" class="btn btn-primary">ボタン</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- タブ・メニュー -->
+<ul class="nav nav-tabs">
+	<li><a href="#sampleContentA" data-toggle="tab">タブＡ</a></li>
+	<li class="active"><a href="#sampleContentB" data-toggle="tab">タブＢ</a></li>
+	<li><a href="#sampleContentC" data-toggle="tab">タブＣ</a></li>
+	<li><a href="#sampleContentD" data-toggle="tab">タブＤ</a></li>
+</ul>
+
+<!-- タブ内容 -->
+<div class="tab-content">
+	<div class="tab-pane" id="sampleContentA">
+		<p>タブＡの内容</p>
+	</div>
+	<div class="tab-pane active" id="sampleContentB">
+		<p>タブＢの内容</p>
+	</div>
+	<div class="tab-pane" id="sampleContentC">
+		<p>タブＣの内容</p>
+	</div>
+	<div class="tab-pane" id="sampleContentD">
+		<p>タブＤの内容</p>
+	</div>
+</div>
