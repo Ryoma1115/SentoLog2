@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     patch 'update' => 'users#update', as: 'update'
     get 'quit' => 'users#quit'
     resources :contacts, only: [:new, :create]
-    resources :sensitsus, only: [:index, :create, :edit, :update]
+    resources :sensitsus, only: [:index, :create, :edit, :update, :show]
   end
 
   devise_for :admins, controllers: {
@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :edit, :update, :show]
     resources :onsen_spots, only: [:show, :index, :new, :create, :edit, :update]
     resources :sensitsus, only: [:index, :create, :edit, :update]
+    delete 'destroy' => 'sensitsus#destroy', as: 'destory'
   end
 
 
