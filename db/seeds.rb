@@ -27,6 +27,43 @@ Sensitsu.create!(
     name: '硫黄泉'
 )
 
+Sensitsu.create!(
+    name: '単純温泉'
+)
+
+Sensitsu.create!(
+    name: '塩化物泉'
+)
+
+Sensitsu.create!(
+    name: '炭酸水素塩線'
+)
+
+Sensitsu.create!(
+    name: '硫酸塩泉'
+)
+
+Sensitsu.create!(
+    name: '二酸化炭素線'
+)
+
+Sensitsu.create!(
+    name: '含鉄線'
+)
+
+Sensitsu.create!(
+    name: '酸性泉'
+)
+
+Sensitsu.create!(
+    name: '含よう素泉'
+)
+
+Sensitsu.create!(
+    name: '放射能泉'
+)
+
+
 OnsenSpot.create!(
     sensitsu_id: '1',
     name: '源泉かけ流し天然温泉 白馬',
