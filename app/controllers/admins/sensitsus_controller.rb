@@ -2,11 +2,11 @@ class Admins::SensitsusController < ApplicationController
 
     def index
         @sensitsu = Sensitsu.new
-        @sensitsu = Sensitsu.all
+        @sensitsus = Sensitsu.all
     end
 
     def create
-        @sensitsu = Sensitsu(sensitsu_params)
+        @sensitsu = Sensitsu.new(sensitsu_params)
         if @sensitsu.save
             redirect_to admins_sensitsus_path
         else
