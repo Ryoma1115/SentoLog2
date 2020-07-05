@@ -1,0 +1,31 @@
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#sampleModal" style="margin-top: 7px;">
+	泉質
+</button>
+
+<!-- モーダル・ダイアログ -->
+<div class="modal fade" id="sampleModal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content row">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+                <h4 class="modal-title"><strong>お好みの温泉をお選びください</strong></h4>
+            </div>
+            <div class="modal-body col-xs-3">
+                <strong>泉質</strong>
+            </div>
+            <div class="modal-body col-xs-9">
+                <% sensitsu.each do |sensitsu| %>
+                    <%= link_to sensitsu.name, users_sensitsu_path(sensitsu.id), class: "btn btn-default" %>
+                <% end %>
+            </div>
+            <div class="modal-body">
+                <% sensitsu.each do |sensitsu| %>
+                    <%= link_to sensitsu.name, users_sensitsu_path(sensitsu.id), class: "btn btn-default" %>
+                <% end %>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+            </div>
+		</div>
+	</div>
+</div>
