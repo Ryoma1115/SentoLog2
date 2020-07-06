@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>温泉地新規投稿</h2>
+            <%= form_for(@onsen_spots, url: users_onsen_spots_path) do |f| %>
+                <div class="col-xs-3">
+                    <div class="item-new-form">
+                        <%= f.attachment_field :image %>
+                    </div>
+                </div>
+                <div class="col-xs-9">
+                    <table class="new-form-table">
+                      <tbody>
+                        <tr>
+                          <th>星評価</th>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th>名前</th>
+                          <td><%= f.text_field :name, class: "form-control" %></td>
+                        </tr>
+                        <tr>
+                          <th>泉質</th>
+                          <td><%= f.collection_select :sensitsu_id, Sensitsu.all , :id, :name, include_blank: "--選択してください--" %></td>
+                        </tr>
+                        <tr>
+                          <th>説明</th>
+                          <td><%= f.text_area :introduction %></td>
+                        </tr>
+                        <tr>
+                          <th>住所</th>
+                          <td>〒<%= f.text_field :postal_code %><%= f.text_field :address %></td>
+                        </tr>
+                        <tr>
+                          <th>電話番号</th>
+                          <td><%= f.text_field :phone_number %></td>
+                        </tr>
+                        <tr>
+                          <th>営業時間</th>
+                          <td><%= f.text_field :business_hour %></td>
+                        </tr>
+                        <tr>
+                          <th>利用料金</th>
+                          <td>¥<%= f.text_field :fee %></td>
+                        </tr>
+                        <tr>
+                          <th>駐車場</th>
+                          <td><%= f.text_field :parking %></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                     <div class="text-right">
+                        <%= f.submit "新規登録" ,class: "btn btn-primary text-right" %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

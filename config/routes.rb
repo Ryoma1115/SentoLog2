@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   }
 
   namespace :users do
-    resources :onsen_spots, only:[:index, :show, :edit, :update, :destroy] do
+    resources :onsen_spots, only:[:index, :show, :edit, :update, :destroy, :new] do
       resource :likes, only:[:index, :create, :destroy]
       resource :wents, only:[:index, :create, :destroy]
       resources :reviews do
