@@ -8,15 +8,16 @@ class Users::OnsenSpotsController < ApplicationController
     end
 
     def new
-        @onsen_spots = OnsenSpot.new
+        @onsen_spot = OnsenSpot.new
     end
 
     def create
         @onsen_spot = OnsenSpot.new(onsen_spot_params)
         if @onsen_spot.save
             redirect_to users_onsen_spots_path
+        else
+            render :new
         end
-
     end
 
     private

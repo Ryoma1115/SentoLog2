@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-xs-12">
             <h2>温泉地新規投稿</h2>
-            <%= form_for(@onsen_spots, url: users_onsen_spots_path) do |f| %>
+            <%= form_for(@onsen_spot, url: users_create_path) do |f| %>
                 <div class="col-xs-3">
                     <div class="item-new-form">
                         <%= f.attachment_field :image %>
