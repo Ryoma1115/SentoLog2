@@ -32,6 +32,8 @@ Rails.application.routes.draw do
     get 'quit' => 'users#quit'
     resources :contacts, only: [:new, :create]
     resources :sensitsus, only: [:index, :create, :edit, :update, :show]
+    resources :kounous, only: [:index, :create, :edit, :update, :show]
+    resources :oyutypes, only: [:index, :create, :edit, :update, :show]
   end
 
   devise_for :admins, controllers: {
