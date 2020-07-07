@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  namespace :admins do
+    get 'oyutypes/index'
+    get 'oyutypes/edit'
+  end
+  namespace :admins do
+    get 'kounous/index'
+    get 'kounous/edit'
+  end
   root 'homes#top'
   get 'about' => 'homes#about'
 

@@ -1,0 +1,2 @@
+module Admins::KounousHelper
+end
