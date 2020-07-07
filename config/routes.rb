@@ -40,9 +40,9 @@ Rails.application.routes.draw do
     resources :onsen_spots, only: [:show, :index, :new, :create, :edit, :update]
     resources :sensitsus, only: [:index, :create, :edit, :update]
     delete 'destroy' => 'sensitsus#destroy', as: 'destory'
-    resources :kounou, only: [:index, :create, :edit, :update]
+    resources :kounous, only: [:index, :create, :edit, :update]
     delete 'destroy' => 'kounous#destroy', as: 'destroy/kounou'
-    resources :oyutype, only: [:index, :create, :edit, :update]
+    resources :oyutypes, only: [:index, :create, :edit, :update]
     delete 'destroy' => 'oyutypes#destroy', as: 'destroy/oyutype'
   end
 
