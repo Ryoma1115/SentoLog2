@@ -6,7 +6,7 @@ class Admins::OyutypesController < ApplicationController
   end
 
   def create
-    oyutype = Oyutype.find(params[:id])
+    oyutype = Oyutype.new(oyutype_params)
     if oyutype.save
       redirect_to admins_oyutypes_path
     else
