@@ -1,2 +1,65 @@
-<h1>Users::Oyutypes#show</h1>
-<p>Find me in app/views/users/oyutypes/show.html.erb</p>
+<div class="container">
+<h2><%= @oyutype.name %>一覧(全<%= @onsen_spots.count %>件)</h2>
+  <div class="row">
+    <% @onsen_spots.each do |onsen_spot| %>
+    <div class="col-xs-12">
+     <div class="box">
+      <p>
+       <div class="row" style="margin: 15px;">
+        <div class="col-xs-3">
+            <%= link_to attachment_image_tag(onsen_spot, :image, :fill, 250, 250, fallback: "onsen_spot_default.jpg", style: "border-radius: 20px;", size: "250x250"), users_onsen_spot_path(onsen_spot) %>
+        </div>
+        <div class="col-xs-9">
+            <table class="user_info mb3">
+                <thead>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>星評価　　</td>
+                        <td><%= %></td>
+                    </tr>
+                    <tr>
+                        <td>名前　　　</td>
+                        <td><%= onsen_spot.name %></td>
+                    </tr>
+                    <tr>
+                        <td>説明　　　</td>
+                        <td><%= onsen_spot.introduction %></td>
+                    </tr>
+                    <tr>
+                        <td>住所　　　</td>
+                        <td>〒<%= onsen_spot.postal_code %><%= onsen_spot.address %></td>
+                    </tr>
+                    <tr>
+                        <td>電話番号　</td>
+                        <td><%= onsen_spot.phone_number %></td>
+                    </tr>
+                    <tr>
+                        <td>営業時間　</td>
+                        <td><%= onsen_spot.business_hour %></td>
+                    </tr>
+                    <tr>
+                        <td>利用料金　</td>
+                        <td><%= onsen_spot.fee %></td>
+                    </tr>
+                    <tr>
+                        <td>駐車場　　</td>
+                        <td><%= onsen_spot.parking %></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+       </div>
+      </p>
+     </div>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -38,6 +38,22 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>効能　　　</td>
+                        <td>
+                        <% onsen_spot.kounous.each do |kounou| %>
+                        <%= kounou.name %>
+                        <% end %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>お湯タイプ</td>
+                        <td>
+                        <% onsen_spot.oyutypes.each do |oyutype| %>
+                        <%= oyutype.name %>
+                        <% end %>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>説明　　　</td>
                         <td><%= onsen_spot.introduction %></td>
                     </tr>

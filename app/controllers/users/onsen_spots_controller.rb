@@ -26,6 +26,8 @@ class Users::OnsenSpotsController < ApplicationController
         def onsen_spot_params
             params.require(:onsen_spot).permit(
                 :sensitsu_id,
+                :kounou_id,
+                :oyutype_id,
                 :name,
                 :introduction,
                 :postal_code,
