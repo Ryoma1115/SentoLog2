@@ -25,7 +25,11 @@
                         <td><%= @onsen_spot.introduction %></td>
                     </tr>
                     <tr class="onsen_spot_sensitsu">
-                        <td><%= @onsen_spot.sensitsu.name %></td>
+                        <td>
+                        <% @onsen_spot.sensitsus.each do |sensitsu| %>
+                        <%= sensitsu.name %>
+                        <% end %>
+                        </td>
                     </tr>
                 </tbody>
             </table>

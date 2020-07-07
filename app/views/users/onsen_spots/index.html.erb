@@ -31,7 +31,11 @@
                     </tr>
                     <tr>
                         <td>泉質　　　</td>
-                        <td><%= onsen_spot.sensitsu.name %></td>
+                        <td>
+                        <% onsen_spot.sensitsus.each do |sensitsu| %>
+                        <%= sensitsu.name %>
+                        <% end %>
+                        </td>
                     </tr>
                     <tr>
                         <td>説明　　　</td>
