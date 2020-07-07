@@ -23,44 +23,62 @@ User.create!(
     phone_number: '11111111111'
 )
 
+# 泉質
 Sensitsu.create!(
-    name: '硫黄泉'
+  [
+    {name: '硫黄泉'},
+    {name: '単純温泉'},
+    {name: '塩化物泉'},
+    {name: '炭酸水素塩線'},
+    {name: '硫酸塩泉'},
+    {name: '二酸化炭素線'},
+    {name: '含鉄線'},
+    {name: '酸性泉'},
+    {name: '含よう素泉'},
+    {name: '放射能泉'}
+  ]
 )
 
-Sensitsu.create!(
-    name: '単純温泉'
+# 効能
+Kounou.create!(
+    [
+        {name: '自立神経不安定症'},
+        {name: '不眠症'},
+        {name: 'うつ状態'},
+        {name: '冷え性'},
+        {name: '胸焼け防止'},
+        {name: '胃腸機能低下'},
+        {name: '皮膚病改善'},
+        {name: '糖尿病'},
+        {name: '潤い肌'},
+        {name: '便秘解消'},
+        {name: '痛風予防'},
+        {name: 'アトピー改善'},
+        {name: 'きり傷'},
+        {name: '胃の活性化・食欲増進'},
+        {name: '胆石予防'},
+        {name: '湿疹改善'},
+        {name: '血行促進'},
+        {name: '腸の修復'},
+        {name: '生活習慣病予防'},
+        {name: 'リウマチの痛み軽減'}
+
+    ]
 )
 
-Sensitsu.create!(
-    name: '塩化物泉'
-)
-
-Sensitsu.create!(
-    name: '炭酸水素塩線'
-)
-
-Sensitsu.create!(
-    name: '硫酸塩泉'
-)
-
-Sensitsu.create!(
-    name: '二酸化炭素線'
-)
-
-Sensitsu.create!(
-    name: '含鉄線'
-)
-
-Sensitsu.create!(
-    name: '酸性泉'
-)
-
-Sensitsu.create!(
-    name: '含よう素泉'
-)
-
-Sensitsu.create!(
-    name: '放射能泉'
+Oyutype.create!(
+  [
+    {name: '源泉掛け流し'},
+    {name: '天然温泉'},
+    {name: '川湯温泉'},
+    {name: '海水温泉'},
+    {name: 'にごり湯'},
+    {name: '乳白色の湯'},
+    {name: '薬湯'},
+    {name: '墨の湯'},
+    {name: '五色の湯'},
+    {name: '金泉'}
+  ]
 )
 
 
