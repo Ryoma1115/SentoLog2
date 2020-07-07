@@ -1,0 +1,2 @@
+class Kounou < ApplicationRecord
+end

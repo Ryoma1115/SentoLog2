@@ -1,0 +1,2 @@
+class KounouMap < ApplicationRecord
+end

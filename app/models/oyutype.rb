@@ -1,0 +1,2 @@
+class Oyutype < ApplicationRecord
+end

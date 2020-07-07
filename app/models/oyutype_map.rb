@@ -1,0 +1,2 @@
+class OyutypeMap < ApplicationRecord
+end

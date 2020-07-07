@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_06_233559) do
+ActiveRecord::Schema.define(version: 2020_07_07_042230) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -40,6 +40,19 @@ ActiveRecord::Schema.define(version: 2020_07_06_233559) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "kounou_maps", force: :cascade do |t|
+    t.integer "onsen_spot_id"
+    t.integer "kounou_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "kounous", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "onsen_spot_id"
@@ -58,6 +71,19 @@ ActiveRecord::Schema.define(version: 2020_07_06_233559) do
     t.integer "fee"
     t.text "parking"
     t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "oyutype_maps", force: :cascade do |t|
+    t.integer "onsen_spot_id"
+    t.integer "oyutype_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "oyutypes", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
