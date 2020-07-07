@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :users do
+    get 'oyutypes/show'
+  end
+  namespace :users do
+    get 'kounous/show'
+  end
   root 'homes#top'
   get 'about' => 'homes#about'
 

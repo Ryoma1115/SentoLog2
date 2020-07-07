@@ -35,7 +35,9 @@ class Users::OnsenSpotsController < ApplicationController
                 :fee,
                 :parking,
                 :image,
-                {:sensitsu_ids => []}
+                {:sensitsu_ids => []},
+                {:kounou_ids => []},
+                {:oyutype_ids => []}
             )
         end
 end
