@@ -1,6 +1,8 @@
 class Users::OnsenSpotsController < ApplicationController
     def index
         @onsen_spots = OnsenSpot.all
+        # @onsen_spot= OnsenSpot.find(params[:onsen_spot_id])
+        # @onsen_spot = OnsenSpot.find(params[:id])
     end
 
     def show
@@ -32,7 +34,8 @@ class Users::OnsenSpotsController < ApplicationController
                 :business_hour,
                 :fee,
                 :parking,
-                :image
+                :image,
+                {:sensitsu_ids => []}
             )
         end
 end

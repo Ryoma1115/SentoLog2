@@ -21,7 +21,11 @@
                         </tr>
                         <tr>
                           <th>泉質</th>
-                          <td><%= f.collection_select :sensitsu_id, Sensitsu.all , :id, :name, include_blank: "--選択してください--" %></td>
+                          <td>
+                          <%= collection_check_boxes(:onsen_spot, :sensitsu_ids, Sensitsu.all , :id, :name) do |b| %>
+                            <%= b.label {b.check_box + b.text} %>
+                          <% end %>
+                          </td>
                         </tr>
                         <tr>
                           <th>説明</th>

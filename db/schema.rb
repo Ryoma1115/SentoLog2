@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_02_090117) do
+ActiveRecord::Schema.define(version: 2020_07_06_233559) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -69,6 +69,13 @@ ActiveRecord::Schema.define(version: 2020_07_02_090117) do
     t.text "comment"
     t.float "rate"
     t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sensitsu_maps", force: :cascade do |t|
+    t.integer "sensitsu_id"
+    t.integer "onsen_spot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
