@@ -1,8 +1,6 @@
 class Users::OnsenSpotsController < ApplicationController
     def index
         @onsen_spots = OnsenSpot.all
-        # @onsen_spot= OnsenSpot.find(params[:onsen_spot_id])
-        # @onsen_spot = OnsenSpot.find(params[:id])
     end
 
     def show
