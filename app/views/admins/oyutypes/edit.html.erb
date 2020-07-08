@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
-        <h2>泉質編集</h2><br>
+        <h2>お湯タイプ編集</h2><br>
         <div class="col-xs-10 col-xs-offset-1">
-            <%= form_for(@sensitsu, url: admins_sensitsu_path) do |f| %>
-                <%= f.label :泉質 %>
+            <%= form_for(@oyutype, url: admins_oyutype_path) do |f| %>
+                <%= f.label :お湯タイプ %>
                 <%= f.text_field :name %>
                 <%= f.submit "変更を保存する", class: "btn btn-primary" %>
             <% end %>

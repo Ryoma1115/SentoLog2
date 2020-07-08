@@ -15,7 +15,7 @@
                     <strong>泉質</strong>
                 </div>
                 <div class="modal-body col-xs-9">
-                    <% sensitsu.each do |sensitsu| %>
+                    <% sensitsus.each do |sensitsu| %>
                         <%= link_to sensitsu.name, users_sensitsu_path(sensitsu.id), class: "btn btn-default" %>
                     <% end %>
                 </div>
@@ -23,15 +23,17 @@
                     <strong>お湯タイプ</strong>
                 </div>
                 <div class="modal-body col-xs-9">
-                    <% sensitsu.each do |sensitsu| %>
-                        <%= link_to sensitsu.name, users_sensitsu_path(sensitsu.id), class: "btn btn-default" %>
+                    <% kounous.each do |kounou| %>
+                        <%= link_to kounou.name, users_kounou_path(kounou.id), class: "btn btn-default" %>
                     <% end %>
                 </div>
                 <div class="modal-body col-xs-3">
                     <strong>効能</strong>
                 </div>
                 <div class="modal-body col-xs-9">
-                    <p></p>
+                    <% oyutypes.each do |oyutype| %>
+                        <%= link_to oyutype.name, users_oyutype_path(oyutype.id), class: "btn btn-default" %>
+                    <% end %>
                 </div>
             <div class="col-xs-12 pull-right">
             <div class="modal-footer">

@@ -1,8 +1,6 @@
 class Users::OnsenSpotsController < ApplicationController
     def index
         @onsen_spots = OnsenSpot.all
-        # @onsen_spot= OnsenSpot.find(params[:onsen_spot_id])
-        # @onsen_spot = OnsenSpot.find(params[:id])
     end
 
     def show
@@ -26,6 +24,8 @@ class Users::OnsenSpotsController < ApplicationController
         def onsen_spot_params
             params.require(:onsen_spot).permit(
                 :sensitsu_id,
+                :kounou_id,
+                :oyutype_id,
                 :name,
                 :introduction,
                 :postal_code,
@@ -35,7 +35,9 @@ class Users::OnsenSpotsController < ApplicationController
                 :fee,
                 :parking,
                 :image,
-                {:sensitsu_ids => []}
+                {:sensitsu_ids => []},
+                {:kounou_ids => []},
+                {:oyutype_ids => []}
             )
         end
 end

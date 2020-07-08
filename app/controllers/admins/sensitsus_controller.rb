@@ -6,11 +6,11 @@ class Admins::SensitsusController < ApplicationController
     end
 
     def create
-        @sensitsu = Sensitsu.new(sensitsu_params)
-        if @sensitsu.save
+        sensitsu = Sensitsu.new(sensitsu_params)
+        if sensitsu.save
             redirect_to admins_sensitsus_path
         else
-            render :edit
+            render :index
         end
     end
 
@@ -19,8 +19,8 @@ class Admins::SensitsusController < ApplicationController
     end
 
     def update
-        @sensitsu = Sensitsu.find(params[:id])
-        if @sensitsu.update(sensitsu_params)
+        sensitsu = Sensitsu.find(params[:id])
+        if sensitsu.update(sensitsu_params)
             redirect_to admins_sensitsus_path
         else
             render :edit

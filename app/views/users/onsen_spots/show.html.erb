@@ -29,6 +29,12 @@
                         <% @onsen_spot.sensitsus.each do |sensitsu| %>
                         <%= sensitsu.name %>
                         <% end %>
+                        <% @onsen_spot.kounous.each do |kounou| %>
+                        <%= kounou.name %>
+                        <% end %>
+                        <% @onsen_spot.oyutypes.each do |oyutype| %>
+                        <%= oyutype.name %>
+                        <% end %>
                         </td>
                     </tr>
                 </tbody>

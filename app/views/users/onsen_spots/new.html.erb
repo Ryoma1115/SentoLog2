@@ -28,6 +28,22 @@
                           </td>
                         </tr>
                         <tr>
+                          <th>効能</th>
+                          <td>
+                          <%= collection_check_boxes(:onsen_spot, :kounou_ids, Kounou.all , :id, :name) do |b| %>
+                            <%= b.label {b.check_box + b.text} %>
+                          <% end %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>お湯タイプ</th>
+                          <td>
+                          <%= collection_check_boxes(:onsen_spot, :oyutype_ids, Oyutype.all , :id, :name) do |b| %>
+                            <%= b.label {b.check_box + b.text} %>
+                          <% end %>
+                          </td>
+                        </tr>
+                        <tr>
                           <th>説明</th>
                           <td><%= f.text_area :introduction %></td>
                         </tr>

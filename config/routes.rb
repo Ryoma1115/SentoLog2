@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :users do
+    get 'oyutypes/show'
+  end
+  namespace :users do
+    get 'kounous/show'
+  end
   root 'homes#top'
   get 'about' => 'homes#about'
 
@@ -26,6 +32,8 @@ Rails.application.routes.draw do
     get 'quit' => 'users#quit'
     resources :contacts, only: [:new, :create]
     resources :sensitsus, only: [:index, :create, :edit, :update, :show]
+    resources :kounous, only: [:index, :create, :edit, :update, :show]
+    resources :oyutypes, only: [:index, :create, :edit, :update, :show]
   end
 
   devise_for :admins, controllers: {
@@ -40,6 +48,10 @@ Rails.application.routes.draw do
     resources :onsen_spots, only: [:show, :index, :new, :create, :edit, :update]
     resources :sensitsus, only: [:index, :create, :edit, :update]
     delete 'destroy' => 'sensitsus#destroy', as: 'destory'
+    resources :kounous, only: [:index, :create, :edit, :update]
+    delete 'destroy' => 'kounous#destroy', as: 'destroy/kounou'
+    resources :oyutypes, only: [:index, :create, :edit, :update]
+    delete 'destroy' => 'oyutypes#destroy', as: 'destroy/oyutype'
   end
 
 
