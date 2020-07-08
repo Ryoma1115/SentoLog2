@@ -1,5 +1,5 @@
 <div class="container">
- <h2><%= @kounou.name %>一覧(全<%= @onsen_spots.count %>件)</h2>
+ <h2><%= @kounou.name %>一覧(全<%= @kounou.kounou_maps.count %>件)</h2>
   <div class="row">
    <% @onsen_spots.each do |onsen_spot| %>
     <div class="col-xs-12">
