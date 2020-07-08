@@ -66,6 +66,7 @@ Kounou.create!(
     ]
 )
 
+# お湯タイプ
 Oyutype.create!(
   [
     {name: '源泉掛け流し'},
