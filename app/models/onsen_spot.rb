@@ -6,4 +6,5 @@ class OnsenSpot < ApplicationRecord
     has_many :kounous, through: :kounou_maps
     has_many :oyutype_maps, dependent: :destroy
     has_many :oyutypes, through: :oyutype_maps
+    has_many :reviews
 end

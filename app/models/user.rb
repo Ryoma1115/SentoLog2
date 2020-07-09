@@ -5,7 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   attachment :profile_image
-    
+  
+  has_many :reviews
+  
   # 退会機能
   def active_for_authentication?
     super && (self.is_customer_status == true)
