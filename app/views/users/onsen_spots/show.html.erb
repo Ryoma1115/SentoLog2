@@ -60,7 +60,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="comment_form">
-                        <%= form_for [@book, @book_comment] do |f| %>
+                        <%= form_for [@onsen_spot, @review] do |f| %>
                             <%= f.text_area :comment, size: "90x5" %>
                             <%= f.submit '送信' %>
                         <% end %>
