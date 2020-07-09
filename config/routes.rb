@@ -21,8 +21,8 @@ Rails.application.routes.draw do
     resources :onsen_spots, only:[:index, :show, :edit, :update, :destroy, :new,] do
       resource :likes, only:[:index, :create, :destroy]
       resource :wents, only:[:index, :create, :destroy]
-      resources :reviews do
-        resource :favorites, only:[:create, :destroy]
+      resources :reviews, only:[:create, :destroy] do
+        resources :favorites, only:[:create, :destroy]
       end
     end
     patch 'users/withdraw' => 'users#withdraw', as: 'users_withdraw'
