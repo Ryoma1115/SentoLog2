@@ -8,6 +8,11 @@ class User < ApplicationRecord
   
   has_many :reviews
   
+
+  def full_name
+    first_name + " " + last_name
+  end
+
   # 退会機能
   def active_for_authentication?
     super && (self.is_customer_status == true)

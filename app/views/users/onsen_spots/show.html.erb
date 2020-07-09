@@ -76,4 +76,26 @@
                     <%= link_to "口コミ投稿する", '', class: "d-flex align-items-center" %>
         </div>
     </div>
+            <!-- コメント一覧 -->
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-1">
+        <table class="show-tb">
+          <% @reviews.each do |review| %>
+            <tr>
+              <td>
+                <%= review.user.full_name %>
+              </td>
+              <td>
+                <%= review.comment %>
+              </td>
+              <td>
+                <% if current_user.id == review.user.id %>
+                  <%= link_to "Destroy", users_onsen_spot_review_path(review), method: :delete ,class:"btn btn-danger btn-sm" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
 </div>
