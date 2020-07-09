@@ -17,7 +17,12 @@ class Users::ReviewsController < ApplicationController
     end
 
     def destroy
-
+        @review = Review.find(params[:onsen_spot_id])
+        if @review.user != current_user
+            redirect_back(fallback_location: root_url)
+        end
+        @review.destroy
+        redirect_to  controller: :onsen_spots, action: :show
     end
 
     private
