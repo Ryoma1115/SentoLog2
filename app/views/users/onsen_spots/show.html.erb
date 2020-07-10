@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <!-- modal -->
+    <!-- modal 口コミ投稿画面-->
     <%= render 'modal', onsen_spot: @onsen_spot, review: @review %>
     
     <!-- コメント一覧 -->
@@ -57,6 +57,23 @@
             <tr>
               <td>
                 <%= review.user.full_name %>
+              </td>
+              <td>
+                <h4 class="mb-3">評価：<%= review.rate %>点 | <%= review.title %></h4>
+
+                <!--星評価-->
+                <div id="star-rate-<%= review.id %>"></div>
+                <script>
+                $('#star-rate-<%= review.id %>').raty({
+                    size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf: '<%= asset_path('star-half.png') %>',
+                    half: true,
+                    readOnly: true,
+                    score: <%= review.rate %>,
+                });
+                </script>  
               </td>
               <td>
                 <%= review.comment %>
