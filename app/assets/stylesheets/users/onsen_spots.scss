@@ -59,3 +59,16 @@ tr {
 .modal-title {
     text-align: center;
 }
+
+ul.box_maps li {
+    padding: 4px 8px;
+    border: 1px solid #dd787d;
+    border-radius: 3px;
+    background-color: transparent;
+    color: #dd787d;
+    display: inline-block;
+}
+
+ul.box_maps li.box_map {
+   
+}
