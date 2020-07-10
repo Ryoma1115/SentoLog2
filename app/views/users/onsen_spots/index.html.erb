@@ -1,80 +1,80 @@
 <div class="container">
   <h2>温泉地一覧(全<%= @onsen_spots.count %>件)</h2>
-  <div class="row">
-    <% @onsen_spots.each do |onsen_spot| %>
-    <div class="col-xs-12">
-     <div class="box">
-      <p>
-       <div class="row" style="margin: 15px;">
-        <div class="col-xs-3">
-        <%= link_to attachment_image_tag(onsen_spot, :image, :fill, 250, 250, fallback: "onsen_spot_default.jpg", style: "border-radius: 20px;", size: "250x250"), users_onsen_spot_path(onsen_spot) %>
+    <div class="row">
+        <% @onsen_spots.each do |onsen_spot| %>
+        <div class="col-xs-12">
+            <div class="box">
+                <p>
+                    <div class="row" style="margin: 15px;">
+                        <div class="col-xs-3">
+                            <%= link_to attachment_image_tag(onsen_spot, :image, :fill, 250, 250, fallback: "onsen_spot_default.jpg", style: "border-radius: 20px;", size: "250x250"), users_onsen_spot_path(onsen_spot) %>
+                        </div>
+                        <div class="col-xs-9" style="vertical-align: middle;">
+                            <table class="user_info" style="vertical-align: middle;">
+                                <tbody>
+                                    <tr>
+                                        <th>星評価　　　</th>
+                                        <td><%= %></td>
+                                    </tr>
+                                    <tr>
+                                        <th>名前　　　　</th>
+                                        <td><%= onsen_spot.name %></td>
+                                    </tr>
+                                    <tr>
+                                        <th>泉質　　　　</th>
+                                        <td>
+                                        <% onsen_spot.sensitsus.each do |sensitsu| %>
+                                        <%= sensitsu.name %>
+                                        <% end %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>効能　　　　</th>
+                                        <td>
+                                        <% onsen_spot.kounous.each do |kounou| %>
+                                        <%= kounou.name %>
+                                        <% end %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>お湯タイプ　</th>
+                                        <td>
+                                        <% onsen_spot.oyutypes.each do |oyutype| %>
+                                        <%= oyutype.name %>
+                                        <% end %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>説明　　　　</th>
+                                        <td><%= onsen_spot.introduction %></td>
+                                    </tr>
+                                    <tr>
+                                        <th>住所　　　　</th>
+                                        <td>〒<%= onsen_spot.postal_code %><%= onsen_spot.address %></td>
+                                    </tr>
+                                    <tr>
+                                        <th>電話番号　　</th>
+                                        <td><%= onsen_spot.phone_number %></td>
+                                    </tr>
+                                    <tr>
+                                        <th>営業時間　　</th>
+                                        <td><%= onsen_spot.business_hour %></td>
+                                    </tr>
+                                    <tr>
+                                        <th>利用料金　　</th>
+                                        <td><%= onsen_spot.fee %></td>
+                                    </tr>
+                                    <tr>
+                                        <th>駐車場　　　</th>
+                                        <td><%= onsen_spot.parking %></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </p>
+            </div>
         </div>
-        <div class="col-xs-9" style="vertical-align: middle;">
-            <table class="user_info" style="vertical-align: middle;">
-                <tbody>
-                    <tr>
-                        <th>星評価　　　</th>
-                        <td><%= %></td>
-                    </tr>
-                    <tr>
-                        <th>名前　　　　</th>
-                        <td><%= onsen_spot.name %></td>
-                    </tr>
-                    <tr>
-                        <th>泉質　　　　</th>
-                        <td>
-                        <% onsen_spot.sensitsus.each do |sensitsu| %>
-                        <%= sensitsu.name %>
-                        <% end %>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>効能　　　　</th>
-                        <td>
-                        <% onsen_spot.kounous.each do |kounou| %>
-                        <%= kounou.name %>
-                        <% end %>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>お湯タイプ　</th>
-                        <td>
-                        <% onsen_spot.oyutypes.each do |oyutype| %>
-                        <%= oyutype.name %>
-                        <% end %>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>説明　　　　</th>
-                        <td><%= onsen_spot.introduction %></td>
-                    </tr>
-                    <tr>
-                        <th>住所　　　　</th>
-                        <td>〒<%= onsen_spot.postal_code %><%= onsen_spot.address %></td>
-                    </tr>
-                    <tr>
-                        <th>電話番号　　</th>
-                        <td><%= onsen_spot.phone_number %></td>
-                    </tr>
-                    <tr>
-                        <th>営業時間　　</th>
-                        <td><%= onsen_spot.business_hour %></td>
-                    </tr>
-                    <tr>
-                        <th>利用料金　　</th>
-                        <td><%= onsen_spot.fee %></td>
-                    </tr>
-                    <tr>
-                        <th>駐車場　　　</th>
-                        <td><%= onsen_spot.parking %></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-       </div>
-      </p>
-     </div>
+        <% end %>
     </div>
-    <% end %>
-  </div>
 </div>
