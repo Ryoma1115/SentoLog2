@@ -31,15 +31,11 @@
                         <% @onsen_spot.sensitsus.each do |sensitsu| %>
                         <ul class="box_maps">
                         <li><%= sensitsu.name %></li>
-                        </ul>
                         <% end %>
                         <% @onsen_spot.kounous.each do |kounou| %>
-                        <ul class="box_maps">
-                        <li class="box_map"><%= kounou.name %></li>
-                        </ul>
+                        <li><%= kounou.name %></li>
                         <% end %>
                         <% @onsen_spot.oyutypes.each do |oyutype| %>
-                        <ul class="box_maps">
                         <li><%= oyutype.name %></li>
                         </ul>
                         <% end %>
