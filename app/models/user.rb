@@ -5,7 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   attachment :profile_image
-    
+  
+  has_many :reviews
+  
+
+  def full_name
+    last_name + " " + first_name
+  end
+
   # 退会機能
   def active_for_authentication?
     super && (self.is_customer_status == true)

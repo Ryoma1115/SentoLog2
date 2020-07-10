@@ -5,6 +5,8 @@ class Users::OnsenSpotsController < ApplicationController
 
     def show
         @onsen_spot = OnsenSpot.find(params[:id])
+        @review = Review.new
+        @reviews = @onsen_spot.reviews.all
     end
 
     def new

@@ -1,6 +1,8 @@
 <div class="container">
+<%= render 'layouts/errors', obj: @onsen_spot %>
+
     <div class="row">
-        <div class="col-xs-8 col-xs-offset-2">
+        <div class="col-xs-9 col-xs-offset-1">
             <table class="onsen_spot_show">
                 <thead>
                     <th></th>
@@ -16,7 +18,7 @@
                         <td><strong><%= @onsen_spot.name %></strong></td>
                     </tr>
                     <tr class="onsen_spot_address">
-                        <td>〒<%= @onsen_spot.postal_code %><%= @onsen_spot.address %></td>
+                        <td>〒<%= @onsen_spot.postal_code %>　<%= @onsen_spot.address %></td>
                     </tr>
                     <tr>
                         <td><%= %></td>
@@ -27,13 +29,15 @@
                     <tr class="onsen_spot_sensitsu">
                         <td>
                         <% @onsen_spot.sensitsus.each do |sensitsu| %>
-                        <%= sensitsu.name %>
+                        <ul class="box_maps">
+                        <li><%= sensitsu.name %></li>
                         <% end %>
                         <% @onsen_spot.kounous.each do |kounou| %>
-                        <%= kounou.name %>
+                        <li><%= kounou.name %></li>
                         <% end %>
                         <% @onsen_spot.oyutypes.each do |oyutype| %>
-                        <%= oyutype.name %>
+                        <li><%= oyutype.name %></li>
+                        </ul>
                         <% end %>
                         </td>
                     </tr>
@@ -41,4 +45,57 @@
             </table>
         </div>
     </div>
+
+    <!-- modal 口コミ投稿画面-->
+    <%= render 'modal', onsen_spot: @onsen_spot, review: @review %>
+    
+    <!-- 口コミ一覧 -->
+    <% @reviews.each do |review| %>
+    <div class="row">
+        <div class="col-sm-9 col-sm-offset-1">
+            <div class="kutikomi">
+                <p>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <%= attachment_image_tag(review, :image, :fill, 200, 180, style: "border-radius: 20px; margin: 10px;") %>
+                        </div>
+                        <div class="col-xs-9">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h4>評価：<%= review.rate %>点 | <%= review.title %></h4>
+                                    <!--星評価-->
+                                    <div id="star-rate-<%= review.id %>"></div>
+                                    <script>
+                                    $('#star-rate-<%= review.id %>').raty({
+                                        size: 36,
+                                        starOff:  '<%= asset_path('star-off.png') %>',
+                                        starOn : '<%= asset_path('star-on.png') %>',
+                                        starHalf: '<%= asset_path('star-half.png') %>',
+                                        half: true,
+                                        readOnly: true,
+                                        score: <%= review.rate %>,
+                                    });
+                                    </script>  
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h4><%= review.comment %></h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <% if current_user == review.user %>
+                                        <%= link_to "Destroy", users_onsen_spot_review_path(review), method: :delete ,class:"btn btn-danger btn-sm" %>
+                                    <% end %>
+                                    <%= review.user.full_name %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </p>
+            </div>
+        </div>
+    </div>
+    <% end %>
 </div>
