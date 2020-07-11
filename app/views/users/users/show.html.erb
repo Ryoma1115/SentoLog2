@@ -5,7 +5,9 @@
             <p class="text-active"><%= flash[:notice] %></p>
         <% end %>
             <h3><strong><%= current_user.last_name + current_user.first_name %>さんのマイページ</strong></h3>
-            <%= attachment_image_tag(@user, :profile_image, :fill, 500, 280, fallback: "mypage.jpg", style: "border-radius: 20px;", size: "500x280") %>
+            <div class="box2" style="margin: 5px;">行きたい温泉：<%= current_user.likes.count %></div>
+            <div class="box5" style="margin: 5px;">行った　温泉：<%= current_user.wents.count %></div><br><br><br>
+            <%= attachment_image_tag(@user, :profile_image, :fill, 500, 280, fallback: "mypage.jpg", style: "border-radius: 20px; margin: 5px;", size: "500x280") %>
                 <table class="table table-bordered table-condensed">
                     <p>
                         <strong class="information-link">登録情報</strong>

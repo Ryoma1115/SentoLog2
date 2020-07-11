@@ -1,3 +1,38 @@
 // Place all the styles related to the users/wents controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.box5 {
+    display: inline-block;
+    max-width: 180px;
+    text-align: left;
+    border: 3px solid #f14033;
+    font-size: 16px;
+    color: #f14033;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: .4s;
+    background-color: white;
+    margin-top: 5px;
+    float: left;
+}
+
+
+.box4 {
+    display: inline-block;
+    max-width: 180px;
+    text-align: left;
+    border: 3px solid #f14033;
+    font-size: 16px;
+    color: #f14033;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: .4s;
+    background-color: #f14033;
+    margin-top: 5px;
+    float: left;
+}
