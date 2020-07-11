@@ -7,7 +7,9 @@ class User < ApplicationRecord
   attachment :profile_image
   
   has_many :reviews
-  
+  has_many :likes
+  has_many :wents
+  has_many :favorites
 
   def full_name
     last_name + " " + first_name
