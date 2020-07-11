@@ -15,6 +15,9 @@
                                     <tr>
                                         <th>星評価　　　</th>
                                         <td><%= %></td>
+                                        <td id="likes_buttons_<%= onsen_spot.id %>">
+                                            <%= render partial: 'likes/like', locals: { onsen_spot: onsen_spot} %>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>名前　　　　</th>
