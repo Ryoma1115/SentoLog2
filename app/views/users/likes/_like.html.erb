@@ -1,8 +1,8 @@
 <% if user_signed_in? %>
     <% if onsen_spot.liked_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
-        <p><span>お気に入り解除: </span><%=link_to onsen_spot.likes.count, users_onsen_spot_likes_path(onsen_spot.id), method: :delete, remote: true %></p>
+        <div class="box3"><p><%=link_to "行きたい", users_onsen_spot_likes_path(onsen_spot.id), method: :delete, remote: true, style: "color: white;" %></p></div>
     <% else %>
-        <p><span>お気に入り登録: </span><%=link_to onsen_spot.likes.count, users_onsen_spot_likes_path(onsen_spot.id), method: :post, remote: true %></p>
+        <div class="box2"><p><%=link_to "行きたい", users_onsen_spot_likes_path(onsen_spot.id), method: :post, remote: true, style: "color: #f0a80e;" %></p></div>
     <% end %>
 <% else %>
     <p><span>お気に入り数: </span><%= onsen_spot.likes.count %></p>
