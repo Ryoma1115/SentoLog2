@@ -46,8 +46,14 @@
         </div>
     </div>
 
-    <!-- modal 口コミ投稿画面-->
-    <%= render 'modal', onsen_spot: @onsen_spot, review: @review %>
+   
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-1">
+            <%= link_to attachment_image_tag(onsen_spot, :image, :fill, 300, 250, fallback: "onsen_spot_default.jpg", style: "border-radius: 20px; margin: 10px;", size: "300x250"), users_onsen_spot_path(@onsen_spot) %>
+        </div>
+         <!-- modal 口コミ投稿画面-->
+        <%= render 'modal', onsen_spot: @onsen_spot, review: @review %>
+    </div>
     
     <!-- 口コミ一覧 -->
     <% @reviews.each do |review| %>
