@@ -45,24 +45,66 @@
     </div>
     <div class="row">
         <div class="col-xs-6 col-xs-offset-1">
-            <!--行きたい-->
+            <%# 行きたい %>
             <div id="likes_buttons_<%= @onsen_spot.id %>">
                 <%= render partial: 'users/likes/like', locals: { onsen_spot: @onsen_spot} %>
             </div>
-            <!--行った-->
+            <%# 行った %>
             <div id="wents_buttons_<%= @onsen_spot.id %>">
                 <%= render partial: 'users/wents/went', locals: { onsen_spot: @onsen_spot} %>
             </div>
-            <!-- modal 口コミ投稿ボタン-->
+            <%# modal 口コミ投稿ボタン %>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="padding: 11px 16px; margin-left: 2px;">
                 口コミ投稿する
             </button> 
-            <!-- modal 口コミ投稿画面-->
+            <%# modal 口コミ投稿画面 %>
             <%= render 'modal', onsen_spot: @onsen_spot, review: @review %>
         </div>
     </div>
   
     
-    <!-- 口コミ一覧 -->
+    <%# 口コミ一覧 %>
     <%= render 'users/reviews/index', reviews: @reviews %>
+
+
+    <script type="text/javascript">
+    function initMap() {
+        // latitude,longitudeから位置を特定
+        var test ={lat: <%= @onsen_spot.latitude %>, lng: <%= @onsen_spot.longitude %>};
+        var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15, 
+                center: test
+                });
+        var transitLayer = new google.maps.TransitLayer();
+        transitLayer.setMap(map);
+
+        var contentString = '住所：<%= @onsen_spot.address %>';
+        var infowindow = new google.maps.InfoWindow({
+        content: contentString
+        });
+
+        // Map上の指定した位置にピンを挿して表示する 
+        var marker = new google.maps.Marker({
+                    position:test,
+                    map: map,
+                    title: contentString
+                    });
+
+        marker.addListener('click', function() {
+        infowindow.open(map, marker);
+        });
+    }
+    </script>
+
+    <script async defer
+                src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAKq5E7ELmteHEhFYL9rxOgFDnaT47l_fw&callback=initMap">
+    </script>
+    
+    <style type="text/css">
+    #map { height: 200px;
+            width: 70%;}
+    </style>
+
+    #mapの表示
+    <div id="map"></div>
 </div>
