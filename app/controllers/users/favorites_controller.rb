@@ -1,6 +1,7 @@
 class Users::FavoritesController < ApplicationController
 
     def create
+        @onsen_spot = OnsenSpot.find(params[:onsen_spot_id])
         @review = Review.find(params[:review_id])
         favorite = current_user.favorites.build(review_id: params[:review_id])
         favorite.save
