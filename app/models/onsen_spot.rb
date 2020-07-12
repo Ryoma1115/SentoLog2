@@ -18,5 +18,9 @@ class OnsenSpot < ApplicationRecord
         wents.where(user_id: user.id).exists?
     end
 
+    # これで:addressを登録した際にgeocoderが緯度、経度のカラムにも自動的に値を入れてくれるようになります。
+    geocoded_by :address
+    after_validation :geocode, if: :address_changed?
+
     
 end
