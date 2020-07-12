@@ -33,7 +33,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <%= attachment_image_tag(user, :profile_image, :fill, 50, 50) %>
+                                    <%= attachment_image_tag(review.user, :profile_image, :fill, 50, 50) %>
                                     <%= review.user.full_name %>
                                     <% if current_user == review.user %>
                                         <%= link_to "口コミを削除する", users_onsen_spot_review_path(review), method: :delete ,class:"btn btn-default btn-sm", style: "margin-bottom: 5px;" %>

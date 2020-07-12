@@ -7,8 +7,6 @@ class Users::OnsenSpotsController < ApplicationController
         @onsen_spot = OnsenSpot.find(params[:id])
         @review = Review.new
         @reviews = @onsen_spot.reviews.all
-
-        @user = User.find(params[:id])
     end
 
     def new
