@@ -50,13 +50,12 @@
                                     <div id="wents_buttons_<%= @onsen_spot.id %>">
                                         <%= render partial: 'users/wents/went', locals: { onsen_spot: @onsen_spot} %>
                                     </div>
-                                    <% if false %>
-                                    <!--いいね
+                                 
+                                    <!--いいね-->
                                     <div id="favorites_buttons_<%= review.id %>">
                                         <%= render partial: 'users/favorites/favorite', locals: { review: review} %>
-                                    </div>-->
-                                    コメントアウト
-                                    <% end %>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_131847) do
+ActiveRecord::Schema.define(version: 2020_07_12_044114) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -91,14 +91,14 @@ ActiveRecord::Schema.define(version: 2020_07_07_131847) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string "user_id"
-    t.string "onsen_spot_id"
     t.string "title"
     t.text "comment"
     t.float "rate"
     t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "onsen_spot_id"
+    t.integer "user_id"
   end
 
   create_table "sensitsu_maps", force: :cascade do |t|

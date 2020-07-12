@@ -1,9 +1,9 @@
 <% if user_signed_in? %>
     <% if review.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
-        <div class="box3"><%=link_to "いいね♡", users_onsen_spot_review_favorites_path(review.id), method: :delete, remote: true, style: "color: white;" %></div>
+        <div class="box6"><%=link_to "いいね♡", users_onsen_spot_review_favorites_path(review.id), method: :delete, remote: true, style: "color: white;" %></div>
     <% else %>
-        <div class="box2"><%=link_to "いいね♡", users_onsen_spot_review_favorites_path(review.id), method: :post, remote: true, style: "color: #f0a80e;" %></div>
+        <div class="box7"><%=link_to "いいね♡", users_onsen_spot_review_favorites_path(review.id), method: :post, remote: true, style: "color: #f0a80e;" %></div>
     <% end %>
 <% else %>
-    <div class="box2">いいね<%= review.favorites.count %></div>
+    <div class="box6">いいね<%= review.favorites.count %></div>
 <% end %>
