@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       resource :likes, only:[:index, :create, :destroy]
       resource :wents, only:[:index, :create, :destroy]
       resources :reviews, only:[:create, :destroy] do
-        resources :favorites, only:[:create, :destroy]
+        resource :favorites, only:[:create, :destroy]
       end
     end
     patch 'users/withdraw' => 'users#withdraw', as: 'users_withdraw'

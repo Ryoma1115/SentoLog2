@@ -4,15 +4,6 @@
     <div class="row">
         <div class="col-xs-9 col-xs-offset-1">
             <table class="onsen_spot_show">
-                <thead>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </thead>
                 <tbody>
                     <tr class="onsen_spot_name">
                         <td><strong><%= @onsen_spot.name %></strong></td>
@@ -46,56 +37,32 @@
         </div>
     </div>
 
-    <!-- modal 口コミ投稿画面-->
-    <%= render 'modal', onsen_spot: @onsen_spot, review: @review %>
-    
-    <!-- 口コミ一覧 -->
-    <% @reviews.each do |review| %>
+   
     <div class="row">
-        <div class="col-sm-9 col-sm-offset-1">
-            <div class="kutikomi">
-                <p>
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <%= attachment_image_tag(review, :image, :fill, 200, 180, style: "border-radius: 20px; margin: 10px;") %>
-                        </div>
-                        <div class="col-xs-9">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <h4>評価：<%= review.rate %>点 | <%= review.title %></h4>
-                                    <!--星評価-->
-                                    <div id="star-rate-<%= review.id %>"></div>
-                                    <script>
-                                    $('#star-rate-<%= review.id %>').raty({
-                                        size: 36,
-                                        starOff:  '<%= asset_path('star-off.png') %>',
-                                        starOn : '<%= asset_path('star-on.png') %>',
-                                        starHalf: '<%= asset_path('star-half.png') %>',
-                                        half: true,
-                                        readOnly: true,
-                                        score: <%= review.rate %>,
-                                    });
-                                    </script>  
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <h4><%= review.comment %></h4>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <% if current_user == review.user %>
-                                        <%= link_to "Destroy", users_onsen_spot_review_path(review), method: :delete ,class:"btn btn-danger btn-sm" %>
-                                    <% end %>
-                                    <%= review.user.full_name %>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </p>
-            </div>
+        <div class="col-xs-4 col-xs-offset-1">
+            <%= attachment_image_tag(@onsen_spot, :image, :fill, 650, 350, fallback: "onsen_spot_default.jpg", style: "border-radius: 20px; margin: 10px 10px 10px 0;", size: "650x350") %>
         </div>
     </div>
-    <% end %>
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-1">
+            <!--行きたい-->
+            <div id="likes_buttons_<%= @onsen_spot.id %>">
+                <%= render partial: 'users/likes/like', locals: { onsen_spot: @onsen_spot} %>
+            </div>
+            <!--行った-->
+            <div id="wents_buttons_<%= @onsen_spot.id %>">
+                <%= render partial: 'users/wents/went', locals: { onsen_spot: @onsen_spot} %>
+            </div>
+            <!-- modal 口コミ投稿ボタン-->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="padding: 11px 16px; margin-left: 2px;">
+                口コミ投稿する
+            </button> 
+            <!-- modal 口コミ投稿画面-->
+            <%= render 'modal', onsen_spot: @onsen_spot, review: @review %>
+        </div>
+    </div>
+  
+    
+    <!-- 口コミ一覧 -->
+    <%= render 'users/reviews/index', reviews: @reviews, user: @user %>
 </div>

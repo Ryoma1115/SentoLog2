@@ -17,6 +17,8 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+
+// 星評価機能
 (function($) {
     'use strict';
   
@@ -769,3 +771,5 @@
       targetType:   'hint'
     };
   })(jQuery);
+
+  // 星評価機能　終わり
