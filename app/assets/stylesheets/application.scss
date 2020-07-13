@@ -28,7 +28,7 @@ header {
   box-shadow:0 2px 8px rgba(30,30,80,.3); 
   left:0;
   line-height:1;
-  
+  position:fixed;
   top:0;
   width:100%;
   z-index:100;
@@ -36,3 +36,6 @@ header {
   padding:1rem;
 }
 
+.modal-backdrop {
+  z-index: 99;
+}
