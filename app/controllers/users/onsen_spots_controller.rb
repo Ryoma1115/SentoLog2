@@ -37,6 +37,8 @@ class Users::OnsenSpotsController < ApplicationController
                 :fee,
                 :parking,
                 :image,
+                :latitude,
+                :longitude,
                 {:sensitsu_ids => []},
                 {:kounou_ids => []},
                 {:oyutype_ids => []}

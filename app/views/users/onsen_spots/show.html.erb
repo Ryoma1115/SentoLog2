@@ -2,7 +2,7 @@
 <%= render 'layouts/errors', obj: @onsen_spot %>
 
     <div class="row">
-        <div class="col-xs-9 col-xs-offset-1">
+        <div class="col-xs-10 col-xs-offset-1">
             <table class="onsen_spot_show">
                 <tbody>
                     <tr class="onsen_spot_name">
@@ -40,29 +40,95 @@
    
     <div class="row">
         <div class="col-xs-4 col-xs-offset-1">
-            <%= attachment_image_tag(@onsen_spot, :image, :fill, 650, 350, fallback: "onsen_spot_default.jpg", style: "border-radius: 20px; margin: 10px 10px 10px 0;", size: "650x350") %>
+            <%= attachment_image_tag(@onsen_spot, :image, :fill, 650, 350, fallback: "onsen_spot_default.jpg", style: "border-radius: 20px; margin: 0 10px 10px 0;", size: "650x350") %>
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-6 col-xs-offset-1">
-            <!--行きたい-->
+        <div class="col-xs-7 col-xs-offset-1">
+            <%# 行きたい %>
             <div id="likes_buttons_<%= @onsen_spot.id %>">
                 <%= render partial: 'users/likes/like', locals: { onsen_spot: @onsen_spot} %>
             </div>
-            <!--行った-->
+            <%# 行った %>
             <div id="wents_buttons_<%= @onsen_spot.id %>">
                 <%= render partial: 'users/wents/went', locals: { onsen_spot: @onsen_spot} %>
             </div>
-            <!-- modal 口コミ投稿ボタン-->
+            <%# modal 口コミ投稿ボタン %>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="padding: 11px 16px; margin-left: 2px;">
                 口コミ投稿する
             </button> 
-            <!-- modal 口コミ投稿画面-->
+            <%# modal 口コミ投稿画面 %>
             <%= render 'modal', onsen_spot: @onsen_spot, review: @review %>
         </div>
     </div>
   
     
-    <!-- 口コミ一覧 -->
+    <%# 口コミ一覧 %>
     <%= render 'users/reviews/index', reviews: @reviews %>
+
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+                
+            <h2><strong><%= @onsen_spot.name %>　基本情報</strong></h2>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th class="active">住所</th>
+                        <td>〒<%= @onsen_spot.postal_code %>　<%= @onsen_spot.address %></td>
+                    </tr>
+                    <tr>
+                        <th class="active">電話番号</th>
+                        <td><%= @onsen_spot.phone_number %></td>
+                    </tr>
+                    <tr>
+                        <th class="active">地図</th>
+                        <td><div id="map" style="height: 300px; width: 500px;"></div></td>
+                    </tr>
+                    <tr>
+                        <th class="active">金額</th>
+                        <td>¥　<%= @onsen_spot.fee %></td>
+                    </tr>
+                    <tr>
+                        <th class="active">営業時間</th>
+                        <td><%= @onsen_spot.business_hour %></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    function initMap() {
+        // latitude,longitudeから位置を特定
+        var test ={lat: <%= @onsen_spot.latitude %>, lng: <%= @onsen_spot.longitude %>};
+        var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15, 
+                center: test
+                });
+        var transitLayer = new google.maps.TransitLayer();
+        transitLayer.setMap(map);
+
+        var contentString = '住所：<%= @onsen_spot.address %>';
+        var infowindow = new google.maps.InfoWindow({
+        content: contentString
+        });
+
+        // Map上の指定した位置にピンを挿して表示する 
+        var marker = new google.maps.Marker({
+                    position:test,
+                    map: map,
+                    title: contentString
+                    });
+
+        marker.addListener('click', function() {
+        infowindow.open(map, marker);
+        });
+    }
+    </script>
+
+    <script async defer
+                src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+    </script>
+    
+
 </div>
