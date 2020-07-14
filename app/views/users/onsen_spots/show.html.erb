@@ -67,8 +67,37 @@
     <%= render 'users/reviews/index', reviews: @reviews %>
 
 
-    #mapの表示
-    <div id="map" style="height: 300px; width: 300px;"></div>
+            <table class="table">
+                <thead>
+                    <tr class="onsen_spot_name">
+                        <th><strong><%= @onsen_spot.name %>　基本情報</strong></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>住所</td>
+                        <td>エンジニア1</td>
+                    </tr>
+                    <tr>
+                        <td>電話番号</td>
+                        <td>エンジニア2</td>
+                    </tr>
+                    <tr>
+                        <td>地図</td>
+                        <td><div id="map" style="height: 300px; width: 450px;"></div></td>
+                    </tr>
+                    <tr>
+                        <td>金額</td>
+                        <td>エンジニア4</td>
+                    </tr>
+                    <tr>
+                        <td>営業時間</td>
+                        <td>エンジニア5</td>
+                    </tr>
+                </tbody>
+            </table>
+    <div id="map" style="height: 300px; width: 450px;"></div>
     
     <style type="text/css">
     #map { height: 200px;
