@@ -40,7 +40,7 @@
    
     <div class="row">
         <div class="col-xs-4 col-xs-offset-1">
-            <%= attachment_image_tag(@onsen_spot, :image, :fill, 650, 350, fallback: "onsen_spot_default.jpg", style: "border-radius: 20px; margin: 10px 10px 10px 0;", size: "650x350") %>
+            <%= attachment_image_tag(@onsen_spot, :image, :fill, 650, 350, fallback: "onsen_spot_default.jpg", style: "border-radius: 20px; margin: 0 10px 10px 0;", size: "650x350") %>
         </div>
     </div>
     <div class="row">
@@ -65,6 +65,15 @@
     
     <%# 口コミ一覧 %>
     <%= render 'users/reviews/index', reviews: @reviews %>
+
+
+    #mapの表示
+    <div id="map" style="height: 300px; width: 300px;"></div>
+    
+    <style type="text/css">
+    #map { height: 200px;
+            width: 70%;}
+    </style>
 
 
     <script type="text/javascript">
@@ -100,11 +109,5 @@
                 src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
     </script>
     
-    <style type="text/css">
-    #map { height: 200px;
-            width: 70%;}
-    </style>
 
-    #mapの表示
-    <div id="map"></div>
 </div>
