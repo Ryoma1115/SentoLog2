@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_12_115106) do
+ActiveRecord::Schema.define(version: 2020_07_15_233812) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -77,6 +77,10 @@ ActiveRecord::Schema.define(version: 2020_07_12_115106) do
     t.integer "oyutype_id"
     t.float "latitude"
     t.float "longitude"
+    t.integer "prefecture_code"
+    t.string "address_city"
+    t.string "address_street"
+    t.string "address_building"
   end
 
   create_table "oyutype_maps", force: :cascade do |t|
