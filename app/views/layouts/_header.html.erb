@@ -39,6 +39,15 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><%= render 'layouts/modal', sensitsus: Sensitsu.all, kounous: Kounou.all, oyutypes: Oyutype.all %></li>
                         <li><%= link_to '条件', '' %></li>
+                        <li>
+                            <p data-toggle="dropdown">
+                                都道府県
+                                <span class="caret"></span>
+                            </p>
+                            <ul class="dropdown-menu" role="menu">
+                                <li role="presentation"><% JpPrefecture::Prefecture.all.each do |prefecture| %><%= link_to prefecture.name, "" %><% end %></li>
+                            </ul>
+                        </li>
                         <li><%= link_to '都道府県', '' %></li>
                         <li><%= link_to '温泉地を登録する', new_users_onsen_spot_path %></li>
                         <li><%= link_to ' 温泉一覧 ▼', users_onsen_spots_path, class: "fas fa-hot-tub" %></li>
@@ -51,3 +60,4 @@
             </div>
         </nav>
     </header>
+    
