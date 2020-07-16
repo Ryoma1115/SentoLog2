@@ -8,6 +8,26 @@
                     <tr class="onsen_spot_name">
                         <td><strong><%= @onsen_spot.name %></strong></td>
                     </tr>
+                    <tr>
+                        <td>
+                            <strong>
+                                星評価(口コミ<%= @onsen_spot.reviews.count %>件)
+                            <!--星評価-->
+                                <div id="star-rate-<%= @onsen_spot.id %>"></div>
+                                <script>
+                                $('#star-rate-<%= @onsen_spot.id %>').raty({
+                                    size: 36,
+                                    starOff:  '<%= asset_path('star-off.png') %>',
+                                    starOn : '<%= asset_path('star-on.png') %>',
+                                    starHalf: '<%= asset_path('star-half.png') %>',
+                                    half: true,
+                                    readOnly: true,
+                                    score: <%= @onsen_spot.reviews.average(:rate).to_f.round(1) %>,
+                                });
+                                </script>
+                            </strong>
+                        </td>
+                    </tr>
                     <tr class="onsen_spot_address">
                         <td>〒<%= @onsen_spot.postal_code %>　<%= @onsen_spot.address %></td>
                     </tr>
@@ -74,7 +94,7 @@
                 <tbody>
                     <tr>
                         <th class="active">住所</th>
-                        <td>〒<%= @onsen_spot.postal_code %>　<%= @onsen_spot.address %></td>
+                        <td>〒<%= @onsen_spot.postal_code %>　<%= @onsen_spot.prefecture_name %>　<%= @onsen_spot.address_city %>　<%= @onsen_spot.address_street %>　<%= @onsen_spot.address_building %></td>
                     </tr>
                     <tr>
                         <th class="active">電話番号</th>

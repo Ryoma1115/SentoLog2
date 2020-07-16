@@ -18,18 +18,34 @@
                             </div>
                         </div>
                         <div class="col-xs-9" style="vertical-align: middle;">
-                            <table class="user_info" style="vertical-align: middle;">
+                            <table class="table" style="vertical-align: middle;">
                                 <tbody>
                                     <tr>
-                                        <th>星評価　　　</th>
-                                        <td><%= %></td>
+                                        <th class="col-xs-2" style="text-align: center;">星評価<br>(口コミ<%= onsen_spot.reviews.count %>件)</th>
+                                        <td class="col-xs-7">
+                                        
+                                        <!--星評価-->
+                                            <div id="star-rate-<%= onsen_spot.id %>"></div>
+                                            <script>
+                                            $('#star-rate-<%= onsen_spot.id %>').raty({
+                                                size: 36,
+                                                starOff:  '<%= asset_path('star-off.png') %>',
+                                                starOn : '<%= asset_path('star-on.png') %>',
+                                                starHalf: '<%= asset_path('star-half.png') %>',
+                                                half: true,
+                                                readOnly: true,
+                                                score: <%= onsen_spot.reviews.average(:rate).to_f.round(1) %>,
+                                            });
+                                            </script>  
+                                        
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <th>名前　　　　</th>
+                                        <th style="text-align: center;">名前　　　　</th>
                                         <td><%= onsen_spot.name %></td>
                                     </tr>
                                     <tr>
-                                        <th>泉質　　　　</th>
+                                        <th style="text-align: center;">泉質　　　　</th>
                                         <td>
                                         <% onsen_spot.sensitsus.each do |sensitsu| %>
                                         <%= sensitsu.name %>
@@ -37,7 +53,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>効能　　　　</th>
+                                        <th style="text-align: center;">効能　　　　</th>
                                         <td>
                                         <% onsen_spot.kounous.each do |kounou| %>
                                         <%= kounou.name %>
@@ -45,7 +61,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>お湯タイプ　</th>
+                                        <th style="text-align: center;">お湯タイプ　</th>
                                         <td>
                                         <% onsen_spot.oyutypes.each do |oyutype| %>
                                         <%= oyutype.name %>
@@ -53,27 +69,27 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>説明　　　　</th>
+                                        <th style="text-align: center;">説明　　　　</th>
                                         <td><%= onsen_spot.introduction %></td>
                                     </tr>
                                     <tr>
-                                        <th>住所　　　　</th>
-                                        <td>〒<%= onsen_spot.postal_code %><%= onsen_spot.address %></td>
+                                        <th style="text-align: center;">住所　　　　</th>
+                                        <td>〒<%= onsen_spot.postal_code %>　<%= onsen_spot.prefecture_name %>　<%= onsen_spot.address_city %>　<%= onsen_spot.address_street %>　<%= onsen_spot.address_building %></td>
                                     </tr>
                                     <tr>
-                                        <th>電話番号　　</th>
+                                        <th style="text-align: center;">電話番号　　</th>
                                         <td><%= onsen_spot.phone_number %></td>
                                     </tr>
                                     <tr>
-                                        <th>営業時間　　</th>
+                                        <th style="text-align: center;">営業時間　　</th>
                                         <td><%= onsen_spot.business_hour %></td>
                                     </tr>
                                     <tr>
-                                        <th>利用料金　　</th>
+                                        <th style="text-align: center;">利用料金　　</th>
                                         <td><%= onsen_spot.fee %></td>
                                     </tr>
                                     <tr>
-                                        <th>駐車場　　　</th>
+                                        <th style="text-align: center;">駐車場　　　</th>
                                         <td><%= onsen_spot.parking %></td>
                                     </tr>
                                 </tbody>
@@ -86,6 +102,4 @@
         <% end %>
     </div>
 </div>
-<% content_for(:body_attributes) do %>
-    data-turbolinks="false"
-<% end %>
+

@@ -11,7 +11,7 @@ class OnsenSpot < ApplicationRecord
     has_many :wents
 
 
-    # これで:addressを登録した際にgeocoderが緯度、経度のカラムにも自動的に値を入れてくれるようになります。
+    # これで:addressを登録した際にgeocoderが緯度、経度のカラムにも自動的に値を入れてくれるようになる。
     geocoded_by :geocode_full_address
     after_validation :geocode
 
@@ -43,9 +43,9 @@ class OnsenSpot < ApplicationRecord
         self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
     end
 
-    # 住所を結合
-    def full_address
-        '〒' + self.postal_code.to_s + ' ' + prefecture_name + ' ' + self.address_city + ' ' + self.address_street + ' ' + self.address_building
-    end
+    # # 住所を結合
+    # def full_address
+    #     '〒' + self.postal_code.to_s + ' ' + prefecture_name + ' ' + self.address_city + ' ' + self.address_street + ' ' + self.address_building
+    # end
     
 end
