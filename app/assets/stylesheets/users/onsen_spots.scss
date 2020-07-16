@@ -4,8 +4,16 @@
 
 
 
-tr {
+table tbody tr {
     margin: 15px;
+}
+
+th {
+    margin: 5px;
+}
+
+td {
+    margin: 5px;
 }
 
 .box{
@@ -91,3 +99,4 @@ ul.box_maps li {
     opacity: 0.6;
     transition-duration: 0.3s;
 }
+
