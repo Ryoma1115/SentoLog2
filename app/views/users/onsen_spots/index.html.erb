@@ -21,23 +21,23 @@
                             <table class="table" style="vertical-align: middle;">
                                 <tbody>
                                     <tr>
-                                        <th style="text-align: center;">星評価<br>(口コミ<%= onsen_spot.reviews.count %>件)</th>
-                                        <td>
-                                        <% onsen_spot.reviews.each do |review| %>
+                                        <th class="col-xs-2" style="text-align: center;">星評価<br>(口コミ<%= onsen_spot.reviews.count %>件)</th>
+                                        <td class="col-xs-7">
+                                        
                                         <!--星評価-->
-                                        <div id="star-rate-<%= review.id %>"></div>
-                                        <script>
-                                        $('#star-rate-<%= review.id %>').raty({
-                                            size: 36,
-                                            starOff:  '<%= asset_path('star-off.png') %>',
-                                            starOn : '<%= asset_path('star-on.png') %>',
-                                            starHalf: '<%= asset_path('star-half.png') %>',
-                                            half: true,
-                                            readOnly: true,
-                                            score: <%= onsen_spot.reviews.average(:rate).to_f.round(1) %>,
-                                        });
-                                        </script>  
-                                        <% end %>
+                                            <div id="star-rate-<%= onsen_spot.id %>"></div>
+                                            <script>
+                                            $('#star-rate-<%= onsen_spot.id %>').raty({
+                                                size: 36,
+                                                starOff:  '<%= asset_path('star-off.png') %>',
+                                                starOn : '<%= asset_path('star-on.png') %>',
+                                                starHalf: '<%= asset_path('star-half.png') %>',
+                                                half: true,
+                                                readOnly: true,
+                                                score: <%= onsen_spot.reviews.average(:rate).to_f.round(1) %>,
+                                            });
+                                            </script>  
+                                        
                                         </td>
                                     </tr>
                                     <tr>
@@ -102,6 +102,4 @@
         <% end %>
     </div>
 </div>
-<% content_for(:body_attributes) do %>
-    data-turbolinks="false"
-<% end %>
+

@@ -774,6 +774,16 @@
 
   // 星評価機能　終わり
 
+
+
+
+
+
+
+
+
+
+  
 // jp_prefecture
   var Jpostal = {};
 
@@ -1570,3 +1580,5 @@ window.jQuery_jpostal_callback = function (i_data) {
     };
 
 }));
+
+
