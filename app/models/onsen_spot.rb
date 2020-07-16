@@ -10,7 +10,6 @@ class OnsenSpot < ApplicationRecord
     has_many :likes
     has_many :wents
 
-    validates :address, presence: true
 
     # これで:addressを登録した際にgeocoderが緯度、経度のカラムにも自動的に値を入れてくれるようになります。
     geocoded_by :geocode_full_address
