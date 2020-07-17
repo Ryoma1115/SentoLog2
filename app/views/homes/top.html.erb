@@ -12,58 +12,87 @@
       <div class="maps">
         <h3><i class="fas fa-map-marked-alt">Mapから探す</i></h3>
         <!--マップ-->
-        <div id="map" style="height: 800px; width: 1000px;"></div>
+        <div id="map" style="height: 650px; width: 1000px;"></div>
       </div>
       <!-- js部分 -->
       <script>
-          function initMap() {
+    let map;
+    let marker = [];
+    let infoWindow = [];
+    let markerData = gon.onsen_spots;
 
-            //初期表示位置
-            var latlng = new google.maps.LatLng(34.7024, 135.4959);
-            //デザイン
-            var styles = [
-                {
-                  stylers: [
-                  { "saturation": 0 },
-                  { "lightness": 0 }
-                  ]
-                }
-                ];
+    function initMap() {
+      // 位置情報を取得
+      navigator.geolocation.getCurrentPosition(function (position) {
+        LatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 9,
-                styles: styles,
-                center: latlng
-            });
-            var transitLayer = new google.maps.TransitLayer();
-            transitLayer.setMap(map);
+        // 取得した位置情報を中心に表示
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: LatLng,
+          zoom: 16
+        });
 
-            //複数マーカー ここから
-            <% @onsen_spots.each do |onsen_spot| %>
-            (function(){
-              var contentString = "住所：<%= onsen_spot.name %>"; 
-              var infowindow = new google.maps.InfoWindow({
-                  content: contentString
-              });
+      <% @onsen_spots.each do |onsen_spot| %>
+      (function(){
+        var contentString = "住所：<%= onsen_spot.name %>"; 
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
 
-              var marker = new google.maps.Marker({
-                  position:{lat: <%= onsen_spot.latitude %>, lng: <%= onsen_spot.longitude %>},
-                  map: map,
-                  title: contentString
-              });
+        var marker = new google.maps.Marker({
+            position:{lat: <%= onsen_spot.latitude %>, lng: <%= onsen_spot.longitude %>},
+            map: map,
+            title: contentString
+        });
 
-              marker.addListener('click', function() {
-                infowindow.open(map, marker, content);
-              });
-            })();
-            <% end %>
-            //複数マーカー ここまで  
+        marker.addListener('click', function() {
+          infowindow.open(map, marker, content);
+        });
+       })();
+      <% end %>
+
+        // 繰り返し処理でマーカーと吹き出しを複数表示
+        for (var i = 0; i < markerData.length; i++) {
+          let id = markerData[i]['id']
+
+          // 各地点にマーカーを立てる
+          markerLatLng = new google.maps.LatLng({
+            lat: markerData[i]['latitude'],
+            lng: markerData[i]['longitude']
+          });
+          marker[i] = new google.maps.Marker({
+            position: markerLatLng,
+            map: map
+          });
+
+          // 各地点の吹き出しを作成
+          infoWindow[i] = new google.maps.InfoWindow({
+            // 吹き出しに表示する内容
+            content: `<a href='/user/onsen_spots'>詳細を見る</a>` + markerData[i]['name']
+          });
+
+          // マーカーにクリックイベントを追加
+          markerEvent(i);
         }
+      })
+    }
+
+    // マーカーをクリックすると吹き出しが表示される
+    function markerEvent(i) {
+      marker[i].addListener('click', function () {
+        infoWindow[i].open(map, marker[i]);
+      });
+    }
       </script>
 
       <script async defer
       src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
       </script>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <h3><%= link_to ' 温泉一覧はこちら', users_onsen_spots_path, class: "fas fa-hot-tub", style: "float: right; color: black;" %></h3>
     </div>
   </div>
 </main>

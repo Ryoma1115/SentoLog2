@@ -74,7 +74,7 @@
                 <%= render partial: 'users/wents/went', locals: { onsen_spot: @onsen_spot} %>
             </div>
             <%# modal 口コミ投稿ボタン %>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="padding: 11px 16px; margin-left: 2px;">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="padding: 11px 16px; margin-left: 10px;">
                 口コミ投稿する
             </button> 
             <%# modal 口コミ投稿画面 %>
@@ -102,7 +102,7 @@
                     </tr>
                     <tr>
                         <th class="active">地図</th>
-                        <td><div id="map" style="height: 300px; width: 500px;"></div></td>
+                        <td><div id="maps" style="height: 300px; width: 500px;"></div></td>
                     </tr>
                     <tr>
                         <th class="active">金額</th>
@@ -121,7 +121,7 @@
     function initMap() {
         // latitude,longitudeから位置を特定
         var test ={lat: <%= @onsen_spot.latitude %>, lng: <%= @onsen_spot.longitude %>};
-        var map = new google.maps.Map(document.getElementById('map'), {
+        var map = new google.maps.Map(document.getElementById('maps'), {
                 zoom: 15, 
                 center: test
                 });
