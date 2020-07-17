@@ -6,8 +6,8 @@
             <div class="box">
                 <p>
                     <div class="row" style="margin: 15px;">
-                        <div class="col-xs-3">
-                            <%= link_to attachment_image_tag(onsen_spot, :image, :fill, 250, 250, fallback: "onsen_spot_default.jpg", style: "border-radius: 20px; margin-bottom: 5px;", size: "250x250", class: "image-index"), users_onsen_spot_path(onsen_spot) %>
+                        <div class="col-xs-4">
+                            <%= link_to attachment_image_tag(onsen_spot, :image, :fill, 350, 250, fallback: "onsen_spot_default.jpg", style: "border-radius: 20px; margin-bottom: 15px;", size: "350x250", class: "image-index"), users_onsen_spot_path(onsen_spot) %>
                             <!--行きたい-->
                             <div id="likes_buttons_<%= onsen_spot.id %>">
                                 <%= render partial: 'users/likes/like', locals: { onsen_spot: onsen_spot} %>
@@ -17,7 +17,7 @@
                                 <%= render partial: 'users/wents/went', locals: { onsen_spot: onsen_spot} %>
                             </div>
                         </div>
-                        <div class="col-xs-9" style="vertical-align: middle;">
+                        <div class="col-xs-7" style="vertical-align: middle;">
                             <table class="table" style="vertical-align: middle;">
                                 <tbody>
                                     <tr>
