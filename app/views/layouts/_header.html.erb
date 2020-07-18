@@ -55,7 +55,7 @@
                                 都道府県 ▼
                             </p>
                             <ul class="dropdown-menu" role="menu">
-                                <li role="presentation"><% JpPrefecture::Prefecture.all.each do |prefecture| %><%= link_to prefecture.name, "", class: "sticky" %><% end %></li>
+                                <li role="presentation"><% JpPrefecture::Prefecture.all.each do |prefecture| %><%= link_to prefecture.name, users_onsen_spot_prefecture_search_path(prefecture_search: prefecture.code), class: "sticky" %><% end %></li>
                             </ul>
                         </li>
                         <li><%= link_to '温泉地を登録する', new_users_onsen_spot_path %></li>

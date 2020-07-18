@@ -51,7 +51,7 @@
                           <td class="col-xs-6"><%= f.text_field :postal_code, placeholder: '例) 531-6023', class: 'form-control' %></td>
                         </tr>
                         <tr>
-                          <th class="col-xs-3">都道府県</th>
+                          <th class="col-xs-3"><%= f.label :prefecture_name, "都道府県" %></th>
                           <td class="col-xs-6"><%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください' }, class: 'form-control' %></td>
                         </tr>
                         <tr>

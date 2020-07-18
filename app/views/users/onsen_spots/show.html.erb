@@ -40,17 +40,17 @@
                     </tr>
                     <tr class="onsen_spot_sensitsu">
                         <td>
-                        <% @onsen_spot.sensitsus.each do |sensitsu| %>
-                        <ul class="box_maps">
-                        <li><%= sensitsu.name %></li>
-                        <% end %>
-                        <% @onsen_spot.kounous.each do |kounou| %>
-                        <li><%= kounou.name %></li>
-                        <% end %>
-                        <% @onsen_spot.oyutypes.each do |oyutype| %>
-                        <li><%= oyutype.name %></li>
-                        </ul>
-                        <% end %>
+                            <ul class="box_maps">
+                                <% @onsen_spot.sensitsus.each do |sensitsu| %>
+                                    <li><%= sensitsu.name %></li>
+                                <% end %>
+                                <% @onsen_spot.kounous.each do |kounou| %>
+                                    <li><%= kounou.name %></li>
+                                <% end %>
+                                <% @onsen_spot.oyutypes.each do |oyutype| %>
+                                    <li><%= oyutype.name %></li>
+                                <% end %>
+                            </ul>
                         </td>
                     </tr>
                 </tbody>
