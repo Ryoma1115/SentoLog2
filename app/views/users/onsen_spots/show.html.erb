@@ -13,7 +13,8 @@
                             <strong>
                                 星評価(口コミ<%= @onsen_spot.reviews.count %>件)
                             <!--星評価-->
-                                <div id="star-rate-<%= @onsen_spot.id %>"></div>
+                                <div id="star-rate-<%= @onsen_spot.id %>" data-turbolinks-track="reload"></div>
+                                
                                 <script>
                                 $('#star-rate-<%= @onsen_spot.id %>').raty({
                                     size: 36,
@@ -25,6 +26,7 @@
                                     score: <%= @onsen_spot.reviews.average(:rate).to_f.round(1) %>,
                                 });
                                 </script>
+                                
                             </strong>
                         </td>
                     </tr>

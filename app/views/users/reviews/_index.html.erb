@@ -53,9 +53,13 @@
                                     </div>
                                 <% end %>
                                     <!--いいね-->
-                                    <div id="favorites_buttons_<%= review.id %>">
-                                        <%= render partial: 'users/favorites/favorite', locals: { review: review, onsen_spot: @onsen_spot} %>
-                                    </div>
+                                    <% if current_user != review.user %>
+                                        <div id="favorites_buttons_<%= review.id %>">
+                                            <%= render partial: 'users/favorites/favorite', locals: { review: review, onsen_spot: @onsen_spot} %>
+                                        </div>
+                                    <% else %>
+                                        <div class="box6">いいね<%= review.favorites.count %></div>
+                                    <% end %>
                                 </div>
                             </div>
                         </div>
