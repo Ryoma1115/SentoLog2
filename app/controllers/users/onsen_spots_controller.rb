@@ -24,6 +24,13 @@ class Users::OnsenSpotsController < ApplicationController
         end
     end
 
+    # 都道府県検索
+    def prefecture_search
+        @onsen_spots = OnsenSpot.prefecture_search(params[:prefecture_search])
+        @prefecture_search = params[:prefecture_search]
+        @prefecture = JpPrefecture::Prefecture.find(code: @prefecture_search)
+    end
+
     private
         def onsen_spot_params
             params.require(:onsen_spot).permit(
@@ -34,6 +41,7 @@ class Users::OnsenSpotsController < ApplicationController
                 :introduction,
                 :postal_code,
                 :prefecture_name,
+                :prefecture_code,
                 :address_city,
                 :address_street,
                 :address_building,

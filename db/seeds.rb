@@ -282,6 +282,24 @@ OnsenSpot.create!(
       fee: '680',
       parking: '有',
       image: open("./app/assets/images/kouti.jpg")
+    },
+    {
+      sensitsu_ids: rand(1..10),
+      kounou_ids: rand(1..20),
+      oyutype_ids: rand(1..10),
+      name: '朝日温泉',
+      introduction: '朝日温泉 大阪市住吉区にある軟水使用の健康近代公衆浴場 定期的に音楽LIVEしてます！',
+      postal_code: '5580041',
+      address: '大阪府大阪市住吉区南住吉３丁目１１−８',
+      prefecture_code: 27,
+      address_city: '大阪市住吉区',
+      address_street: '南住吉３丁目１１−８',
+      address_building: '',
+      phone_number: '0880331600',
+      business_hour: '6:30 ~ 22:00',
+      fee: '700',
+      parking: '有',
+      image: open("./app/assets/images/onsen_arupusu.jpg")
     }
   ]
   )
