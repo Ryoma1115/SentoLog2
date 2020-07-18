@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   }
 
   namespace :users do
+    get 'onsen_spot/prefecture/search' => 'onsen_spots#prefecture_search'
     post 'create' => 'onsen_spots#create'
     resources :onsen_spots, only:[:index, :show, :edit, :update, :destroy, :new,] do
       resource :likes, only:[:index, :create, :destroy]
