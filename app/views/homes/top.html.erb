@@ -10,7 +10,7 @@
   <div class="cotainer">
     <div class="row">
       <div class="maps">
-        <h3><i class="fas fa-map-marked-alt">Mapから探す</i></h3>
+        <h3><i class="fas fa-map-marked-alt">　Mapから探す(マップのマーカーから温泉地へ飛べます)</i></h3>
         <!--マップ-->
         <div id="map" style="height: 650px; width: 1000px;"></div>
       </div>
@@ -29,27 +29,8 @@
         // 取得した位置情報を中心に表示
         map = new google.maps.Map(document.getElementById('map'), {
           center: LatLng,
-          zoom: 16
+          zoom: 15
         });
-
-      <% @onsen_spots.each do |onsen_spot| %>
-      (function(){
-        var contentString = "住所：<%= onsen_spot.name %>"; 
-        var infowindow = new google.maps.InfoWindow({
-            content: contentString
-        });
-
-        var marker = new google.maps.Marker({
-            position:{lat: <%= onsen_spot.latitude %>, lng: <%= onsen_spot.longitude %>},
-            map: map,
-            title: contentString
-        });
-
-        marker.addListener('click', function() {
-          infowindow.open(map, marker, content);
-        });
-       })();
-      <% end %>
 
         // 繰り返し処理でマーカーと吹き出しを複数表示
         for (var i = 0; i < markerData.length; i++) {
@@ -68,7 +49,7 @@
           // 各地点の吹き出しを作成
           infoWindow[i] = new google.maps.InfoWindow({
             // 吹き出しに表示する内容
-            content: `<a href='/user/onsen_spots'>詳細を見る</a>` + markerData[i]['name']
+            content: markerData[i]['name'] + ' ' + `<a href='/users/onsen_spots/${id}'>温泉地を見る←</a>`
           });
 
           // マーカーにクリックイベントを追加
