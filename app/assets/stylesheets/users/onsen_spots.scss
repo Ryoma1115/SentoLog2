@@ -95,9 +95,16 @@ ul.box_maps li {
 }
 
 
+
+
+.image-index {
+	display: block;
+	transition-duration: 0.3s;	/*変化に掛かる時間*/
+}
 .image-index:hover {
+	transform: scale(1.05);	/*画像の拡大率*/
+    transition-duration: 0.3s;	/*変化に掛かる時間*/
     opacity: 0.6;
-    transition-duration: 0.3s;
 }
 
 #buttoncenter {
