@@ -15,55 +15,59 @@
         <div id="map" style="height: 650px; width: 1000px;"></div>
       </div>
       <!-- js部分 -->
-      <script>
-    let map;
-    let marker = [];
-    let infoWindow = [];
-    let markerData = gon.onsen_spots;
+    <script>
+            history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
+            window.addEventListener('popstate', function(e) {
+            window.location.reload();
+            });
+            let map;
+            let marker = [];
+            let infoWindow = [];
+            let markerData = gon.onsen_spots;
 
-    function initMap() {
-      // 位置情報を取得
-      navigator.geolocation.getCurrentPosition(function (position) {
-        LatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            function initMap() {
+              // 位置情報を取得
+              navigator.geolocation.getCurrentPosition(function (position) {
+                LatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-        // 取得した位置情報を中心に表示
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: LatLng,
-          zoom: 15
-        });
+                // 取得した位置情報を中心に表示
+                map = new google.maps.Map(document.getElementById('map'), {
+                  center: LatLng,
+                  zoom: 15
+                });
 
-        // 繰り返し処理でマーカーと吹き出しを複数表示
-        for (var i = 0; i < markerData.length; i++) {
-          let id = markerData[i]['id']
+                // 繰り返し処理でマーカーと吹き出しを複数表示
+                for (var i = 0; i < markerData.length; i++) {
+                  let id = markerData[i]['id']
 
-          // 各地点にマーカーを立てる
-          markerLatLng = new google.maps.LatLng({
-            lat: markerData[i]['latitude'],
-            lng: markerData[i]['longitude']
-          });
-          marker[i] = new google.maps.Marker({
-            position: markerLatLng,
-            map: map
-          });
+                  // 各地点にマーカーを立てる
+                  markerLatLng = new google.maps.LatLng({
+                    lat: markerData[i]['latitude'],
+                    lng: markerData[i]['longitude']
+                  });
+                  marker[i] = new google.maps.Marker({
+                    position: markerLatLng,
+                    map: map
+                  });
 
-          // 各地点の吹き出しを作成
-          infoWindow[i] = new google.maps.InfoWindow({
-            // 吹き出しに表示する内容
-            content: markerData[i]['name'] + ' ' + `<a href='/users/onsen_spots/${id}'>温泉地を見る←</a>`
-          });
+                  // 各地点の吹き出しを作成
+                  infoWindow[i] = new google.maps.InfoWindow({
+                    // 吹き出しに表示する内容
+                    content: markerData[i]['name'] + ' ' + `<a href='/users/onsen_spots/${id}'>温泉地を見る←</a>`
+                  });
 
-          // マーカーにクリックイベントを追加
-          markerEvent(i);
-        }
-      })
-    }
+                  // マーカーにクリックイベントを追加
+                  markerEvent(i);
+                }
+              })
+            }
 
-    // マーカーをクリックすると吹き出しが表示される
-    function markerEvent(i) {
-      marker[i].addListener('click', function () {
-        infoWindow[i].open(map, marker[i]);
-      });
-    }
+            // マーカーをクリックすると吹き出しが表示される
+            function markerEvent(i) {
+              marker[i].addListener('click', function () {
+                infoWindow[i].open(map, marker[i]);
+              });
+            }
       </script>
 
       <script async defer

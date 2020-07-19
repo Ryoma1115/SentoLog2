@@ -7,7 +7,9 @@
                 <p>
                     <div class="row" style="margin: 15px;">
                         <div class="col-xs-4">
-                            <%= link_to attachment_image_tag(onsen_spot, :image, :fill, 350, 250, fallback: "onsen_spot_default.jpg", style: "border-radius: 20px; margin-bottom: 15px;", size: "350x250", class: "image-index"), users_onsen_spot_path(onsen_spot) %>
+                            <div class="imgWrap">
+                                <%= link_to attachment_image_tag(onsen_spot, :image, :fill, 350, 250, fallback: "onsen_spot_default.jpg", style: "border-radius: 20px; margin-bottom: 15px;", size: "350x250", class: "image-index"), users_onsen_spot_path(onsen_spot) %>
+                            </div>
                             <!--行きたい-->
                             <div id="likes_buttons_<%= onsen_spot.id %>">
                                 <%= render partial: 'users/likes/like', locals: { onsen_spot: onsen_spot} %>
