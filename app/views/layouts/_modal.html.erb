@@ -4,6 +4,12 @@
 </div>
 
 <!-- モーダル・ダイアログ -->
+<script>
+    history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
+    window.addEventListener('popstate', function(e) {
+    window.location.reload();
+    });
+</script>
 <div class="modal fade" id="sampleModal" tabindex="-1" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content row">

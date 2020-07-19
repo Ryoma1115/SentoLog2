@@ -27,6 +27,10 @@
                                         <!--星評価-->
                                             <div id="star-rate-<%= onsen_spot.id %>" data-turbolinks-track="reload"></div>
                                             <script data-turbolinks-track="reload">
+                                            history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
+                                            window.addEventListener('popstate', function(e) {
+                                            window.location.reload();
+                                            });
                                             $('#star-rate-<%= onsen_spot.id %>').raty({
                                                 size: 36,
                                                 starOff:  '<%= asset_path('star-off.png') %>',

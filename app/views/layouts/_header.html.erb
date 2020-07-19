@@ -23,7 +23,7 @@
                             </ul>
                         </li>
                         <li><%= link_to '会員一覧', admins_users_path %></li>
-                        <li><%= link_to '温泉地を登録する', new_users_onsen_spot_path %></li>
+                        <li><%= link_to '温泉地を登録する', new_users_onsen_spot_path, data: {"turbolinks" => false} %></li>
                         <li><%= link_to ' 温泉一覧 ▼', admins_onsen_spots_path, class: "fas fa-hot-tub" %></li>
                         <li><%= link_to '泉質一覧', admins_sensitsus_path %></li>
                         <li><%= link_to '効能一覧', admins_kounous_path %></li>
@@ -41,7 +41,7 @@
                                 <li role="presentation"><% JpPrefecture::Prefecture.all.each do |prefecture| %><%= link_to prefecture.name, "", class: "sticky" %><% end %></li>
                             </ul>
                         </li>
-                        <li><%= link_to '温泉地を登録する', new_users_onsen_spot_path %></li>
+                        <li><%= link_to '温泉地を登録する', new_users_onsen_spot_path, data: {"turbolinks" => false} %></li>
                         <li><%= link_to ' 温泉一覧 ▼', users_onsen_spots_path, class: "fas fa-hot-tub" %></li>
                         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
                         <li><%= link_to 'マイページ', users_show_path %></li>
@@ -58,7 +58,7 @@
                                 <li role="presentation"><% JpPrefecture::Prefecture.all.each do |prefecture| %><%= link_to prefecture.name, users_onsen_spot_prefecture_search_path(prefecture_search: prefecture.code), class: "sticky" %><% end %></li>
                             </ul>
                         </li>
-                        <li><%= link_to '温泉地を登録する', new_users_onsen_spot_path %></li>
+                        <li><%= link_to '温泉地を登録する', new_users_onsen_spot_path, data: {"turbolinks" => false} %></li>
                         <li><%= link_to ' 温泉一覧 ▼', users_onsen_spots_path, class: "fas fa-hot-tub" %></li>
                         <li><%= link_to '新規登録', new_user_registration_path %></li>
                         <li><%= link_to 'ログイン', new_user_session_path %></li>

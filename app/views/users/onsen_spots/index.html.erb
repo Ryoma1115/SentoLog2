@@ -25,9 +25,14 @@
                                         <td class="col-xs-7">
                                         
                                         <!--星評価-->
-                                            <div id="star-rate-<%= onsen_spot.id %>" data-turbolinks-track="reload"></div>
-                                            <script data-turbolinks-track="reload">
-                                            $('#star-rate-<%= onsen_spot.id %>').raty({
+                                            <div id="star-rate-<%= onsen_spot.id %>"></div>
+                                            
+                                            <script>
+                                            history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
+                                            window.addEventListener('popstate', function(e) {
+                                            window.location.reload();
+                                            });
+                                            $("#star-rate-<%= onsen_spot.id %>").raty({
                                                 size: 36,
                                                 starOff:  '<%= asset_path('star-off.png') %>',
                                                 starOn : '<%= asset_path('star-on.png') %>',
