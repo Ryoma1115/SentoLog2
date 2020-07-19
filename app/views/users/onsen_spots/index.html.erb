@@ -26,7 +26,7 @@
                                         
                                         <!--星評価-->
                                             <div id="star-rate-<%= onsen_spot.id %>" data-turbolinks-track="reload"></div>
-                                            <script data-turbolinks-track="reload">
+                                            <script data-turbolinks-action="replace">
                                             $('#star-rate-<%= onsen_spot.id %>').raty({
                                                 size: 36,
                                                 starOff:  '<%= asset_path('star-off.png') %>',
