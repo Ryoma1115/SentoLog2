@@ -15,6 +15,10 @@
                             <!--星評価-->
                                 <div id="star-rate-<%= @onsen_spot %>" data-turbolinks-track="reload"></div>
                                 <script>
+                                history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
+                                window.addEventListener('popstate', function(e) {
+                                window.location.reload();
+                                });
                                 $('#star-rate-<%= @onsen_spot %>').raty({
                                     size: 36,
                                     starOff:  '<%= asset_path('star-off.png') %>',
