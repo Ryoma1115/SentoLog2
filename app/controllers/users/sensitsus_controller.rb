@@ -1,4 +1,5 @@
 class Users::SensitsusController < ApplicationController
+    before_action :authenticate_user!
     def show
         @sensitsu = Sensitsu.find(params[:id])
         @sensitsus = Sensitsu.all

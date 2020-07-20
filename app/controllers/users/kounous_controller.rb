@@ -1,4 +1,5 @@
 class Users::KounousController < ApplicationController
+  before_action :authenticate_user!
   def show
     @kounou = Kounou.find(params[:id])
     @kounous = Kounou.all
