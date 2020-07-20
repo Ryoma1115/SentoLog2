@@ -79,3 +79,5 @@ gem "geocoder"
 gem 'font-awesome-sass', '~> 5.4.1'
 
 gem 'jp_prefecture'
+
+gem 'ransack'
