@@ -8,9 +8,7 @@ RSpec.describe KounouMap, type: :model do
         expect(KounouMap.reflect_on_association(:onsen_spot).macro).to eq :belongs_to
       end
     end
-  end
 
-  describe 'アソシエーションのテスト' do
     context 'Kounouモデルとの関係' do
       it 'N:1となっている' do
         expect(KounouMap.reflect_on_association(:kounou).macro).to eq :belongs_to

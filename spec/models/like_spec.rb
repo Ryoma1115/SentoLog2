@@ -8,9 +8,7 @@ RSpec.describe Like, type: :model do
         expect(Like.reflect_on_association(:user).macro).to eq :belongs_to
       end
     end
-  end
 
-  describe 'アソシエーションのテスト' do
     context 'OnsenSpotモデルとの関係' do
       it 'N:1となっている' do
         expect(Like.reflect_on_association(:onsen_spot).macro).to eq :belongs_to
