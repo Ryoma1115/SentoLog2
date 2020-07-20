@@ -209,3 +209,15 @@ footer {
   margin: 20px 0px;
   list-style: none;
 }
+
+/*ページネーション自体のデザイン*/
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: black;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {     
+  background: #d3d3d3;     /*背景の色を変える*/
+      /*角を丸くする*/
+}
