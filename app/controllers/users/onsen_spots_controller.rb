@@ -24,6 +24,10 @@ class Users::OnsenSpotsController < ApplicationController
         end
     end
 
+    def keyword_search
+        
+    end
+
     # 都道府県検索
     def prefecture_search
         @onsen_spots = OnsenSpot.prefecture_search(params[:prefecture_search])
