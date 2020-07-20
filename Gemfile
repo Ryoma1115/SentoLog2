@@ -83,3 +83,5 @@ gem 'jp_prefecture'
 gem 'jquery-turbolinks'
 
 gem 'gon'
+
+gem 'kaminari'
