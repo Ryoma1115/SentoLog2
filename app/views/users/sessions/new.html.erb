@@ -1,15 +1,20 @@
 <div class="container">
-  <h2>Log in</h2>
+  <h2>簡単ログイン</h2><br>
+  <h3>ログインに必要な値をフォームに入れていますので、<br>
+  ログインボタンをクリックしていただけるとログインできます。</h3>
+
+<span><br></span>
+
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, :value =>"t@t" %>
     </div>
 
     <div class="field">
       <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
+      <%= f.password_field :password, :value =>"testtest" %>
     </div>
 
     <% if devise_mapping.rememberable? %>
@@ -20,7 +25,7 @@
     <% end %>
 
     <div class="actions">
-      <%= f.submit "Log in" %>
+      <%= f.submit "ログイン" %>
     </div>
   <% end %>
 

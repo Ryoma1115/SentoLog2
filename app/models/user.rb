@@ -16,8 +16,8 @@ class User < ApplicationRecord
   end
 
   # 退会機能
-  def active_for_authentication?
-    super && (self.is_customer_status == true)
-  end
+  # def active_for_authentication?
+  #   super && (self.is_customer_status == true)
+  # end
 
 end

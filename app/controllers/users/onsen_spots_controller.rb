@@ -1,4 +1,8 @@
 class Users::OnsenSpotsController < ApplicationController
+
+    before_action :authenticate_user!
+
+
     def index
         @onsen_spots = OnsenSpot.all
     end
