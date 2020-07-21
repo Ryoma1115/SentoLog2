@@ -4,6 +4,7 @@ class Users::OnsenSpotsController < ApplicationController
 
 
     def index
+        @onsen_spot_all = OnsenSpot.all
         @onsen_spots = OnsenSpot.all.page(params[:page]).per(10)
     end
 
