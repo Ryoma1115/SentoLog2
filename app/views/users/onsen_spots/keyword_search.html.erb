@@ -9,7 +9,7 @@
         </div>
     <% end %>
   </div>
-  <h2><%= @prefecture.name %>の温泉地(全<%= @onsen_spots.count %>件)</h2>
+  <h2>検索結果：温泉地一覧(全<%= @onsen_spots.count %>件)</h2>
     <div class="row">
         <% @onsen_spots.each do |onsen_spot| %>
         <div class="col-xs-12">
@@ -37,10 +37,6 @@
                                         <!--星評価-->
                                             <div id="star-rate-<%= onsen_spot.id %>" data-turbolinks-track="reload"></div>
                                             <script data-turbolinks-track="reload">
-                                            history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
-                                            window.addEventListener('popstate', function(e) {
-                                            window.location.reload();
-                                            });
                                             $('#star-rate-<%= onsen_spot.id %>').raty({
                                                 size: 36,
                                                 starOff:  '<%= asset_path('star-off.png') %>',

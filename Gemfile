@@ -80,6 +80,8 @@ gem 'font-awesome-sass', '~> 5.4.1'
 
 gem 'jp_prefecture'
 
+gem 'ransack'
+
 gem 'jquery-turbolinks'
 
 gem 'gon'
