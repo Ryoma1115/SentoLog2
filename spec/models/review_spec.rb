@@ -15,9 +15,17 @@ RSpec.describe Review, type: :model do
     expect(FactoryBot.build(:review, rate: "")).to_not be_valid
   end
 
-  it "口コミ投稿の星評価は1.0 ~ 5.0点" do
+  it "口コミ投稿の星評価は1.0 ~ 5.0点 6.0の場合" do
     expect(FactoryBot.build(:review, rate: 6.0 )).to_not be_between(1.0, 5.0).inclusive
   end
+
+  it "口コミ投稿の星評価は1.0 ~ 5.0点 0.5の場合" do
+    expect(FactoryBot.build(:review, rate: 0.5 )).to_not be_between(1.0, 5.0).inclusive
+  end
+
+  it "外部key(onsen_spot_idとuser_id)が無ければ口コミ投稿できない" do
+    expect(FactoryBot.build(:review, onsen_spot_id: "", user_id: "")).to_not be_valid
+  end 
   
   describe 'アソシエーションのテスト' do
     context 'OnsenSpotモデルとの関係' do
