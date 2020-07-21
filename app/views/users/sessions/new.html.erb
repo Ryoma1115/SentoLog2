@@ -1,34 +1,35 @@
 <div class="container">
   <h2>簡単ログイン(ワンクリック)↓↓</h2><br>
-  <h3>ログインに必要な値をフォームに入れていますので、<br>
-  ログインボタンをクリックしていただけるとログインできます。<br>
-  (email: t@t, password: testtest)</h3>
+  <h3 class="contents-intro">ログインボタンをクリックしていただけるとログインできます。<br></h3>
+  <h3 class="contents-intro">[email: t@t, password: testtest]</h3>
 
 <span><br></span>
 
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <%= f.label :email %><br />
+      <%= f.label :メールアドレス %><br />
       <%= f.email_field :email, autofocus: true, :value =>"t@t" %>
     </div>
 
     <div class="field">
-      <%= f.label :password %><br />
+      <%= f.label :パスワード %><br />
       <%= f.password_field :password, :value =>"testtest" %>
     </div>
 
     <% if devise_mapping.rememberable? %>
       <div class="field">
         <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+        <%= f.label :ログインを記憶する %>
       </div>
     <% end %>
 
     <div class="actions">
-      <%= f.submit "ログイン" %>
+      <%= f.submit "ログイン", class: 'btn btn-primary' %>
     </div>
   <% end %>
+
+  <p>&nbsp;</p>
 
   <%= render "users/shared/links" %>
 </div>
