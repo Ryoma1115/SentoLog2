@@ -1,4 +1,5 @@
 class Users::OyutypesController < ApplicationController
+  before_action :authenticate_user!
   def show
     @oyutype = Oyutype.find(params[:id])
     @oyutypes = Oyutype.all

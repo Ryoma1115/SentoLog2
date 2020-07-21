@@ -1,6 +1,11 @@
 class Users::OnsenSpotsController < ApplicationController
+
+    before_action :authenticate_user!
+
+
     def index
-        @onsen_spots = OnsenSpot.all
+        @onsen_spot_all = OnsenSpot.all
+        @onsen_spots = OnsenSpot.all.page(params[:page]).per(10)
     end
 
     def show
@@ -8,7 +13,6 @@ class Users::OnsenSpotsController < ApplicationController
         @review = Review.new
         @reviews = @onsen_spot.reviews.all
         # @average = @onsen_spot.reviews.rate.average
-        
     end
 
     def new
