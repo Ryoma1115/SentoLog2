@@ -1,4 +1,14 @@
 <div class="container">
+  <div class="row" style="margin: 30px 200px;">
+    <%= search_form_for(@search, url: users_onsen_spots_keyword_search_path) do |f| %>
+        <div class="col-xs-10">
+          <%= f.search_field :name_or_postal_code_or_address_or_address_city_or_phone_number_cont, class:'form-control', placeholder: '温泉地名、住所、電話番号、特徴やキーワード等から検索' %>
+        </div>
+        <div class="col-xs-2">
+          <%= f.submit "検索", class: "btn btn-info btn-block" %>
+        </div>
+    <% end %>
+  </div>
   <h2><%= @prefecture.name %>の温泉地(全<%= @onsen_spots.count %>件)</h2>
     <div class="row">
         <% @onsen_spots.each do |onsen_spot| %>
