@@ -1,0 +1,112 @@
+// Place all the styles related to the users/onsen_spots controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+table tbody tr {
+    margin: 15px;
+}
+
+th {
+    margin: 5px;
+}
+
+td {
+    margin: 5px;
+}
+
+.box{
+    margin: 10px;
+    position: relative;
+    background: #fff0cd;
+    box-shadow: 0px 0px 0px 5px #fff0cd;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+    color: #454545;
+}
+.box:after{
+    position: absolute;
+    content: '';
+    right: -7px;
+    top: -7px;
+    border-width: 0 15px 15px 0;
+    border-style: solid;
+    border-color: #ffdb88 #fff #ffdb88;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.box p {
+    margin: 0; 
+    padding: 0;
+}
+
+.onsen_spot_show {
+    margin-top: 30px;
+}
+
+.onsen_spot_name {
+    font-size: 30px;
+}
+
+.onsen_spot_name_2 {
+    font-size: 25px;
+}
+
+
+.onsen_spot_address {
+    font-size: 15px;
+    margin-top: 30px;
+}
+
+.onsen_spot_introduction {
+    font-size: 20px;
+    margin: 10px;
+}
+
+.onsen_spot_sensitsu {
+    font-size: 20px;
+}
+
+.modal-title {
+    text-align: center;
+}
+
+ul.box_maps li {
+    padding: 4px 8px;
+    border: 1px solid #dd787d;
+    border-radius: 3px;
+    background-color: transparent;
+    color: #dd787d;
+    display: inline-block;
+    margin: 3px;
+    float: left;
+}
+
+.kutikomi {
+    padding: 10px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    border: solid 1px #a3a2a2;
+}
+
+.kutikomi p {
+    margin: 0; 
+    padding: 0;
+}
+
+
+
+
+.image-index {
+	display: block;
+	transition-duration: 0.3s;	/*変化に掛かる時間*/
+}
+.image-index:hover {
+	transform: scale(1.05);	/*画像の拡大率*/
+    transition-duration: 0.3s;	/*変化に掛かる時間*/
+    opacity: 0.6;
+}
+
+#buttoncenter {
+    margin: 0 auto;
+}

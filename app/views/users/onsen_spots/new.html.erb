@@ -1,0 +1,100 @@
+<script>
+  history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
+  window.addEventListener('popstate', function(e) {
+  window.location.reload();
+  });
+</script>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>温泉地新規投稿</h2>
+            <%= form_for(@onsen_spot, url: users_create_path) do |f| %>
+                <div class="col-xs-9">
+                    <table class="table" style="font-size: 17px;">
+                      <tbody>
+                        <tr>
+                          <th class="col-xs-3">画像投稿</th>
+                          <td class="col-xs-6"><%= f.attachment_field :image %></td>
+                        </tr>
+                        <tr>
+                          <th class="col-xs-3">星評価</th>
+                          <td class="col-xs-6"></td>
+                        </tr>
+                        <tr>
+                          <th class="col-xs-3">名前</th>
+                          <td class="col-xs-6"><%= f.text_field :name, class: "form-control" %></td>
+                        </tr>
+                        <tr>
+                          <th class="col-xs-3">泉質</th>
+                          <td class="col-xs-6">
+                          <%= collection_check_boxes(:onsen_spot, :sensitsu_ids, Sensitsu.all , :id, :name) do |b| %>
+                            <%= b.label {b.check_box + b.text} %>
+                          <% end %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th class="col-xs-3">効能</th>
+                          <td class="col-xs-6">
+                          <%= collection_check_boxes(:onsen_spot, :kounou_ids, Kounou.all , :id, :name) do |b| %>
+                            <%= b.label {b.check_box + b.text} %>
+                          <% end %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th class="col-xs-3">お湯タイプ</th>
+                          <td class="col-xs-6">
+                          <%= collection_check_boxes(:onsen_spot, :oyutype_ids, Oyutype.all , :id, :name) do |b| %>
+                            <%= b.label {b.check_box + b.text} %>
+                          <% end %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th class="col-xs-3">説明</th>
+                          <td class="col-xs-6"><%= f.text_area :introduction, placeholder: '例) 創業を江戸の元禄と覚える古い宿です。飾らず、気どらず、静かで落ち着ける宿です。外湯はいっさい水道水を加えない、源泉100%のかけ流し温泉でございます。', class: "form-control" %></td>
+                        </tr>
+                        <tr>
+                          <th class="col-xs-3">郵便番号</th>
+                          <td class="col-xs-6"><%= f.text_field :postal_code, placeholder: '例) 531-6023', class: 'form-control' %></td>
+                        </tr>
+                        <tr>
+                          <th class="col-xs-3"><%= f.label :prefecture_name, "都道府県" %></th>
+                          <td class="col-xs-6"><%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください' }, class: 'form-control' %></td>
+                        </tr>
+                        <tr>
+                          <th class="col-xs-3">市区町村</th>
+                          <td class="col-xs-6"><%= f.text_field :address_city, placeholder: '例) 大阪市北区', class: 'form-control' %></td>
+                        </tr>
+                        <tr>
+                          <th class="col-xs-3">番地</th>
+                          <td class="col-xs-6"><%= f.text_field :address_street, placeholder: '例) 大淀中1-1-88', class: 'form-control' %></td>
+                        </tr>
+                        <tr>
+                          <th class="col-xs-3">建物</th>
+                          <td class="col-xs-6"><%= f.text_field :address_building, placeholder: '任意：例) 梅田スカイビル39・40F・屋上', class: 'form-control' %></td>
+                        </tr>
+                        <tr>
+                          <th class="col-xs-3">電話番号</th>
+                          <td class="col-xs-6"><%= f.text_field :phone_number, placeholder: '例) 06-6440-3855', class: 'form-control' %></td>
+                        </tr>
+                        <tr>
+                          <th class="col-xs-3">営業時間</th>
+                          <td class="col-xs-6"><%= f.text_field :business_hour, placeholder: '例) 10:00～22:30（最終入場22:00)', class: 'form-control' %></td>
+                        </tr>
+                        <tr>
+                          <th class="col-xs-3">利用料金</th>
+                          <td class="col-xs-6"><%= f.text_field :fee, placeholder: '例) ¥800', class: 'form-control' %></td>
+                        </tr>
+                        <tr>
+                          <th class="col-xs-3">駐車場</th>
+                          <td class="col-xs-6"><%= f.text_field :parking, placeholder: '例) 有 (敷地内に200台の駐車スペース)', class: 'form-control' %></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                     <div class="text-right">
+                        <%= f.submit "温泉地を登録する" ,class: "btn btn-primary text-right" %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

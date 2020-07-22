@@ -1,0 +1,2 @@
+module Users::OyutypesHelper
+end

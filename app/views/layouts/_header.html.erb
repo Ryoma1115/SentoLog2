@@ -1,0 +1,72 @@
+<header>
+        <nav id="main-navbar" class="navbar navbar-default navbar-fixed-top">
+            <div class="container navbar-container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <%= link_to image_tag("銭湯Log.png", size: '220x65'), root_path, class: "nav navbar-nav navbar-left" %>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                <% if admin_signed_in? %>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><%= render 'layouts/modal', sensitsus: Sensitsu.all, kounous: Kounou.all, oyutypes: Oyutype.all %></li>
+                        <li>
+                            <p data-toggle="dropdown" style="margin: 25px 0 20px 25px; color: #BDB76B;" class="hoveraction">
+                                都道府県 ▼
+                            </p>
+                            <ul class="dropdown-menu" role="menu">
+                                <li role="presentation"><% JpPrefecture::Prefecture.all.each do |prefecture| %><%= link_to prefecture.name, users_onsen_spot_prefecture_search_path(prefecture_search: prefecture.code), class: "sticky", style: "color: black;" %><% end %></li>
+                            </ul>
+                        </li>
+                        <li><%= link_to '会員一覧', admins_users_path, style: "color: #BDB76B;" %></li>
+                        <li><%= link_to '温泉地を登録する', new_users_onsen_spot_path, data: {"turbolinks" => false}, style: "color: #BDB76B;" %></li>
+                        <li><%= link_to ' 温泉一覧 ▼', admins_onsen_spots_path, class: "fas fa-hot-tub", style: "color: #BDB76B;" %></li>
+                        <li><%= link_to '泉質一覧', admins_sensitsus_path, style: "color: #BDB76B;" %></li>
+                        <li><%= link_to '効能一覧', admins_kounous_path, style: "color: #BDB76B;" %></li>
+                        <li><%= link_to 'お湯タイプ一覧', admins_oyutypes_path, style: "color: #BDB76B;" %></li>
+                        <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, style: "color: #BDB76B;" %></li>
+                    </ul>
+                <% elsif user_signed_in? %>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><%= render 'layouts/modal', sensitsus: Sensitsu.all, kounous: Kounou.all, oyutypes: Oyutype.all %></li>
+                        <li>
+                            <p data-toggle="dropdown" style="margin: 25px 0 20px 25px; color: #BDB76B;" class="hoveraction">
+                                都道府県 ▼
+                            </p>
+                            <ul class="dropdown-menu" role="menu">
+                                <li role="presentation"><% JpPrefecture::Prefecture.all.each do |prefecture| %><%= link_to prefecture.name, users_onsen_spot_prefecture_search_path(prefecture_search: prefecture.code), class: "sticky", style: "color: black;" %><% end %></li>
+                            </ul>
+                        </li>
+                        <li><%= link_to '温泉地を登録する', new_users_onsen_spot_path, data: {"turbolinks" => false}, style: "color: #BDB76B;" %></li>
+                        <li><%= link_to ' 温泉一覧 ▼', users_onsen_spots_path, class: "fas fa-hot-tub", style: "color: #BDB76B;" %></li>
+                        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, style: "color: #BDB76B;" %></li>
+                        <li><%= link_to 'マイページ', users_show_path, style: "color: #BDB76B;" %></li>
+                        <li><%= link_to 'About', about_path, style: "color: #BDB76B;" %></li>
+                    </ul>
+                <% else %>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><%= render 'layouts/modal', sensitsus: Sensitsu.all, kounous: Kounou.all, oyutypes: Oyutype.all %></li>
+                        <li>
+                            <p data-toggle="dropdown" style="margin: 25px 0 20px 25px; color: #BDB76B;" class="hoveraction">
+                                都道府県 ▼
+                            </p>
+                            <ul class="dropdown-menu" role="menu">
+                                <li role="presentation"><% JpPrefecture::Prefecture.all.each do |prefecture| %><%= link_to prefecture.name, users_onsen_spot_prefecture_search_path(prefecture_search: prefecture.code), class: "sticky", style: "color: black;" %><% end %></li>
+                            </ul>
+                        </li>
+                        <li><%= link_to '温泉地を登録する', new_users_onsen_spot_path, data: {"turbolinks" => false}, style: "color: #BDB76B;" %></li>
+                        <li><%= link_to ' 温泉一覧 ▼', users_onsen_spots_path, class: "fas fa-hot-tub", style: "color: #BDB76B;" %></li>
+                        <li><%= link_to '新規登録', new_user_registration_path, style: "color: #BDB76B;" %></li>
+                        <li><%= link_to '簡単ログイン（ワンクリック）', new_user_session_path, style: "color: #BDB76B;" %></li>
+                        <li><%= link_to 'About', about_path, style: "color: #BDB76B;" %></li>
+                    </ul>
+                <% end %>
+                </div>
+            </div>
+        </nav>
+    </header>
+    

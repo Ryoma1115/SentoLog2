@@ -1,0 +1,94 @@
+<main>
+      <div class="main-visual">
+        <h1 class="visual"><p>　　　　<br>
+        Sento Log<br>
+        　　　　</p>
+        </h1>
+      </div>
+
+  <div class="row" style="margin: 30px 200px;">
+    <%= search_form_for(@search, url: users_onsen_spots_keyword_search_path) do |f| %>
+        <div class="col-xs-10">
+          <%= f.search_field :name_or_postal_code_or_address_or_address_city_or_phone_number_or_introduction_cont, class:'form-control', placeholder: '温泉地名、住所、電話番号、特徴やキーワード等から検索' %>
+        </div>
+        <div class="col-xs-2">
+          <%= f.submit "検索", class: "btn btn-info btn-block" %>
+        </div>
+    <% end %>
+  </div>
+
+
+  <div class="cotainer">
+    <div class="row">
+      <div class="maps">
+        <h3><i class="fas fa-map-marked-alt">　Mapから探す(マップのマーカーから温泉地へ飛べます)</i></h3>
+        <!--マップ-->
+        <div id="map" style="height: 650px; width: 1000px;"></div>
+      </div>
+      <!-- js部分 -->
+    <script>
+            history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
+            window.addEventListener('popstate', function(e) {
+            window.location.reload();
+            });
+            let map;
+            let marker = [];
+            let infoWindow = [];
+            let markerData = gon.onsen_spots;
+
+            function initMap() {
+              // 位置情報を取得
+              navigator.geolocation.getCurrentPosition(function (position) {
+                LatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+                // 取得した位置情報を中心に表示
+                map = new google.maps.Map(document.getElementById('map'), {
+                  center: LatLng,
+                  zoom: 15
+                });
+
+                // 繰り返し処理でマーカーと吹き出しを複数表示
+                for (var i = 0; i < markerData.length; i++) {
+                  let id = markerData[i]['id']
+
+                  // 各地点にマーカーを立てる
+                  markerLatLng = new google.maps.LatLng({
+                    lat: markerData[i]['latitude'],
+                    lng: markerData[i]['longitude']
+                  });
+                  marker[i] = new google.maps.Marker({
+                    position: markerLatLng,
+                    map: map
+                  });
+
+                  // 各地点の吹き出しを作成
+                  infoWindow[i] = new google.maps.InfoWindow({
+                    // 吹き出しに表示する内容
+                    content: markerData[i]['name'] + ' ' + `<a href='/users/onsen_spots/${id}'>温泉地を見る←</a>`
+                  });
+
+                  // マーカーにクリックイベントを追加
+                  markerEvent(i);
+                }
+              })
+            }
+
+            // マーカーをクリックすると吹き出しが表示される
+            function markerEvent(i) {
+              marker[i].addListener('click', function () {
+                infoWindow[i].open(map, marker[i]);
+              });
+            }
+      </script>
+
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+      </script>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <h3><%= link_to ' 温泉一覧はこちら', users_onsen_spots_path, class: "fas fa-hot-tub", style: "float: right; color: black;" %></h3>
+    </div>
+  </div>
+</main>
