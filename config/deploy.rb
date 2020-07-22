@@ -4,7 +4,7 @@ lock "~> 3.14.1"
 set :application, "SentoLog"
 set :repo_url, "https://github.com/Ryoma1115/SentoLog.git"
 
-set :deploy_to, "/home/ec2-user/アプリケーション名"
+set :deploy_to, "/home/ec2-user/SentoLog"
 set :rbenv_ruby, '2.5.7'
 set :linked_files, %w{config/master.key .env}
 append :linked_dirs, "log", "public/system", "tmp"
