@@ -5,6 +5,7 @@ class Review < ApplicationRecord
     belongs_to :user
     has_many :favorites
 
+    validates :title, presence: true
     validates :comment, presence: true
     validates :rate, numericality: {
         less_than_or_equal_to: 5,

@@ -113,6 +113,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.9.1)
+      devise (>= 4.7.1)
+    devise-i18n-views (0.3.7)
+    diff-lcs (1.4.4)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.5)
@@ -121,6 +125,11 @@ GEM
       railties (>= 3.2, < 6.1)
     erubi (1.9.0)
     execjs (2.7.0)
+    factory_bot (4.11.1)
+      activesupport (>= 3.0.0)
+    factory_bot_rails (4.11.1)
+      factory_bot (~> 4.11.1)
+      railties (>= 3.0.0)
     ffi (1.13.1)
     font-awesome-sass (5.4.1)
       sassc (>= 1.11)
@@ -215,6 +224,10 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.2.4.3)
       sprockets-rails (>= 2.0.0)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -249,6 +262,23 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rspec-core (3.9.2)
+      rspec-support (~> 3.9.3)
+    rspec-expectations (3.9.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-mocks (3.9.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-rails (4.0.1)
+      actionpack (>= 4.2)
+      activesupport (>= 4.2)
+      railties (>= 4.2)
+      rspec-core (~> 3.9)
+      rspec-expectations (~> 3.9)
+      rspec-mocks (~> 3.9)
+      rspec-support (~> 3.9)
+    rspec-support (3.9.3)
     ruby2_keywords (0.0.2)
     ruby_dep (1.5.0)
     rubyzip (2.3.0)
@@ -274,6 +304,8 @@ GEM
       rack-protection (= 2.0.8.1)
       tilt (~> 2.0)
     spring (2.1.0)
+    spring-commands-rspec (1.0.4)
+      spring (>= 0.9.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
@@ -308,6 +340,10 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webdrivers (4.4.1)
+      nokogiri (~> 1.6)
+      rubyzip (>= 1.3.0)
+      selenium-webdriver (>= 3.0, < 4.0)
     websocket-driver (0.7.2)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -329,7 +365,10 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  devise-i18n
+  devise-i18n-views
   dotenv-rails
+  factory_bot_rails (~> 4.11)
   font-awesome-sass (~> 5.4.1)
   geocoder
   gon
@@ -342,18 +381,22 @@ DEPENDENCIES
   mysql2
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.3)
+  rails-controller-testing
   ransack
   refile!
   refile-mini_magick
+  rspec-rails (~> 4.0.0.beta2)
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
+  spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
   sqlite3
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  webdrivers
 
 RUBY VERSION
    ruby 2.5.7p206
