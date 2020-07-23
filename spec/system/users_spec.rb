@@ -6,7 +6,7 @@ RSpec.describe "Users", type: :system do
   end
 
   describe 'ユーザー認証のテスト' do
-    describe 'ユーザー新規登録' do
+    describe 'ユーザー新規登録ページ' do
       before do
         visit new_user_registration_path
       end
@@ -32,8 +32,53 @@ RSpec.describe "Users", type: :system do
           click_button '新規登録'
           expect(page).to have_content "アカウント登録が完了しました。"
         end
-      end
 
+        it 'ブランクでユーザー登録を行うと失敗のフラッシュ' do
+          fill_in 'user[last_name]', with: ''
+          fill_in 'user[first_name]', with: ''
+          fill_in 'user[last_name_kana]', with: ''
+          fill_in 'user[last_name_kana]', with: ''
+          fill_in 'user[email]', with: ''
+          fill_in 'user[postal_code]', with: '0000000'
+          fill_in 'user[address]', with: 'osaka'
+          fill_in 'user[phone_number]', with: '0000000000'
+          fill_in 'user[password]', with: 'password'
+          fill_in 'user[password_confirmation]', with: 'password'
+          click_button '新規登録'
+          expect(page).to have_content "5 件のエラーが発生したため 会員 は保存されませんでした。"
+        end
+      end
     end
   end
+
+  describe 'ユーザーログイン' do
+    let(:user) { create(:user) }
+    before do
+      visit new_user_session_path
+    end
+    context 'ログイン画面に偏移' do
+      let(:test_user) { user }
+      it 'ログインに成功する' do
+        
+      end
+    end
+  end
+
+  describe 'プロフィール編集ページ' do
+    before do
+      user = create(:user)
+      visit new_user_session_path
+      fill_in 'user[email]', with: user.email
+      fill_in 'user[password]', with: user.password
+      click_button 'ログイン'
+      click_link "マイページ"
+    end
+
+      context '表示の確認' do
+        it 'マイページと表示される' do
+          expect(page).to have_content('マイページ')
+        end
+      end
+  end
+
 end
