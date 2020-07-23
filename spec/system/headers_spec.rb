@@ -2,10 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Headers", type: :system do
   before do
-    driven_by :selenium_chrome_headless
+    driven_by(:rack_test)
   end
-  Capybara.default_driver = :rack_test
-  Capybara.javascript_driver = :selenium_chrome_headless
 
   describe 'ヘッダーのテスト' do
     describe 'ログインしていない場合' do
@@ -14,8 +12,12 @@ RSpec.describe "Headers", type: :system do
       end
 
       context 'ヘッダーの表示を確認' do
-        subject { page }
-        it ''
+        it 'ロゴが表示されているか' do
+          expect(page).to have_link '', href: root_path
+        end
+        it '温泉地を登録するリンクが表示されている' do
+          expect(page).to have_content('温泉地を登録する')
+        end
       end
     end
   end
