@@ -4,6 +4,7 @@ class Users::OnsenSpotsController < ApplicationController
 
 
     def index
+        @onsen_spot_all = OnsenSpot.all
         @onsen_spots = OnsenSpot.all.page(params[:page]).per(10)
     end
 
@@ -25,6 +26,10 @@ class Users::OnsenSpotsController < ApplicationController
         else
             render :new
         end
+    end
+
+    def keyword_search
+        
     end
 
     # 都道府県検索

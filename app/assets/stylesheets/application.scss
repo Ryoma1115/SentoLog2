@@ -47,7 +47,7 @@ body {
 
 .navbar {
   margin-bottom: 0;
-  background-color: #fff;
+  background-color: #33383c;
   transition: all 0.2s ease-out;
 }
 
@@ -58,7 +58,7 @@ body {
 .navbar .navbar-nav li a {
   font-size: 14px;
   text-transform: uppercase;
-  color: #2E1C05;
+  color: #BDB76B;
   transition: all 0.2s ease-out;
 }
 
@@ -128,7 +128,7 @@ body {
     left: 0;
     width: 100%;
     height: 1px;
-    background: #2E1C05;
+    background: #BDB76B;
     content: '';
     opacity: 0;
     transition: height 0.3s, opacity 0.3s, transform 0.3s;
@@ -147,7 +147,7 @@ body {
     left: 0;
     width: 100%;
     height: 1px;
-    background: #2E1C05;
+    background: #BDB76B;
     content: '';
     opacity: 0;
     transition: height 0.3s, opacity 0.3s, transform 0.3s;
@@ -178,7 +178,7 @@ footer {
 }
 
 .logo {
-  color: DarkKhaki;
+  color: #BDB76B;
   font-weight: 700;
   font-size: 30px;
   font-family: “HGP行書体”, “ＭＳ Ｐ明朝”, “MS PMincho”, serif;
@@ -186,9 +186,9 @@ footer {
 
 .address span,
 .menu span {
-  color: DarkKhaki;
+  color: #BDB76B;
   font-weight: bold;
-  border-bottom: 1px solid DarkKhaki;
+  border-bottom: 1px solid #BDB76B;
   padding: 10px 0px;
   display: block;
   text-transform: uppercase;
@@ -198,7 +198,7 @@ footer {
 
 .address li a,
 .menu li a {
-  color: DarkKhaki;
+  color: #BDB76B;
   letter-spacing: 3px;
   text-decoration: none;
   font-size: 14px;
@@ -220,4 +220,8 @@ footer {
 .pagination>.active>a {     
   background: #d3d3d3;     /*背景の色を変える*/
       /*角を丸くする*/
+}
+
+.navbar-default {
+  border-color: #33383c;
 }

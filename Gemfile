@@ -42,6 +42,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0.beta2' 
   gem 'rails-controller-testing'
   gem 'factory_bot_rails', '~> 4.11'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -84,6 +88,8 @@ gem "geocoder"
 gem 'font-awesome-sass', '~> 5.4.1'
 
 gem 'jp_prefecture'
+
+gem 'ransack'
 
 gem 'jquery-turbolinks'
 
