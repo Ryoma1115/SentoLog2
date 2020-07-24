@@ -26,6 +26,11 @@
         <div id="map" style="height: 650px; width: 1000px;"></div>
       </div>
       <!-- js部分 -->
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+    </script>
+    
     <script>
             history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
             window.addEventListener('popstate', function(e) {
@@ -81,9 +86,7 @@
             }
       </script>
 
-      <script async defer
-      src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
-      </script>
+      
     </div>
   </div>
   <div class="container">
