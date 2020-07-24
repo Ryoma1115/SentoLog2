@@ -23,6 +23,7 @@ class Users::OnsenSpotsController < ApplicationController
         @onsen_spot = OnsenSpot.new(onsen_spot_params)
         if @onsen_spot.save
             redirect_to users_onsen_spots_path
+            flash[:notice] = "温泉地を登録しました。"
         else
             render :new
         end
