@@ -101,9 +101,9 @@ RSpec.describe "OnsenSpots", type: :system do
         it '温泉地一覧と表示される' do
           expect(page).to have_content '温泉地一覧'
         end
-        # it '温泉地一覧（全何件）が表示される' do
-        #   expect(page).to have_content "温泉地一覧(全#{onsen_spots.count}件)"
-        # end
+        it '温泉地一覧（全何件）が表示される' do
+          expect(page).to have_content "温泉地一覧(全#{onsen_spots.count}件)"
+        end
         # it '温泉地詳細のリンクが表示される' do
         #   expect(page).to have_link '', href: users_onsen_spot_path(onsen_spot)
         # end
