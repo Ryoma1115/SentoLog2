@@ -6,56 +6,10 @@ RSpec.describe "OnsenSpots", type: :system do
   end
 
   describe '温泉地に関するテスト' do
-    let(:user) { FactoryBot.create(:user) }
-    let(:user2) { FactoryBot.create(:user) }
-    let(:onsen_spot) { FactoryBot.create(
-    :onsen_spot,
-    :name,
-    :introduction,
-    :postal_code,
-    :prefecture_name,
-    :prefecture_code,
-    :address_city,
-    :address_street,
-    :address_building,
-    :address,
-    :phone_number,
-    :business_hour,
-    :fee,
-    :parking,
-    :image,
-    :latitude,
-    :longitude,
-    {:sensitsu_ids => []},
-    {:kounou_ids => []},
-    {:oyutype_ids => []},
-    user: user
-    ) 
-    }
-    let(:onsen_spot2) { FactoryBot.create(
-    :onsen_spot,
-    :name,
-    :introduction,
-    :postal_code,
-    :prefecture_name,
-    :prefecture_code,
-    :address_city,
-    :address_street,
-    :address_building,
-    :address,
-    :phone_number,
-    :business_hour,
-    :fee,
-    :parking,
-    :image,
-    :latitude,
-    :longitude,
-    {:sensitsu_ids => []},
-    {:kounou_ids => []},
-    {:oyutype_ids => []},
-    user: user2
-    ) 
-    }
+    let(:user) { create(:user) }
+    let(:user2) { create(:user) }
+    let(:onsen_spot) { create(:onsen_spot, user: user) }
+    let(:onsen_spot2) { create(:onsen_spot, user: user2) }
     before do
       visit new_user_session_path
       fill_in 'user[email]', with: user.email
@@ -159,9 +113,9 @@ RSpec.describe "OnsenSpots", type: :system do
         # it '温泉地に行ったのリンクが表示される' do
         #   expect(page).to have_link '', href: users_onsen_spot_wents_path(onsen_spot.id)
         # end
-        it '星評価が表示される' do
-          expect(page).to have_content "星評価" 
-        end
+        # it '星評価が表示される' do
+        #   expect(page).to have_content "星評価" 
+        # end
       end
     end
 
