@@ -1,35 +1,40 @@
 <div class="container">
-  <h2>簡単ログイン(ワンクリック)↓↓</h2><br>
-  <h3 class="contents-intro">ログインボタンをクリックしていただけるとログインできます。<br></h3>
-  <h3 class="contents-intro">[email: t@t, password: testtest]</h3>
-
-<span><br></span>
-
-
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :メールアドレス %><br />
-      <%= f.email_field :email, autofocus: true, :value =>"t@t" %>
+  <div class="row">
+    <div class="col-xs-5">
+      <h2>簡単ログイン(ワンクリック)</h2>
+      <h3 class="contents-intro">ログインボタンをクリックしていただけると<br>ログインできます。<br></h3>
+      <h3 class="contents-intro">以下の情報でログインしております。<br>Email: t@t <br>Password: testtest</h3>
     </div>
 
-    <div class="field">
-      <%= f.label :パスワード %><br />
-      <%= f.password_field :password, :value =>"testtest" %>
-    </div>
+  <span><br></span>
 
-    <% if devise_mapping.rememberable? %>
+    <div class="col-xs-5">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :ログインを記憶する %>
+        <%= f.label :メールアドレス %><br />
+        <%= f.email_field :email, autofocus: true, :value =>"t@t" %>
       </div>
-    <% end %>
 
-    <div class="actions">
-      <%= f.submit "ログイン", class: 'btn btn-primary' %>
+      <div class="field">
+        <%= f.label :パスワード %><br />
+        <%= f.password_field :password, :value =>"testtest" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :ログインを記憶する %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "ログイン", class: 'btn btn-primary' %>
+      </div>
+      <% end %>
+
+      <p>&nbsp;</p>
+
+      <%= render "users/shared/links" %>
     </div>
-  <% end %>
-
-  <p>&nbsp;</p>
-
-  <%= render "users/shared/links" %>
+  </div>
 </div>
