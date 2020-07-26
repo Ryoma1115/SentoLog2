@@ -80,7 +80,7 @@ RSpec.describe "OnsenSpots", type: :system do
         it '駐車場投稿フォームが表示される' do
           expect(page).to have_field 'onsen_spot[parking]'
         end
-        it '編集内容を保存するリンクが表示される' do
+        it '温泉地を登録するボタンが表示される' do
           expect(page).to have_button '温泉地を登録する'
         end
         it '投稿に成功する' do
