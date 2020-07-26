@@ -12,6 +12,11 @@ RSpec.describe "OnsenSpots", type: :system do
     let!(:onsen_spot2) { create(:onsen_spot) }
     let!(:sensitsu) { create(:sensitsu) }
     let!(:sensitsu_map) { create(:sensitsu_map) }
+    let!(:kounou) { create(:kounou) }
+    let!(:kounou_map) { create(:kounou_map) }
+    let!(:oyutype) { create(:oyutype) }
+    let!(:oyutype_map) { create(:oyutype_map) }
+
     before do
       visit new_user_session_path
       fill_in 'user[email]', with: user.email
@@ -38,10 +43,10 @@ RSpec.describe "OnsenSpots", type: :system do
           expect(page).to have_field 'onsen_spot[sensitsu_ids][]'
         end
         it '効能投稿フォームが表示される' do
-          expect(page).to have_field 'onsen_spot[sensitsu_ids][]'
+          expect(page).to have_field 'onsen_spot[kounou_ids][]'
         end
         it 'お湯タイプ投稿フォームが表示される' do
-          expect(page).to have_field 'onsen_spot[sensitsu_ids][]'
+          expect(page).to have_field 'onsen_spot[oyutype_ids][]'
         end
         it '説明投稿フォームが表示される' do
           expect(page).to have_field 'onsen_spot[introduction]'
@@ -133,8 +138,6 @@ RSpec.describe "OnsenSpots", type: :system do
     end
 
     describe '温泉地詳細ページのテスト' do
-      let!(:sensitsu) { create(:sensitsu) }
-      let!(:sensitsu_map) { create(:sensitsu_map) }
       before do
         visit users_onsen_spot_path(onsen_spot)
       end
