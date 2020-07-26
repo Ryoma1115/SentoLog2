@@ -8,14 +8,14 @@ RSpec.describe "Reviews", type: :system do
   describe '口コミ投稿に関するテスト' do
     let(:user) { create(:user) }
     let(:user2) { create(:user) }
-    let(:onsen_spot) { create(:onsen_spot, user: user) }
+    let(:onsen_spot) { create(:onsen_spot) }
     let(:review) { create(:review, user_id: user.id, onsen_spot_id: onsen_spot.id) }
     before do
       visit new_user_session_path
       fill_in 'user[email]', with: user.email
       fill_in 'user[password]', with: user.password
       click_button 'ログイン'
-      visit users_onsen_spot(onsen_spot)
+      visit users_onsen_spot_path(onsen_spot)
     end
 
     describe '口コミ投稿フォームのテスト' do

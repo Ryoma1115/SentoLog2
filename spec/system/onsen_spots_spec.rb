@@ -6,10 +6,12 @@ RSpec.describe "OnsenSpots", type: :system do
   end
 
   describe '温泉地に関するテスト' do
-    let(:user) { create(:user) }
-    let(:user2) { create(:user) }
-    let(:onsen_spot) { create(:onsen_spot, user: user) }
-    let(:onsen_spot2) { create(:onsen_spot, user: user2) }
+    let!(:user) { create(:user) }
+    let!(:user2) { create(:user) }
+    let!(:onsen_spot) { create(:onsen_spot) }
+    let!(:onsen_spot2) { create(:onsen_spot) }
+    let!(:sensitsu) { create(:sensitsu) }
+    let!(:sensitsu_map) { create(:sensitsu_map) }
     before do
       visit new_user_session_path
       fill_in 'user[email]', with: user.email
@@ -32,15 +34,15 @@ RSpec.describe "OnsenSpots", type: :system do
         it '名前投稿フォームが表示される' do
           expect(page).to have_field 'onsen_spot[name]'
         end
-        # it '泉質チェックフォームが表示される' do
-        #   expect(page).to have_unchecked_field 'onsen_spot[sensitsu_ids][]'
-        # end
-        # it '効能チェックフォームが表示される' do
-        #   expect(page).to have_unchecked_field 'onsen_spot[kounou_ids][]'
-        # end
-        # it 'お湯タイプチェックフォームが表示される' do
-        #   expect(page).to have_unchecked_field 'onsen_spot[oyutype_ids][]'
-        # end
+        it '泉質投稿フォームが表示される' do
+          expect(page).to have_field 'onsen_spot[sensitsu_ids][]'
+        end
+        it '効能投稿フォームが表示される' do
+          expect(page).to have_field 'onsen_spot[sensitsu_ids][]'
+        end
+        it 'お湯タイプ投稿フォームが表示される' do
+          expect(page).to have_field 'onsen_spot[sensitsu_ids][]'
+        end
         it '説明投稿フォームが表示される' do
           expect(page).to have_field 'onsen_spot[introduction]'
         end
@@ -102,20 +104,45 @@ RSpec.describe "OnsenSpots", type: :system do
           expect(page).to have_content '温泉地一覧'
         end
         it '温泉地一覧（全何件）が表示される' do
-          expect(page).to have_content "温泉地一覧(全#{onsen_spots.count}件)"
+          # pp page.html
+          expect(page).to have_content "温泉地一覧(全#{OnsenSpot.count}件)"
         end
-        # it '温泉地詳細のリンクが表示される' do
-        #   expect(page).to have_link '', href: users_onsen_spot_path(onsen_spot)
-        # end
-        # it '温泉地に行きたいのリンクが表示される' do
-        #   expect(page).to have_link '', href: users_onsen_spot_likes_path(onsen_spot.id)
-        # end
-        # it '温泉地に行ったのリンクが表示される' do
-        #   expect(page).to have_link '', href: users_onsen_spot_wents_path(onsen_spot.id)
-        # end
-        # it '星評価が表示される' do
-        #   expect(page).to have_content "星評価" 
-        # end
+        it '温泉地詳細のリンク(写真)が表示される' do
+          expect(page).to have_link '', href: users_onsen_spot_path(onsen_spot)
+        end
+        it '温泉地に行きたいのリンクが表示される' do
+          expect(page).to have_link '', href: users_onsen_spot_likes_path(onsen_spot.id)
+        end
+        it '温泉地に行ったのリンクが表示される' do
+          expect(page).to have_link '', href: users_onsen_spot_wents_path(onsen_spot.id)
+        end
+        it '温泉地の情報が表示される' do
+          expect(page).to have_content "星評価"
+          expect(page).to have_content "名前" 
+          expect(page).to have_content "泉質" 
+          expect(page).to have_content "効能"
+          expect(page).to have_content "お湯タイプ" 
+          expect(page).to have_content "説明" 
+          expect(page).to have_content "住所"
+          expect(page).to have_content "電話番号" 
+          expect(page).to have_content "営業時間" 
+          expect(page).to have_content "利用料金"
+          expect(page).to have_content "駐車場"
+        end
+      end
+    end
+
+    describe '温泉地詳細ページのテスト' do
+      let!(:sensitsu) { create(:sensitsu) }
+      let!(:sensitsu_map) { create(:sensitsu_map) }
+      before do
+        visit users_onsen_spot_path(onsen_spot)
+      end
+
+      context '表示の確認' do
+        it 'namae' do
+          pp page.html
+        end
       end
     end
 
