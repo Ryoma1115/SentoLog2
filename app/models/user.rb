@@ -18,8 +18,7 @@ class User < ApplicationRecord
   validates :postal_code, presence: true, length: { is: 7 }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+  validates :email, presence: true, uniqueness: true
 
   def full_name
     last_name + " " + first_name
