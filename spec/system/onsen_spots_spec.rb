@@ -16,6 +16,8 @@ RSpec.describe "OnsenSpots", type: :system do
     let!(:kounou_map) { create(:kounou_map) }
     let!(:oyutype) { create(:oyutype) }
     let!(:oyutype_map) { create(:oyutype_map) }
+    let!(:review) { create(:review) }
+    let!(:review2) { create(:review) }
 
     before do
       visit new_user_session_path
@@ -101,12 +103,25 @@ RSpec.describe "OnsenSpots", type: :system do
     end
 
     describe '温泉一覧画面のテスト' do
+      let!(:onsen_spot3) { create(:onsen_spot) }
+      let!(:onsen_spot4) { create(:onsen_spot) }
+      let!(:onsen_spot5) { create(:onsen_spot) }
+      let!(:onsen_spot6) { create(:onsen_spot) }
+      let!(:onsen_spot7) { create(:onsen_spot) }
+      let!(:onsen_spot8) { create(:onsen_spot) }
+      let!(:onsen_spot9) { create(:onsen_spot) }
+      let!(:onsen_spot10) { create(:onsen_spot) }
+      let!(:onsen_spot11) { create(:onsen_spot) }
       before do
         visit users_onsen_spots_path
       end
       context '表示の確認' do
         it '温泉地一覧と表示される' do
+
           expect(page).to have_content '温泉地一覧'
+        end
+        it '温泉地一覧にページネーションが表示される' do
+          expect(page).to have_css 'ul.pagination'
         end
         it '温泉地一覧（全何件）が表示される' do
           # pp page.html
@@ -143,8 +158,32 @@ RSpec.describe "OnsenSpots", type: :system do
       end
 
       context '表示の確認' do
-        it 'namae' do
-          pp page.html
+        it '温泉地詳細情報が表示される' do
+          expect(page).to have_content(onsen_spot.name)
+          expect(page).to have_content(onsen_spot.postal_code)
+          expect(page).to have_content(onsen_spot.prefecture_name)
+          expect(page).to have_content(onsen_spot.address_city)
+          expect(page).to have_content(onsen_spot.address_street)
+          expect(page).to have_content(onsen_spot.address_building)
+          expect(page).to have_content(onsen_spot.introduction)
+        end
+        it '（口コミ何件）かが表示される' do
+          expect(page).to have_content "(口コミ#{Review.count}件)"
+        end
+        it 'その温泉の泉質が表示される' do
+          expect(page).to have_content(sensitsu.name)
+        end
+        it 'その温泉の効能が表示される' do
+          expect(page).to have_content(kounou.name)
+        end
+        it 'その温泉のお湯タイプが表示される' do
+          expect(page).to have_content(oyutype.name)
+        end
+        it '温泉地に行きたいのリンクが表示される' do
+          expect(page).to have_link '', href: users_onsen_spot_likes_path(onsen_spot.id)
+        end
+        it '温泉地に行ったのリンクが表示される' do
+          expect(page).to have_link '', href: users_onsen_spot_wents_path(onsen_spot.id)
         end
       end
     end

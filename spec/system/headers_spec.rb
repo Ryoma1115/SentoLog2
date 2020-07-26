@@ -6,8 +6,15 @@ RSpec.describe "Headers", type: :system do
   end
 
   describe 'ヘッダーのテスト' do
+    let!(:user) { create(:user) }
+    let!(:onsen_spot) { create(:onsen_spot) }
+    let!(:sensitsu) { create(:sensitsu) }
+    let!(:sensitsu_map) { create(:sensitsu_map) }
+    let!(:kounou) { create(:kounou) }
+    let!(:kounou_map) { create(:kounou_map) }
+    let!(:oyutype) { create(:oyutype) }
+    let!(:oyutype_map) { create(:oyutype_map) }
     describe 'ログインしていない場合' do
-      let(:sensitsu) { create(:sensitsu) }
       before do
         visit root_path
       end
@@ -41,16 +48,16 @@ RSpec.describe "Headers", type: :system do
 
       context 'ヘッダーのリンクを確認' do
         it 'モーダルの泉質リンクから泉質showに移動' do
-          # expect(page).to have_link '', href: users_sensitsu_path(sensitsu.id)
+          expect(page).to have_link '', href: users_sensitsu_path(sensitsu.id)
         end
         it 'モーダルの効能リンクから効能showに移動' do
-          # expect(page).to have_link '', href: users_kounou_path(kounou.id)
+          expect(page).to have_link '', href: users_kounou_path(kounou.id)
         end
         it 'モーダルのお湯タイプリンクからお湯タイプshowに移動' do
-          # expect(page).to have_link '', href: users_oyutype_path(oyutype.id)
+          expect(page).to have_link '', href: users_oyutype_path(oyutype.id)
         end
         it '都道府県リンクが表示されている' do
-          # expect(page).to have_link '', href: users_onsen_spot_prefecture_search_path(prefecture_search: prefecture.code)
+          expect(page).to have_link '', href: "/users/onsen_spot/prefecture/search?prefecture_search=1"
         end
         it '温泉地を登録するリンクが表示されている' do
           expect(page).to have_link '', href: new_users_onsen_spot_path
@@ -104,16 +111,16 @@ RSpec.describe "Headers", type: :system do
 
       context 'ヘッダーのリンクを確認' do
         it 'モーダルの泉質リンクから泉質showに移動' do
-          # expect(page).to have_link '', href: users_sensitsu_path(sensitsu.id)
+          expect(page).to have_link '', href: users_sensitsu_path(sensitsu.id)
         end
         it 'モーダルの効能リンクから効能showに移動' do
-          # expect(page).to have_link '', href: users_kounou_path(kounou.id)
+          expect(page).to have_link '', href: users_kounou_path(kounou.id)
         end
         it 'モーダルのお湯タイプリンクからお湯タイプshowに移動' do
-          # expect(page).to have_link '', href: users_oyutype_path(oyutype.id)
+          expect(page).to have_link '', href: users_oyutype_path(oyutype.id)
         end
         it '都道府県リンクが表示されている' do
-          # expect(page).to have_link '', href: users_onsen_spot_prefecture_search_path(prefecture_search: prefecture.code)
+          expect(page).to have_link '', href: "/users/onsen_spot/prefecture/search?prefecture_search=1"
         end
         it '温泉地を登録するリンクが表示されている' do
           expect(page).to have_link '', href: new_users_onsen_spot_path

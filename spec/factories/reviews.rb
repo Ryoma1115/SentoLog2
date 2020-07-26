@@ -5,5 +5,6 @@ FactoryBot.define do
     rate { rand(1.0..5.0) }
     onsen_spot_id { 1 }
     user_id { 1 }
+    image {  Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/review1.jpg'))}
   end
 end
