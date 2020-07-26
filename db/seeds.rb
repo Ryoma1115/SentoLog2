@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.create!(
-   email: 't@t',
+   email: 'g@g',
    password: 'testtest'
 )
 
@@ -15,6 +15,7 @@ User.create!(
   [
   {email: 't@t',
     password: 'testtest',
+    password_confirmation: 'testtest',
     last_name: '大阪',
     first_name: '太郎',
     last_name_kana: 'オオサカ',
@@ -25,6 +26,7 @@ User.create!(
   },
   { email: 'k@k',
     password: 'testtest',
+    password_confirmation: 'testtest',
     last_name: '京都',
     first_name: '花子',
     last_name_kana: 'キョウト',
@@ -35,6 +37,7 @@ User.create!(
   },
   { email: 'n@n',
     password: 'testtest',
+    password_confirmation: 'testtest',
     last_name: '奈良',
     first_name: '京子',
     last_name_kana: 'ナラ',
@@ -45,6 +48,7 @@ User.create!(
   },
   { email: 'w@w',
     password: 'testtest',
+    password_confirmation: 'testtest',
     last_name: '和歌山',
     first_name: '敏郎',
     last_name_kana: 'ワカヤマ',
@@ -55,6 +59,7 @@ User.create!(
   },
   { email: 'h@h',
     password: 'testtest',
+    password_confirmation: 'testtest',
     last_name: '兵庫',
     first_name: '弘樹',
     last_name_kana: 'ヒョウゴ',
@@ -132,37 +137,37 @@ OnsenSpot.create!(
       sensitsu_ids: rand(1..10),
       kounou_ids: rand(1..20),
       oyutype_ids: rand(1..10),
-      name: '源泉かけ流し天然温泉 白馬',
-      introduction: '長野県白馬村のプチホテル。風呂自慢、グルメ自慢の癒しの宿。',
-      postal_code: '3999301',
-      address: '長野県北安曇郡白馬村大字北城１４７１８−２５０',
-      prefecture_code: 20,
-      address_city: '北安曇郡',
-      address_street: '白馬村大字北城１４７１８−２５０',
+      name: '朝日温泉',
+      introduction: '朝日温泉 大阪市住吉区にある軟水使用の健康近代公衆浴場 定期的に音楽LIVEしてます！',
+      postal_code: '5580041',
+      address: '大阪府大阪市住吉区南住吉３丁目１１−８',
+      prefecture_code: 27,
+      address_city: '大阪市住吉区',
+      address_street: '南住吉３丁目１１−８',
       address_building: '',
-      phone_number: '0261726848',
-      business_hour: '15:00 ~ 0:00',
-      fee: '800',
+      phone_number: '0880331600',
+      business_hour: '6:30 ~ 22:00',
+      fee: '700',
       parking: '有',
-      image: open("./app/assets/images/naganohakuba.jpg")
+      image: open("./app/assets/images/onsen_arupusu.jpg")
     },
     {
       sensitsu_ids: rand(1..10),
       kounou_ids: rand(1..20),
       oyutype_ids: rand(1..10),
-      name: 'ぬぐだまりの里　秘湯　八甲田温泉',
-      introduction: '日帰りも宿泊もできる青森の温泉、ラムネ風呂・龍神の湯・八甲田元湯の特徴のある4種類の源泉が人気。',
-      postal_code: '0300955',
-      address: '青森県青森市駒込深沢766-2',
-      prefecture_code: 2,
-      address_city: '青森市',
-      address_street: '駒込深沢766-2',
+      name: '四万十の宿いやしの湯',
+      introduction: '温泉と薬湯、そして海水露天風呂の3種類の湯があり、疲れた心と体を癒してくれます。草木が近く、庭のような造りになっている海水露天風呂には、広々としたスペースにビーチチェアが置かれています。長湯で火照った体をビーチチェアで少し休めればまた温泉を楽しめます。',
+      postal_code: '7870155',
+      address: '高知県四万十市下田3370',
+      prefecture_code: 39,
+      address_city: '四万十市',
+      address_street: '下田3370',
       address_building: '',
-      phone_number: '0262222222',
-      business_hour: '10:00 ~ 22:00',
-      fee: '700',
+      phone_number: '0880331600',
+      business_hour: '6:30 ~ 22:00',
+      fee: '680',
       parking: '有',
-      image: open("./app/assets/images/onsen_sizen.jpg")
+      image: open("./app/assets/images/kouti.jpg")
     },
     {
       sensitsu_ids: rand(1..10),
@@ -298,7 +303,7 @@ OnsenSpot.create!(
       introduction: '平成13年に誕生した複合型リラクセーション施設。海水風呂では海水に含まれるイオン・カルシウム・マグネシウムなどが吸収できる。露天風呂では夕日が眺められる。サイクリングのお客さん御用達。',
       postal_code: '7941304',
       address: '愛媛県今治市大三島町宮浦5902',
-      prefecture_code: 34,
+      prefecture_code: 38,
       address_city: '今治市',
       address_street: '大三島町宮浦5902',
       address_building: '',
@@ -312,37 +317,37 @@ OnsenSpot.create!(
       sensitsu_ids: rand(1..10),
       kounou_ids: rand(1..20),
       oyutype_ids: rand(1..10),
-      name: '四万十の宿いやしの湯',
-      introduction: '温泉と薬湯、そして海水露天風呂の3種類の湯があり、疲れた心と体を癒してくれます。草木が近く、庭のような造りになっている海水露天風呂には、広々としたスペースにビーチチェアが置かれています。長湯で火照った体をビーチチェアで少し休めればまた温泉を楽しめます。',
-      postal_code: '7870155',
-      address: '高知県四万十市下田3370',
-      prefecture_code: 39,
-      address_city: '四万十市',
-      address_street: '下田3370',
+      name: 'ぬぐだまりの里　秘湯　八甲田温泉',
+      introduction: '日帰りも宿泊もできる青森の温泉、ラムネ風呂・龍神の湯・八甲田元湯の特徴のある4種類の源泉が人気。',
+      postal_code: '0300955',
+      address: '青森県青森市駒込深沢766-2',
+      prefecture_code: 2,
+      address_city: '青森市',
+      address_street: '駒込深沢766-2',
       address_building: '',
-      phone_number: '0880331600',
-      business_hour: '6:30 ~ 22:00',
-      fee: '680',
+      phone_number: '0262222222',
+      business_hour: '10:00 ~ 22:00',
+      fee: '700',
       parking: '有',
-      image: open("./app/assets/images/kouti.jpg")
+      image: open("./app/assets/images/onsen_sizen.jpg")
     },
     {
       sensitsu_ids: rand(1..10),
       kounou_ids: rand(1..20),
       oyutype_ids: rand(1..10),
-      name: '朝日温泉',
-      introduction: '朝日温泉 大阪市住吉区にある軟水使用の健康近代公衆浴場 定期的に音楽LIVEしてます！',
-      postal_code: '5580041',
-      address: '大阪府大阪市住吉区南住吉３丁目１１−８',
-      prefecture_code: 27,
-      address_city: '大阪市住吉区',
-      address_street: '南住吉３丁目１１−８',
+      name: '源泉かけ流し天然温泉 白馬',
+      introduction: '長野県白馬村のプチホテル。風呂自慢、グルメ自慢の癒しの宿。',
+      postal_code: '3999301',
+      address: '長野県北安曇郡白馬村大字北城１４７１８−２５０',
+      prefecture_code: 20,
+      address_city: '北安曇郡',
+      address_street: '白馬村大字北城１４７１８−２５０',
       address_building: '',
-      phone_number: '0880331600',
-      business_hour: '6:30 ~ 22:00',
-      fee: '700',
+      phone_number: '0261726848',
+      business_hour: '15:00 ~ 0:00',
+      fee: '800',
       parking: '有',
-      image: open("./app/assets/images/onsen_arupusu.jpg")
+      image: open("./app/assets/images/naganohakuba.jpg")
     }
   ]
   )
@@ -546,6 +551,286 @@ OnsenSpot.create!(
         comment: 'カルシウムたっぷりの黄金色の冷鉱泉です。源泉のままの水風呂と、沸かし湯のお風呂があり、加温する際は熱い空気が湯船の中からゴボーッと入れられます。冷鉱泉の源泉も蛇口をひねって足せます。',
         rate: rand(1..5),
         onsen_spot_id: 5,
+        user_id: 5,
+        image: open("./app/assets/images/review5.jpg")
+      },
+      {
+       title: '温泉宿ならではの気配り',
+       comment: '大浴場の内湯は天井も高く広々。 大きな湯船真ん中に仕切りがあり、熱湯とぬる湯に分かれてありました。 とても広大な土地にお風呂とお部屋たちが点在しているので、晴れた日に行けたら小さな街をお散歩しているような気持ちになれてまた違った世界観を楽しめそうです。',
+       rate: rand(1..5),
+       onsen_spot_id: 6,
+       user_id: 1,
+       image: open("./app/assets/images/review1.jpg")
+      },
+      {
+       title: '日本庭園のような露天風呂',
+       comment: '雄大な岳に抱かれ、ゆったりと佇む「梅園」。岳の大自然に囲まれた約一万坪の庭園が四季折々の自然美で訪れる人を魅了します。岳の自然を感じ、湯を愛で、安らぎの時間を過ごせる。',
+       rate: rand(1..5),
+       onsen_spot_id: 6,
+       user_id: 2,
+       image: open("./app/assets/images/review2.jpg")
+      },
+      {
+        title: '紅葉の時期は最高',
+        comment: ' 宿の佇まいはおしゃれでモダンな雰囲気を醸し出しつつ、奥ゆかしい和の情趣も感じられる素敵な木造り。受付ロビーは木の温もりを味わえる落ち着いた空間でした。 温泉は、素晴らしいの一言に尽きます。',
+        rate: rand(1..5),
+        onsen_spot_id: 6,
+        user_id: 3,
+        image: open("./app/assets/images/review3.jpg")
+      },
+      {
+        title: 'スキー場が隣接する本格温泉。',
+        comment: '普段は白濁色で湯花が大量に舞うお湯なのですが、天候などの影響で以前訪れたときには赤褐色のお湯になっていました。また夏に訪れたときには少し歩いた先の外湯・仙女の湯に入りました。滝をすぐ目の前に入る温泉は最高でした。',
+        rate: rand(1..5),
+        onsen_spot_id: 6,
+        user_id: 4,
+        image: open("./app/assets/images/review4.jpg")
+      },
+      {
+        title: 'カルシウムたっぷり！最強の濁り湯',
+        comment: 'カルシウムたっぷりの黄金色の冷鉱泉です。源泉のままの水風呂と、沸かし湯のお風呂があり、加温する際は熱い空気が湯船の中からゴボーッと入れられます。冷鉱泉の源泉も蛇口をひねって足せます。',
+        rate: rand(1..5),
+        onsen_spot_id: 6,
+        user_id: 5,
+        image: open("./app/assets/images/review5.jpg")
+      },
+      {
+       title: '温泉宿ならではの気配り',
+       comment: '大浴場の内湯は天井も高く広々。 大きな湯船真ん中に仕切りがあり、熱湯とぬる湯に分かれてありました。 とても広大な土地にお風呂とお部屋たちが点在しているので、晴れた日に行けたら小さな街をお散歩しているような気持ちになれてまた違った世界観を楽しめそうです。',
+       rate: rand(1..5),
+       onsen_spot_id: 7,
+       user_id: 1,
+       image: open("./app/assets/images/review1.jpg")
+      },
+      {
+       title: '日本庭園のような露天風呂',
+       comment: '雄大な岳に抱かれ、ゆったりと佇む「梅園」。岳の大自然に囲まれた約一万坪の庭園が四季折々の自然美で訪れる人を魅了します。岳の自然を感じ、湯を愛で、安らぎの時間を過ごせる。',
+       rate: rand(1..5),
+       onsen_spot_id: 7,
+       user_id: 2,
+       image: open("./app/assets/images/review2.jpg")
+      },
+      {
+        title: '紅葉の時期は最高',
+        comment: ' 宿の佇まいはおしゃれでモダンな雰囲気を醸し出しつつ、奥ゆかしい和の情趣も感じられる素敵な木造り。受付ロビーは木の温もりを味わえる落ち着いた空間でした。 温泉は、素晴らしいの一言に尽きます。',
+        rate: rand(1..5),
+        onsen_spot_id: 7,
+        user_id: 3,
+        image: open("./app/assets/images/review3.jpg")
+      },
+      {
+        title: 'スキー場が隣接する本格温泉。',
+        comment: '普段は白濁色で湯花が大量に舞うお湯なのですが、天候などの影響で以前訪れたときには赤褐色のお湯になっていました。また夏に訪れたときには少し歩いた先の外湯・仙女の湯に入りました。滝をすぐ目の前に入る温泉は最高でした。',
+        rate: rand(1..5),
+        onsen_spot_id: 7,
+        user_id: 4,
+        image: open("./app/assets/images/review4.jpg")
+      },
+      {
+        title: 'カルシウムたっぷり！最強の濁り湯',
+        comment: 'カルシウムたっぷりの黄金色の冷鉱泉です。源泉のままの水風呂と、沸かし湯のお風呂があり、加温する際は熱い空気が湯船の中からゴボーッと入れられます。冷鉱泉の源泉も蛇口をひねって足せます。',
+        rate: rand(1..5),
+        onsen_spot_id: 7,
+        user_id: 5,
+        image: open("./app/assets/images/review5.jpg")
+      },
+      {
+       title: '温泉宿ならではの気配り',
+       comment: '大浴場の内湯は天井も高く広々。 大きな湯船真ん中に仕切りがあり、熱湯とぬる湯に分かれてありました。 とても広大な土地にお風呂とお部屋たちが点在しているので、晴れた日に行けたら小さな街をお散歩しているような気持ちになれてまた違った世界観を楽しめそうです。',
+       rate: rand(1..5),
+       onsen_spot_id: 8,
+       user_id: 1,
+       image: open("./app/assets/images/review1.jpg")
+      },
+      {
+       title: '日本庭園のような露天風呂',
+       comment: '雄大な岳に抱かれ、ゆったりと佇む「梅園」。岳の大自然に囲まれた約一万坪の庭園が四季折々の自然美で訪れる人を魅了します。岳の自然を感じ、湯を愛で、安らぎの時間を過ごせる。',
+       rate: rand(1..5),
+       onsen_spot_id: 8,
+       user_id: 2,
+       image: open("./app/assets/images/review2.jpg")
+      },
+      {
+        title: '紅葉の時期は最高',
+        comment: ' 宿の佇まいはおしゃれでモダンな雰囲気を醸し出しつつ、奥ゆかしい和の情趣も感じられる素敵な木造り。受付ロビーは木の温もりを味わえる落ち着いた空間でした。 温泉は、素晴らしいの一言に尽きます。',
+        rate: rand(1..5),
+        onsen_spot_id: 8,
+        user_id: 3,
+        image: open("./app/assets/images/review3.jpg")
+      },
+      {
+        title: 'スキー場が隣接する本格温泉。',
+        comment: '普段は白濁色で湯花が大量に舞うお湯なのですが、天候などの影響で以前訪れたときには赤褐色のお湯になっていました。また夏に訪れたときには少し歩いた先の外湯・仙女の湯に入りました。滝をすぐ目の前に入る温泉は最高でした。',
+        rate: rand(1..5),
+        onsen_spot_id: 8,
+        user_id: 4,
+        image: open("./app/assets/images/review4.jpg")
+      },
+      {
+        title: 'カルシウムたっぷり！最強の濁り湯',
+        comment: 'カルシウムたっぷりの黄金色の冷鉱泉です。源泉のままの水風呂と、沸かし湯のお風呂があり、加温する際は熱い空気が湯船の中からゴボーッと入れられます。冷鉱泉の源泉も蛇口をひねって足せます。',
+        rate: rand(1..5),
+        onsen_spot_id: 8,
+        user_id: 5,
+        image: open("./app/assets/images/review5.jpg")
+      },
+      {
+       title: '温泉宿ならではの気配り',
+       comment: '大浴場の内湯は天井も高く広々。 大きな湯船真ん中に仕切りがあり、熱湯とぬる湯に分かれてありました。 とても広大な土地にお風呂とお部屋たちが点在しているので、晴れた日に行けたら小さな街をお散歩しているような気持ちになれてまた違った世界観を楽しめそうです。',
+       rate: rand(1..5),
+       onsen_spot_id: 9,
+       user_id: 1,
+       image: open("./app/assets/images/review1.jpg")
+      },
+      {
+       title: '日本庭園のような露天風呂',
+       comment: '雄大な岳に抱かれ、ゆったりと佇む「梅園」。岳の大自然に囲まれた約一万坪の庭園が四季折々の自然美で訪れる人を魅了します。岳の自然を感じ、湯を愛で、安らぎの時間を過ごせる。',
+       rate: rand(1..5),
+       onsen_spot_id: 9,
+       user_id: 2,
+       image: open("./app/assets/images/review2.jpg")
+      },
+      {
+        title: '紅葉の時期は最高',
+        comment: ' 宿の佇まいはおしゃれでモダンな雰囲気を醸し出しつつ、奥ゆかしい和の情趣も感じられる素敵な木造り。受付ロビーは木の温もりを味わえる落ち着いた空間でした。 温泉は、素晴らしいの一言に尽きます。',
+        rate: rand(1..5),
+        onsen_spot_id: 9,
+        user_id: 3,
+        image: open("./app/assets/images/review3.jpg")
+      },
+      {
+        title: 'スキー場が隣接する本格温泉。',
+        comment: '普段は白濁色で湯花が大量に舞うお湯なのですが、天候などの影響で以前訪れたときには赤褐色のお湯になっていました。また夏に訪れたときには少し歩いた先の外湯・仙女の湯に入りました。滝をすぐ目の前に入る温泉は最高でした。',
+        rate: rand(1..5),
+        onsen_spot_id: 9,
+        user_id: 4,
+        image: open("./app/assets/images/review4.jpg")
+      },
+      {
+        title: 'カルシウムたっぷり！最強の濁り湯',
+        comment: 'カルシウムたっぷりの黄金色の冷鉱泉です。源泉のままの水風呂と、沸かし湯のお風呂があり、加温する際は熱い空気が湯船の中からゴボーッと入れられます。冷鉱泉の源泉も蛇口をひねって足せます。',
+        rate: rand(1..5),
+        onsen_spot_id: 9,
+        user_id: 5,
+        image: open("./app/assets/images/review5.jpg")
+      },
+      {
+       title: '温泉宿ならではの気配り',
+       comment: '大浴場の内湯は天井も高く広々。 大きな湯船真ん中に仕切りがあり、熱湯とぬる湯に分かれてありました。 とても広大な土地にお風呂とお部屋たちが点在しているので、晴れた日に行けたら小さな街をお散歩しているような気持ちになれてまた違った世界観を楽しめそうです。',
+       rate: rand(1..5),
+       onsen_spot_id: 10,
+       user_id: 1,
+       image: open("./app/assets/images/review1.jpg")
+      },
+      {
+       title: '日本庭園のような露天風呂',
+       comment: '雄大な岳に抱かれ、ゆったりと佇む「梅園」。岳の大自然に囲まれた約一万坪の庭園が四季折々の自然美で訪れる人を魅了します。岳の自然を感じ、湯を愛で、安らぎの時間を過ごせる。',
+       rate: rand(1..5),
+       onsen_spot_id: 10,
+       user_id: 2,
+       image: open("./app/assets/images/review2.jpg")
+      },
+      {
+        title: '紅葉の時期は最高',
+        comment: ' 宿の佇まいはおしゃれでモダンな雰囲気を醸し出しつつ、奥ゆかしい和の情趣も感じられる素敵な木造り。受付ロビーは木の温もりを味わえる落ち着いた空間でした。 温泉は、素晴らしいの一言に尽きます。',
+        rate: rand(1..5),
+        onsen_spot_id: 10,
+        user_id: 3,
+        image: open("./app/assets/images/review3.jpg")
+      },
+      {
+        title: 'スキー場が隣接する本格温泉。',
+        comment: '普段は白濁色で湯花が大量に舞うお湯なのですが、天候などの影響で以前訪れたときには赤褐色のお湯になっていました。また夏に訪れたときには少し歩いた先の外湯・仙女の湯に入りました。滝をすぐ目の前に入る温泉は最高でした。',
+        rate: rand(1..5),
+        onsen_spot_id: 10,
+        user_id: 4,
+        image: open("./app/assets/images/review4.jpg")
+      },
+      {
+        title: 'カルシウムたっぷり！最強の濁り湯',
+        comment: 'カルシウムたっぷりの黄金色の冷鉱泉です。源泉のままの水風呂と、沸かし湯のお風呂があり、加温する際は熱い空気が湯船の中からゴボーッと入れられます。冷鉱泉の源泉も蛇口をひねって足せます。',
+        rate: rand(1..5),
+        onsen_spot_id: 10,
+        user_id: 5,
+        image: open("./app/assets/images/review5.jpg")
+      },
+      {
+       title: '温泉宿ならではの気配り',
+       comment: '大浴場の内湯は天井も高く広々。 大きな湯船真ん中に仕切りがあり、熱湯とぬる湯に分かれてありました。 とても広大な土地にお風呂とお部屋たちが点在しているので、晴れた日に行けたら小さな街をお散歩しているような気持ちになれてまた違った世界観を楽しめそうです。',
+       rate: rand(1..5),
+       onsen_spot_id: 11,
+       user_id: 1,
+       image: open("./app/assets/images/review1.jpg")
+      },
+      {
+       title: '日本庭園のような露天風呂',
+       comment: '雄大な岳に抱かれ、ゆったりと佇む「梅園」。岳の大自然に囲まれた約一万坪の庭園が四季折々の自然美で訪れる人を魅了します。岳の自然を感じ、湯を愛で、安らぎの時間を過ごせる。',
+       rate: rand(1..5),
+       onsen_spot_id: 11,
+       user_id: 2,
+       image: open("./app/assets/images/review2.jpg")
+      },
+      {
+        title: '紅葉の時期は最高',
+        comment: ' 宿の佇まいはおしゃれでモダンな雰囲気を醸し出しつつ、奥ゆかしい和の情趣も感じられる素敵な木造り。受付ロビーは木の温もりを味わえる落ち着いた空間でした。 温泉は、素晴らしいの一言に尽きます。',
+        rate: rand(1..5),
+        onsen_spot_id: 11,
+        user_id: 3,
+        image: open("./app/assets/images/review3.jpg")
+      },
+      {
+        title: 'スキー場が隣接する本格温泉。',
+        comment: '普段は白濁色で湯花が大量に舞うお湯なのですが、天候などの影響で以前訪れたときには赤褐色のお湯になっていました。また夏に訪れたときには少し歩いた先の外湯・仙女の湯に入りました。滝をすぐ目の前に入る温泉は最高でした。',
+        rate: rand(1..5),
+        onsen_spot_id: 11,
+        user_id: 4,
+        image: open("./app/assets/images/review4.jpg")
+      },
+      {
+        title: 'カルシウムたっぷり！最強の濁り湯',
+        comment: 'カルシウムたっぷりの黄金色の冷鉱泉です。源泉のままの水風呂と、沸かし湯のお風呂があり、加温する際は熱い空気が湯船の中からゴボーッと入れられます。冷鉱泉の源泉も蛇口をひねって足せます。',
+        rate: rand(1..5),
+        onsen_spot_id: 11,
+        user_id: 5,
+        image: open("./app/assets/images/review5.jpg")
+      },
+      {
+       title: '温泉宿ならではの気配り',
+       comment: '大浴場の内湯は天井も高く広々。 大きな湯船真ん中に仕切りがあり、熱湯とぬる湯に分かれてありました。 とても広大な土地にお風呂とお部屋たちが点在しているので、晴れた日に行けたら小さな街をお散歩しているような気持ちになれてまた違った世界観を楽しめそうです。',
+       rate: rand(1..5),
+       onsen_spot_id: 12,
+       user_id: 1,
+       image: open("./app/assets/images/review1.jpg")
+      },
+      {
+       title: '日本庭園のような露天風呂',
+       comment: '雄大な岳に抱かれ、ゆったりと佇む「梅園」。岳の大自然に囲まれた約一万坪の庭園が四季折々の自然美で訪れる人を魅了します。岳の自然を感じ、湯を愛で、安らぎの時間を過ごせる。',
+       rate: rand(1..5),
+       onsen_spot_id: 12,
+       user_id: 2,
+       image: open("./app/assets/images/review2.jpg")
+      },
+      {
+        title: '紅葉の時期は最高',
+        comment: ' 宿の佇まいはおしゃれでモダンな雰囲気を醸し出しつつ、奥ゆかしい和の情趣も感じられる素敵な木造り。受付ロビーは木の温もりを味わえる落ち着いた空間でした。 温泉は、素晴らしいの一言に尽きます。',
+        rate: rand(1..5),
+        onsen_spot_id: 12,
+        user_id: 3,
+        image: open("./app/assets/images/review3.jpg")
+      },
+      {
+        title: 'スキー場が隣接する本格温泉。',
+        comment: '普段は白濁色で湯花が大量に舞うお湯なのですが、天候などの影響で以前訪れたときには赤褐色のお湯になっていました。また夏に訪れたときには少し歩いた先の外湯・仙女の湯に入りました。滝をすぐ目の前に入る温泉は最高でした。',
+        rate: rand(1..5),
+        onsen_spot_id: 12,
+        user_id: 4,
+        image: open("./app/assets/images/review4.jpg")
+      },
+      {
+        title: 'カルシウムたっぷり！最強の濁り湯',
+        comment: 'カルシウムたっぷりの黄金色の冷鉱泉です。源泉のままの水風呂と、沸かし湯のお風呂があり、加温する際は熱い空気が湯船の中からゴボーッと入れられます。冷鉱泉の源泉も蛇口をひねって足せます。',
+        rate: rand(1..5),
+        onsen_spot_id: 12,
         user_id: 5,
         image: open("./app/assets/images/review5.jpg")
       }
