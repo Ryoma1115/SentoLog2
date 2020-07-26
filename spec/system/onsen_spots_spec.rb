@@ -16,8 +16,8 @@ RSpec.describe "OnsenSpots", type: :system do
     let!(:kounou_map) { create(:kounou_map) }
     let!(:oyutype) { create(:oyutype) }
     let!(:oyutype_map) { create(:oyutype_map) }
-    let!(:review) { create(:review) }
-    let!(:review2) { create(:review) }
+    let!(:review) { create(:review, user_id: user.id, onsen_spot_id: onsen_spot.id) }
+    let!(:review2) { create(:review, user_id: user2.id, onsen_spot_id: onsen_spot.id) }
 
     before do
       visit new_user_session_path
@@ -167,7 +167,7 @@ RSpec.describe "OnsenSpots", type: :system do
           expect(page).to have_content(onsen_spot.address_building)
           expect(page).to have_content(onsen_spot.introduction)
         end
-        it '（口コミ何件）かが表示される' do
+        it '（口コミ何件）が表示される' do
           expect(page).to have_content "(口コミ#{Review.count}件)"
         end
         it 'その温泉の泉質が表示される' do
@@ -179,14 +179,52 @@ RSpec.describe "OnsenSpots", type: :system do
         it 'その温泉のお湯タイプが表示される' do
           expect(page).to have_content(oyutype.name)
         end
-        it '温泉地に行きたいのリンクが表示される' do
+        it '温泉地の画像が表示される' do
+          expect(page).to have_css('img.image')
+        end
+        it '温泉地に「行きたい」のリンクが表示される' do
           expect(page).to have_link '', href: users_onsen_spot_likes_path(onsen_spot.id)
         end
-        it '温泉地に行ったのリンクが表示される' do
+        it '温泉地に「行った」のリンクが表示される' do
           expect(page).to have_link '', href: users_onsen_spot_wents_path(onsen_spot.id)
+        end
+        it '口コミの点数が表示される' do
+          expect(page).to have_content "評価："
+        end
+        it '口コミの星評価が表示される' do
+          expect(page).to have_css('#star-rate-1')
+        end
+        it '口コミのコメントが表示される' do
+          expect(page).to have_content(review.comment)
+        end
+        it '口コミ投稿者の名前が表示される' do
+          expect(page).to have_content(user.last_name)
+          expect(page).to have_content(user.first_name)
+        end
+        it '自分の口コミ投稿には削除ボタンが表示される' do
+          user == review.user
+          expect(page).to have_link '口コミを削除する'
+        end
+        it '自分以外の口コミ投稿にはいいねボタンが表示される' do
+          user != review.user
+          expect(page).to have_link '', href: users_onsen_spot_review_favorites_path(review.onsen_spot.id, review2.id)
+        end
+      end
+
+      context '基本情報の確認' do
+        it '温泉地基本情報が表示される' do
+          expect(page).to have_content(onsen_spot.name)
+          expect(page).to have_content(onsen_spot.phone_number)
+          expect(page).to have_content(onsen_spot.postal_code)
+          expect(page).to have_content(onsen_spot.prefecture_name)
+          expect(page).to have_content(onsen_spot.address_city)
+          expect(page).to have_content(onsen_spot.address_street)
+          expect(page).to have_content(onsen_spot.address_building)
+          expect(page).to have_css('div#maps')
+          expect(page).to have_content(onsen_spot.fee)
+          expect(page).to have_content(onsen_spot.business_hour)
         end
       end
     end
-
   end
 end
