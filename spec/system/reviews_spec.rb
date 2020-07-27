@@ -27,16 +27,16 @@ RSpec.describe "Reviews", type: :system do
     end
 
     describe '口コミ投稿フォームのテスト' do
-      context '表示の確認および投稿テスト' do
+      context '表示の確認および投稿テスト', js: true do
         it '口コミ投稿するボタンが表示される（モーダル表示ボタン）' do
-          pp page.html
           expect(page).to have_button '口コミ投稿する'
         end
         it '口コミタイトル投稿フォームが表示される' do
           expect(page).to have_field 'review[title]'
         end
         # it '星評価を投稿するフォームが表示される' do
-        #   expect(page).to find('#review_star', visible: false).set('review[rate]')
+        #   pp page.html
+        #   expect(page).to have_css('#review_star')
         # end
         it '口コミ内容投稿フォームが表示される' do
           expect(page).to have_field 'review[comment]'
@@ -47,10 +47,14 @@ RSpec.describe "Reviews", type: :system do
         it '口コミ投稿するボタンが表示される（モーダル内）' do
           expect(page).to have_button '口コミ投稿する'
         end
+        it '投稿に成功する' do
+          # pp page.html
+          attach_file "review[image]", "#{Rails.root}/spec/fixtures/review1.jpg"
+          fill_in 'review[title]', with: '気持ちよかったです。'
+          fill_in 'review[comment]', with: 'また行きたいです。'
+          click_button '口コミを投稿する'
+        end
       end
     end
   end
-  
-
-  
 end
