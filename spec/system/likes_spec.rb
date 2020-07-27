@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Likes", type: :system do
+RSpec.describe "Likes", type: :system, js: true do
   before do
     driven_by(:rack_test)
   end
@@ -24,20 +24,30 @@ RSpec.describe "Likes", type: :system do
       #   post :create, format: :js, params: { onsen_spot_id: onsen_spot.id, id: like.id }
       #   expect(response.content_type).to eq 'users/likes/like'
       # end
-      it '行きたいできる' do
-       
-        find('.box3').click
-        expect(page).to have_css "div#likes_buttons_#{onsen_spot.id}"
+      # it "Ajexが反応する" do
+      #   pp page.html
+      #   post :create, format: :js, params: { onsen_spot_id: onsen_spot.id, id: like.id }
+      #   expect(response.content_type).to eq 'text/javascript'
+      # end
+      # it 'test' do
+      # end
+      it '行きたいを取り消せる', js: true do
+        
+        # find("#box3", visible: false).trigger("click")
+        find('#box3').click
+        # click_lin'行きたい♨️'
+        sleep 5
         pp page.html
+        expect(page).to have_css '#box2'
+        
       end
       it '行きたいを取り消せる' do
-        
         # expect(page).to have_css "div#likes_buttons_#{onsen_spot.id}"
-        find('.box3').click
-        pp page.html
         find('.box2').click
+        find('.box3').click
         expect(page).to have_css '.box3'
         expect(page).to have_css "div#likes_buttons_#{onsen_spot.id}"
+        pp page.html
       end
     end
   end
