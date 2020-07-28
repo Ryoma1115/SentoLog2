@@ -303,6 +303,36 @@ RSpec.describe "OnsenSpots", type: :system do
       end
     end
 
+    describe '検索窓から温泉地を探した場合のテスト' do
+      before do
+        visit root_path
+      end
+
+      it '検索窓に何も入れずに検索した場合、温泉地一覧が表示される' do
+        fill_in 'q_name_or_postal_code_or_address_or_address_city_or_phone_number_or_introduction_cont', with: ''
+        click_button '検索'
+        expect(page).to have_content "検索結果：温泉地一覧(全#{OnsenSpot.count}件)"
+      end
+      it '検索窓にキーワードを入れて検索した場合(:name),検索結果に表示される' do
+        create(:onsen_spot, name: 'テスト温泉')
+        fill_in 'q_name_or_postal_code_or_address_or_address_city_or_phone_number_or_introduction_cont', with: 'テスト温泉'
+        click_button '検索'
+        expect(page).to have_content 'テスト温泉'
+      end
+      it '検索窓にキーワードを入れて検索した場合(:address_city),検索結果に表示される' do
+        create(:onsen_spot, address_city: '京都府京都市山科区')
+        fill_in 'q_name_or_postal_code_or_address_or_address_city_or_phone_number_or_introduction_cont', with: '京都府京都市山科区'
+        click_button '検索'
+        expect(page).to have_content '京都府京都市山科区'
+      end
+      it '検索窓にヒットしないキーワードを入れて検索した場合,検索結果が０件と表示される' do
+        create(:onsen_spot, name: 'テスト温泉')
+        fill_in 'q_name_or_postal_code_or_address_or_address_city_or_phone_number_or_introduction_cont', with: 'DMMWEBCAMP'
+        click_button '検索'
+        expect(page).to have_content "検索結果：温泉地一覧(全0件)"
+      end
+    end
+
     describe '温泉地詳細ページのテスト' do
       before do
         visit users_onsen_spot_path(onsen_spot)

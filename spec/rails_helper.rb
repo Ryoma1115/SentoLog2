@@ -32,6 +32,17 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  Capybara.register_driver :chrome_headless do |app|
+    options = Selenium::WebDriver::Chrome::Options.new
+    options.headless!                                             # ヘッドレスモードで起動する
+    options.add_argument 'lang=ja'                                # インターフェース言語を日本語にする
+    options.add_argument 'no-sandbox'                             # sandbox外でプロセスを起動する
+    options.add_argument 'window-size=1680,1050'                  # ウィンドウサイズを指定する
+    options.add_option :w3c, false                                # https://github.com/SeleniumHQ/selenium/issues/7270
+    Capybara::Selenium::Driver.new app, browser: :chrome, options: options
+  end
+  Capybara.default_driver = :chrome_headless
+  Capybara.javascript_driver = :chrome_headless
   config.before(:all) do
     FactoryBot.reload
   end
@@ -65,9 +76,9 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-  config.before(:each) do |example|
-    if example.metadata[:type] == :system
-      driven_by :selenium, using: :headless_chrome, screen_size: [1280, 800], options: { args: ["headless", "disable-gpu", "no-sandbox", "disable-dev-shm-usage"] }
-    end
-  end
+  # config.before(:each) do |example|
+  #   if example.metadata[:type] == :system
+  #     driven_by :selenium, using: :headless_chrome, screen_size: [1280, 800], options: { args: ["headless", "disable-gpu", "no-sandbox", "disable-dev-shm-usage"] }
+  #   end
+  # end
 end
