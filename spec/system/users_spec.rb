@@ -45,7 +45,7 @@ RSpec.describe "Users", type: :system do
           fill_in 'user[password]', with: 'password'
           fill_in 'user[password_confirmation]', with: 'password'
           click_button '新規登録'
-          expect(page).to have_content "5 件のエラーが発生したため 会員 は保存されませんでした。"
+          expect(page).to have_content "4 件のエラーが発生したため 会員 は保存されませんでした。"
         end
       end
     end

@@ -16,9 +16,9 @@ class User < ApplicationRecord
   validates :last_name_kana, presence: true
   validates :first_name_kana, presence: true
   validates :postal_code, presence: true, length: { is: 7 }
-  validates :password, presence: true, length: { minimum: 6 }
-  validates :password_confirmation, presence: true
-  validates :email, presence: true, uniqueness: true
+  # validates :password, presence: true, length: { minimum: 6 }
+  # validates :password_confirmation, presence: true
+  # validates :email, presence: true, uniqueness: true
 
   def full_name
     last_name + " " + first_name

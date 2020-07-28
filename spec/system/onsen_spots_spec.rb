@@ -128,13 +128,14 @@ RSpec.describe "OnsenSpots", type: :system do
           expect(page).to have_content "温泉地一覧(全#{OnsenSpot.count}件)"
         end
         it '温泉地詳細のリンク(写真)が表示される' do
-          expect(page).to have_link '', href: users_onsen_spot_path(onsen_spot)
+          pp page.html
+          expect(page).to have_link '', href: "/users/onsen_spots/11"
         end
         it '温泉地に行きたいのリンクが表示される' do
-          expect(page).to have_link '', href: users_onsen_spot_likes_path(onsen_spot.id)
+          expect(page).to have_css '#likes_buttons_11'
         end
         it '温泉地に行ったのリンクが表示される' do
-          expect(page).to have_link '', href: users_onsen_spot_wents_path(onsen_spot.id)
+          expect(page).to have_css '#wents_buttons_11'
         end
         it '温泉地の情報が表示される' do
           expect(page).to have_content "星評価"
