@@ -117,8 +117,10 @@ RSpec.describe "OnsenSpots", type: :system do
       end
       context '表示の確認' do
         it '温泉地一覧と表示される' do
-
           expect(page).to have_content '温泉地一覧'
+        end
+        it '検索窓が表示される' do
+          expect(page).to have_css 'input#q_name_or_postal_code_or_address_or_address_city_or_phone_number_or_introduction_cont'
         end
         it '温泉地一覧にページネーションが表示される' do
           expect(page).to have_css 'ul.pagination'
@@ -128,13 +130,12 @@ RSpec.describe "OnsenSpots", type: :system do
           expect(page).to have_content "温泉地一覧(全#{OnsenSpot.count}件)"
         end
         it '温泉地詳細のリンク(写真)が表示される' do
-          pp page.html
           expect(page).to have_link '', href: "/users/onsen_spots/11"
         end
-        it '温泉地に行きたいのリンクが表示される' do
+        it '温泉地に行きたいのボタンが表示される' do
           expect(page).to have_css '#likes_buttons_11'
         end
-        it '温泉地に行ったのリンクが表示される' do
+        it '温泉地に行ったのボタンが表示される' do
           expect(page).to have_css '#wents_buttons_11'
         end
         it '温泉地の情報が表示される' do
@@ -150,6 +151,155 @@ RSpec.describe "OnsenSpots", type: :system do
           expect(page).to have_content "利用料金"
           expect(page).to have_content "駐車場"
         end
+      end
+    end
+
+    describe '都道府県の温泉地一覧ページのテスト' do
+      before do
+        visit 'users/onsen_spot/prefecture/search?prefecture_search=27'
+        # Factoryによって大阪府の温泉を２件表示させたのでcode_numberは27
+      end
+      it '大阪府の温泉地と表示される' do
+        expect(page).to have_content '大阪府の温泉地'
+      end
+      it '検索窓が表示される' do
+        expect(page).to have_css 'input#q_name_or_postal_code_or_address_or_address_city_or_phone_number_or_introduction_cont'
+      end
+      it '大阪府の温泉地(全何件)が表示される' do
+        expect(page).to have_content "大阪府の温泉地(全#{OnsenSpot.count}件)"
+      end
+      it '温泉地詳細のリンク(写真)が表示される' do
+        expect(page).to have_link '', href: users_onsen_spot_path(onsen_spot)
+      end
+      it '温泉地に行きたいのボタンが表示される' do
+        expect(page).to have_css '#likes_buttons_1'
+      end
+      it '温泉地に行ったのボタンが表示される' do
+        expect(page).to have_css '#wents_buttons_1'
+      end
+      it '温泉地の情報が表示される' do
+        expect(page).to have_content "星評価"
+        expect(page).to have_content "名前" 
+        expect(page).to have_content "泉質" 
+        expect(page).to have_content "効能"
+        expect(page).to have_content "お湯タイプ" 
+        expect(page).to have_content "説明" 
+        expect(page).to have_content "住所"
+        expect(page).to have_content "電話番号" 
+        expect(page).to have_content "営業時間" 
+        expect(page).to have_content "利用料金"
+        expect(page).to have_content "駐車場"
+      end
+    end
+
+    describe 'Sensitsu(泉質)一覧ページのテスト' do
+      before do
+        visit 'users/sensitsus/1'
+      end
+      it '泉質名一覧と表示される' do
+        expect(page).to have_content '硫黄泉一覧'
+      end
+      it '検索窓が表示される' do
+        expect(page).to have_css 'input#q_name_or_postal_code_or_address_or_address_city_or_phone_number_or_introduction_cont'
+      end
+      it '泉質名一覧(全何件)が表示される' do
+        expect(page).to have_content "硫黄泉一覧(全#{Sensitsu.count}件)"
+      end
+      it '温泉地詳細のリンク(写真)が表示される' do
+        expect(page).to have_link '', href: users_onsen_spot_path(onsen_spot)
+      end
+      it '温泉地に行きたいのボタンが表示される' do
+        expect(page).to have_css '#likes_buttons_1'
+      end
+      it '温泉地に行ったのボタンが表示される' do
+        expect(page).to have_css '#wents_buttons_1'
+      end
+      it '温泉地の情報が表示される' do
+        expect(page).to have_content "星評価"
+        expect(page).to have_content "名前" 
+        expect(page).to have_content "泉質" 
+        expect(page).to have_content "効能"
+        expect(page).to have_content "お湯タイプ" 
+        expect(page).to have_content "説明" 
+        expect(page).to have_content "住所"
+        expect(page).to have_content "電話番号" 
+        expect(page).to have_content "営業時間" 
+        expect(page).to have_content "利用料金"
+        expect(page).to have_content "駐車場"
+      end
+    end
+
+    describe 'Kounou(効能)一覧ページのテスト' do
+      before do
+        visit 'users/kounous/1'
+      end
+      it '効能名一覧と表示される' do
+        expect(page).to have_content '血行促進一覧'
+      end
+      it '検索窓が表示される' do
+        expect(page).to have_css 'input#q_name_or_postal_code_or_address_or_address_city_or_phone_number_or_introduction_cont'
+      end
+      it '効能名一覧(全何件)が表示される' do
+        expect(page).to have_content "血行促進一覧(全#{Kounou.count}件)"
+      end
+      it '温泉地詳細のリンク(写真)が表示される' do
+        expect(page).to have_link '', href: users_onsen_spot_path(onsen_spot)
+      end
+      it '温泉地に行きたいのボタンが表示される' do
+        expect(page).to have_css '#likes_buttons_1'
+      end
+      it '温泉地に行ったのボタンが表示される' do
+        expect(page).to have_css '#wents_buttons_1'
+      end
+      it '温泉地の情報が表示される' do
+        expect(page).to have_content "星評価"
+        expect(page).to have_content "名前" 
+        expect(page).to have_content "泉質" 
+        expect(page).to have_content "効能"
+        expect(page).to have_content "お湯タイプ" 
+        expect(page).to have_content "説明" 
+        expect(page).to have_content "住所"
+        expect(page).to have_content "電話番号" 
+        expect(page).to have_content "営業時間" 
+        expect(page).to have_content "利用料金"
+        expect(page).to have_content "駐車場"
+      end
+    end
+
+    describe 'Oyutype(お湯タイプ)一覧ページのテスト' do
+      before do
+        visit 'users/oyutypes/1'
+      end
+      it 'お湯タイプ名一覧と表示される' do
+        expect(page).to have_content '源泉掛け流し一覧'
+      end
+      it '検索窓が表示される' do
+        expect(page).to have_css 'input#q_name_or_postal_code_or_address_or_address_city_or_phone_number_or_introduction_cont'
+      end
+      it 'お湯タイプ名一覧(全何件)が表示される' do
+        expect(page).to have_content "源泉掛け流し一覧(全#{Oyutype.count}件)"
+      end
+      it '温泉地詳細のリンク(写真)が表示される' do
+        expect(page).to have_link '', href: users_onsen_spot_path(onsen_spot)
+      end
+      it '温泉地に行きたいのボタンが表示される' do
+        expect(page).to have_css '#likes_buttons_1'
+      end
+      it '温泉地に行ったのボタンが表示される' do
+        expect(page).to have_css '#wents_buttons_1'
+      end
+      it '温泉地の情報が表示される' do
+        expect(page).to have_content "星評価"
+        expect(page).to have_content "名前" 
+        expect(page).to have_content "泉質" 
+        expect(page).to have_content "効能"
+        expect(page).to have_content "お湯タイプ" 
+        expect(page).to have_content "説明" 
+        expect(page).to have_content "住所"
+        expect(page).to have_content "電話番号" 
+        expect(page).to have_content "営業時間" 
+        expect(page).to have_content "利用料金"
+        expect(page).to have_content "駐車場"
       end
     end
 
