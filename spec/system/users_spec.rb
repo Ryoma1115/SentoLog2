@@ -56,7 +56,7 @@ RSpec.describe "Users", type: :system do
     before do
       visit new_user_session_path
     end
-    context 'ログイン画面に偏移' do
+    context 'ログイン画面に移動' do
       let(:test_user) { user }
       it 'ログインに成功する' do
         fill_in 'user[email]', with: user.email

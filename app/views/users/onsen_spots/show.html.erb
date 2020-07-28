@@ -1,5 +1,16 @@
 <div class="container">
-<%= render 'layouts/errors', obj: @onsen_spot %>
+<%= render 'layouts/errors', obj: @review %>
+<% if @review.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(obj.errors.count, "error") %> prohibited this obj from being saved:</h3>
+
+    <ul>
+    <% @review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+    </ul>
+  <div>
+<% end %>
 
     <div class="row">
         <div class="col-xs-10 col-xs-offset-1">
@@ -34,7 +45,7 @@
                         </td>
                     </tr>
                     <tr class="onsen_spot_address">
-                        <td>〒<%= @onsen_spot.postal_code %>　<%= @onsen_spot.address %></td>
+                        <td>〒<%= @onsen_spot.postal_code %>　<%= @onsen_spot.prefecture_name %>　<%= @onsen_spot.address_city %>　<%= @onsen_spot.address_street %>　<%= @onsen_spot.address_building %></td>
                     </tr>
                     <tr>
                         <td><%= %></td>

@@ -7,9 +7,12 @@ class Users::ReviewsController < ApplicationController
         @onsen_spot = OnsenSpot.find(params[:onsen_spot_id])
         @review = @onsen_spot.reviews.new(review_params)
         @review.user_id = current_user.id
-        @review.save
-        flash[:success] = "口コミ投稿されました。"
-        redirect_to users_onsen_spot_path(@onsen_spot)
+        if @review.save
+            flash[:success] = "口コミ投稿されました。"
+            redirect_to users_onsen_spot_path(@onsen_spot)
+        else
+            redirect_to users_onsen_spot_path(@onsen_spot)
+        end
     end
 
     def destroy
