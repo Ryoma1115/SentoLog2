@@ -91,6 +91,12 @@ RSpec.describe "Users", type: :system do
         it 'マイページと表示される' do
           expect(page).to have_content('マイページ')
         end
+        it '行きたい温泉' do
+          expect(page).to have_content('行きたい温泉：')
+        end
+        it '行った温泉' do
+          expect(page).to have_content('行った　温泉：')
+        end
         it '画像が表示される' do
           expect(page).to have_css('img.profile_image')
         end
@@ -121,8 +127,8 @@ RSpec.describe "Users", type: :system do
       end
 
       describe '編集のテスト' do
-        context '自分の編集画面への遷移' do
-          it '遷移できる' do
+        context '自分の編集画面への移動' do
+          it '移動できる' do
             visit users_users_edit_path
             expect(current_path).to eq('/users/users/edit')
           end
@@ -160,9 +166,12 @@ RSpec.describe "Users", type: :system do
           it '電話番号編集フォームに自分の電話番号が表示される' do
             expect(page).to have_field 'user[phone_number]', with: user.phone_number
           end
-
           it '編集内容を保存するリンクが表示される' do
             expect(page).to have_button '編集内容を保存する'
+          end
+          it '編集に成功する' do
+            click_button '編集内容を保存する'
+            expect(current_path).to eq(users_show_path)
           end
         end
       end

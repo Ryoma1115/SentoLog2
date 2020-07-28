@@ -21,6 +21,7 @@ RSpec.describe "Headers", type: :system do
 
       context 'ヘッダーの表示を確認' do
         it 'ロゴが表示されているか' do
+          expect(page).to have_css("img[src*='/assets/銭湯Log-c48df98e9b0f4f76942ba07a91283d0c75da9ccb0c6d4d3c2770b3e7fc904e51.png']")
           expect(page).to have_link '', href: root_path
         end
         it 'モーダルの泉質が表示されている' do
@@ -87,10 +88,10 @@ RSpec.describe "Headers", type: :system do
           expect(page).to have_link '', href: root_path
         end
         it 'モーダルの泉質が表示されている' do
-          expect(page).to have_content('泉質')
+          expect(page).to have_content('泉質 ▼')
         end
         it 'ドロップダウンメニュー の都道府県が表示されている' do
-          expect(page).to have_content('泉質')
+          expect(page).to have_content('都道府県 ▼')
         end
         it '温泉地を登録するが表示されている' do
           expect(page).to have_content('温泉地を登録する')
