@@ -4,19 +4,19 @@
             <div class="modal-header">
                 <h4 class="modal-title" id="exampleModalLabel"><strong>口コミ投稿</strong></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <%= form_for [onsen_spot, review], url: users_onsen_spot_reviews_path(onsen_spot), method: :post do |f| %>
             <div class="modal-body">
-                <!-- タイトル -->
+                <%# タイトル %>
                 <div class="form-group row">
                     <%= f.label :title, 'タイトル ', class:'col-md-3 col-form-label' %>
                     <div class="col-md-9">
-                    <%= f.text_field :title, class: "form-control" %>
+                        <%= f.text_field :title, class: "form-control" %>
                     </div>
                 </div>
-                <!-- 評価 -->
+                <%# 評価 %>
                 <div class="form-group row" id="star">
                     <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
                     <div class="col-md-9">
@@ -24,27 +24,27 @@
                     </div>
                 </div>
                 <script>
-                history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
-                window.addEventListener('popstate', function(e) {
-                window.location.reload();
-                });
-                $('#star').raty({
-                    size     : 36,
-                    starOff:  '<%= asset_path('star-off.png') %>',
-                    starOn : '<%= asset_path('star-on.png') %>',
-                    starHalf: '<%= asset_path('star-half.png') %>',
-                    scoreName: 'review[rate]',
-                    half: true,
-                });
+                    history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
+                    window.addEventListener('popstate', function(e) {
+                    window.location.reload();
+                    });
+                    $('#star').raty({
+                        size     : 36,
+                        starOff:  '<%= asset_path('star-off.png') %>',
+                        starOn : '<%= asset_path('star-on.png') %>',
+                        starHalf: '<%= asset_path('star-half.png') %>',
+                        scoreName: 'review[rate]',
+                        half: true,
+                    });
                 </script>
-                <!-- 口コミ内容 -->
+                <%# 口コミ内容 %>
                 <div class="form-group row">
                     <%= f.label :comment, '口コミ内容 ', class:'col-md-3 col-form-label' %>
                     <div class="col-md-9">
                         <%= f.text_area :comment, class: "form-control" %>
                     </div>
                 </div>
-                <!-- 口コミ画像 -->
+                <%# 口コミ画像 %>
                 <div class="form-group row">
                     <%= f.label :image, '口コミ画像 ', class:'col-md-3 col-form-label' %>
                     <div class="col-md-9">

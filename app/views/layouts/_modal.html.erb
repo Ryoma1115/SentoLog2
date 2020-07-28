@@ -3,7 +3,7 @@
 	<i class="fas fa-list-ul" aria-hidden="true">&nbsp;</i>泉質 ▼
 </div>
 
-<!-- モーダル・ダイアログ -->
+<%# モーダル・ダイアログ %>
 <script>
     history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
     window.addEventListener('popstate', function(e) {
@@ -17,30 +17,30 @@
                 <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
                 <h4 class="modal-title"><strong>お好みの温泉をお選びください</strong></h4>
             </div>
-                <div class="modal-body col-xs-3">
-                    <strong>泉質</strong>
-                </div>
-                <div class="modal-body col-xs-9">
-                    <% sensitsus.each do |sensitsu| %>
-                        <%= link_to sensitsu.name, users_sensitsu_path(sensitsu.id), class: "btn btn-default", style: "color: black;" %>
-                    <% end %>
-                </div>
-                <div class="modal-body col-xs-3">
-                    <strong>効能</strong>
-                </div>
-                <div class="modal-body col-xs-9">
-                    <% kounous.each do |kounou| %>
-                        <%= link_to kounou.name, users_kounou_path(kounou.id), class: "btn btn-default", style: "color: black;" %>
-                    <% end %>
-                </div>
-                <div class="modal-body col-xs-3">
-                    <strong>お湯タイプ</strong>
-                </div>
-                <div class="modal-body col-xs-9">
-                    <% oyutypes.each do |oyutype| %>
-                        <%= link_to oyutype.name, users_oyutype_path(oyutype.id), class: "btn btn-default", style: "color: black;" %>
-                    <% end %>
-                </div>
+            <div class="modal-body col-xs-3">
+                <strong>泉質</strong>
+            </div>
+            <div class="modal-body col-xs-9">
+                <% sensitsus.each do |sensitsu| %>
+                    <%= link_to sensitsu.name, users_sensitsu_path(sensitsu.id), class: "btn btn-default", style: "color: black;" %>
+                <% end %>
+            </div>
+            <div class="modal-body col-xs-3">
+                <strong>効能</strong>
+            </div>
+            <div class="modal-body col-xs-9">
+                <% kounous.each do |kounou| %>
+                    <%= link_to kounou.name, users_kounou_path(kounou.id), class: "btn btn-default", style: "color: black;" %>
+                <% end %>
+            </div>
+            <div class="modal-body col-xs-3">
+                <strong>お湯タイプ</strong>
+            </div>
+            <div class="modal-body col-xs-9">
+                <% oyutypes.each do |oyutype| %>
+                    <%= link_to oyutype.name, users_oyutype_path(oyutype.id), class: "btn btn-default", style: "color: black;" %>
+                <% end %>
+            </div>
             <div class="row">
                 <div class="col-xs-12 pull-right">
                     <div class="modal-footer">

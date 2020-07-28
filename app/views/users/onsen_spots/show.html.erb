@@ -1,16 +1,16 @@
 <div class="container">
-<%= render 'layouts/errors', obj: @review %>
-<% if @review.errors.any? %>
-  <div id="error_explanation">
-    <h3><%= pluralize(obj.errors.count, "error") %> prohibited this obj from being saved:</h3>
 
-    <ul>
-    <% @review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-    <% end %>
-    </ul>
-  <div>
-<% end %>
+        <%= render 'layouts/errors', obj: @review %>
+        <% if @review.errors.any? %>
+        <div id="error_explanation">
+            <h3><%= pluralize(obj.errors.count, "error") %> prohibited this obj from being saved:</h3>
+            <ul>
+            <% @review.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+            </ul>
+        <div>
+        <% end %>
 
     <div class="row">
         <div class="col-xs-10 col-xs-offset-1">
@@ -23,24 +23,23 @@
                         <td>
                             <strong>
                                 <h3>星評価平均:<%= image_tag 'star-on.png' %><%= @onsen_spot.reviews.average(:rate).to_f.round(1) %>点(口コミ<%= @onsen_spot.reviews.count %>件)</h3>
-                            <!--星評価-->
+                                <%# 星評価 %>
                                 <div id="star-rate-<%= @onsen_spot %>" data-turbolinks-track="reload"></div>
                                 <script>
-                                history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
-                                window.addEventListener('popstate', function(e) {
-                                window.location.reload();
-                                });
-                                $('#star-rate-<%= @onsen_spot %>').raty({
-                                    size: 36,
-                                    starOff:  '<%= asset_path('star-off.png') %>',
-                                    starOn : '<%= asset_path('star-on.png') %>',
-                                    starHalf: '<%= asset_path('star-half.png') %>',
-                                    half: true,
-                                    readOnly: true,
-                                    score: <%= @onsen_spot.reviews.average(:rate).to_f.round(1) %>,
-                                });
+                                    history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
+                                    window.addEventListener('popstate', function(e) {
+                                    window.location.reload();
+                                    });
+                                    $('#star-rate-<%= @onsen_spot %>').raty({
+                                        size: 36,
+                                        starOff:  '<%= asset_path('star-off.png') %>',
+                                        starOn : '<%= asset_path('star-on.png') %>',
+                                        starHalf: '<%= asset_path('star-half.png') %>',
+                                        half: true,
+                                        readOnly: true,
+                                        score: <%= @onsen_spot.reviews.average(:rate).to_f.round(1) %>,
+                                    });
                                 </script>
-                                
                             </strong>
                         </td>
                     </tr>
@@ -72,13 +71,13 @@
             </table>
         </div>
     </div>
-
    
     <div class="row">
         <div class="col-xs-4 col-xs-offset-1">
             <%= attachment_image_tag(@onsen_spot, :image, :fill, 650, 350, fallback: "onsen_spot_default.jpg", style: "border-radius: 20px; margin: 0 10px 10px 0;", size: "650x350") %>
         </div>
     </div>
+
     <div class="row">
         <div class="col-xs-7 col-xs-offset-1">
             <%# 行きたい %>
@@ -166,5 +165,4 @@
                 src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
     </script>
     
-
 </div>

@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-    <% if onsen_spot.liked_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
+    <% if onsen_spot.liked_by?(current_user) %> <%# ログインしているユーザーがファボしたかどうかで分岐 %>
         <div class="box3"><%=link_to "行きたい♨️", users_onsen_spot_likes_path(onsen_spot.id), method: :delete, remote: true, style: "color: white;", id: "box3" %></div>
     <% else %>
         <div class="box2"><%=link_to "行きたい♨️", users_onsen_spot_likes_path(onsen_spot.id), method: :post, remote: true, style: "color: #f0a80e;", id: "box2" %></div>

@@ -11,7 +11,7 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <h4>評価：<%= review.rate %>点 | <%= review.title %></h4>
-                                    <!--星評価-->
+                                    <%# 星評価 %>
                                     <div id="star-rate-<%= review.id %>"></div>
                                     <script>
                                     $('#star-rate-<%= review.id %>').raty({
@@ -43,16 +43,16 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                 <% if false %>
-                                    <!--行きたい-->
+                                    <%# 行きたい %>
                                     <div id="likes_buttons_<%= @onsen_spot.id %>">
                                         <%= render partial: 'users/likes/like', locals: { onsen_spot: @onsen_spot} %>
                                     </div>
-                                    <!--行った-->
+                                    <%# 行った %>
                                     <div id="wents_buttons_<%= @onsen_spot.id %>">
                                         <%= render partial: 'users/wents/went', locals: { onsen_spot: @onsen_spot} %>
                                     </div>
                                 <% end %>
-                                    <!--いいね-->
+                                    <%# いいね %>
                                     <% if current_user != review.user %>
                                         <div id="favorites_buttons_<%= review.id %>">
                                             <%= render partial: 'users/favorites/favorite', locals: { review: review, onsen_spot: @onsen_spot} %>

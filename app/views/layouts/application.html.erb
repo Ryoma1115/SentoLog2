@@ -13,14 +13,14 @@
   </head>
 
   <body id="wrapper">
-    <!-- ヘッダー -->
+    <%# ヘッダー %>
     <%= render "layouts/header" %>
     
-    <!-- Main部分 -->
+    <%# Main部分 %>
     <%= flash[:notice] %>
       <%= yield %>
       
-    <!-- Footer -->
+    <%# Footer %>
     <%= render "layouts/footer" %>
   </body>
 </html>
