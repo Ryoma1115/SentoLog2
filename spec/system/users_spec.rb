@@ -164,9 +164,6 @@ RSpec.describe "Users", type: :system do
           it '編集内容を保存するリンクが表示される' do
             expect(page).to have_button '編集内容を保存する'
           end
-          it '退会するリンクが表示される' do
-            expect(page).to have_link '', href: users_quit_path
-          end
         end
       end
   end
