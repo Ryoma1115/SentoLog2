@@ -24,5 +24,6 @@
 ・銭湯、温泉の有益情報を共有する際  
 
 
+
 ### 機能一覧  
 <https://docs.google.com/spreadsheets/d/1OGuCo_K67j2KjhKIx9M4pzZEmbRTKsqgRO9rrCenckM/edit#gid=0>  
