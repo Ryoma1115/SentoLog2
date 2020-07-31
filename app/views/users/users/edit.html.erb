@@ -3,7 +3,7 @@
       <div class="col-xs-12">
         <h3><strong>登録情報編集</strong></h3>
         <%= form_with(model:@user, url:users_update_path , method: :PATCH, local: true) do |f| %>
-        <!-- local: trueがない場合、Rails5ではAjaxによる送信という意味になる。普通にHTMLとしてフォームを送信する場合にlocal: trueが必要になる-->
+        <%# local: trueがない場合、Rails5ではAjaxによる送信という意味になる。普通にHTMLとしてフォームを送信する場合にlocal: trueが必要になる %>
           <div>
               <div class="col-xs-12">
                 <%= f.label :image, class: "col-sm-3 control-label", style: "margin: 10px;" %>
