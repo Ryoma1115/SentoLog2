@@ -34,3 +34,4 @@
 ### ☁️ Infrastructure Configuration Diagram
 
 ### 🌐 App URL
+https://sentolog.work/
