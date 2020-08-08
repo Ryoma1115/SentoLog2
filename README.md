@@ -1,4 +1,5 @@
 # Sento（銭湯）Log
+![screencapture-sentolog-work-2020-08-04-21_20_14](https://user-images.githubusercontent.com/63144797/89409131-836ad080-d75c-11ea-9148-fe6771ceca46.jpg)
 
 ## サイト概要
 ・日本におよそ20000ほどある温泉施設の情報を共有し合えるサービス  
@@ -17,7 +18,6 @@
 ・老若男女  
 ・温泉好き  
 ・リフレッシュされたい方  
-
 
 
 ### 機能一覧  
