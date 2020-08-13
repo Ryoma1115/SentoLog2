@@ -33,4 +33,3 @@
 
 ### 🌐 App URL
 https://sentolog.work/
-
